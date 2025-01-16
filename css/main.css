@@ -232,7 +232,7 @@ main{
     width: 10%;
     
 }
-/*.tabla-A tr:hover {
+.tabla-A tr:hover {
     background-color: rgba(200, 200, 200, 0.6); 
 }
 
@@ -246,7 +246,7 @@ main{
 }
 .tabla-A button:hover {
     background-color: #26baec;
-}*/
+}
 
 /* modal  */
 .modal{
