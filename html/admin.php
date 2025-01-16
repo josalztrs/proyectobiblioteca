@@ -70,7 +70,7 @@ include '../php/connection.php';
 
         <ul class="opciones__menu">
             <li>
-                <a href="./admin.html" class="menu-item" onclick="highlightMenu(this)">
+                <a href="./admin.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-house" title="Inicio"></i>
                     <h4>Inicio</h4>
                 </a>

@@ -8,7 +8,7 @@
 
     <ul class="opciones__menu">
         <li>
-            <a href="./admin.html" class="menu-item" onclick="highlightMenu(this)">
+            <a href="./admin.php" class="menu-item" onclick="highlightMenu(this)">
                 <i class="fa-solid fa-house" title="Inicio"></i>
                 <h4>Inicio</h4>
             </a>
@@ -20,7 +20,7 @@
             </a>
         </li>
         <li>
-            <a href="./Personas.html" class="menu-item" onclick="highlightMenu(this)">
+            <a href="./Personas.php" class="menu-item" onclick="highlightMenu(this)">
                 <i class="fa-solid fa-users" title="Personas"></i>
                 <h4>Personas</h4>
             </a>
