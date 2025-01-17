@@ -134,23 +134,23 @@ if ($result = $conn->query($query)) {
                     
                    <section class="modal-body">
 
-                        <form action="" class="form-Persona">    
+                        <form action="../php/nuevpers.php" method="POST" class="form-Persona">    
                             <section>
                                 <label for="">Cedula</label>
-                                <input type="text" placeholder="xxxxxxxx">
+                                <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                                 <label for="">Nombres</label>
-                                <input type="text" placeholder="Nombre Completo">
+                                <input type="text" name='nombre' placeholder="Nombre Completo">
 
                                 <section class="section-A">
                                     
-                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
-                                        <option value="" disabled selected>Selecione el  Tipo</option>
+                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()" required>
+                                        <option value="" disabled selected>Selecione el Tipo</option>
                                         <option value="estudiante">Estudiante</option>
                                         <option value="profesor">Personal UNEFA</option>
                                         <option value="externo">Externo</option>
                                     </select>
 
-                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                    <select id="tipo-carrera" name="tipo-carrera" disabled required>
                                         <option value="" disabled selected>Selecione La Carrera</option>
                                         <option value="Ing Sistemas">Ing Sistemas</option>
                                         <option value="Ing Civil">Ing Civil</option>
@@ -158,17 +158,16 @@ if ($result = $conn->query($query)) {
                                         <option value="Administracion">Administracion</option>
                                         <option value="Turismo">Turismo</option>
                                         <option value="Postgrado">Postgrado</option>
-                                        
                                     </select>
 
                                 </section>
 
                                 <label for="">Telefono</label>
-                                <input type="text" placeholder="Telf">
+                                <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required>
                                 <label for="">Email</label>
-                                <input type="email" placeholder="email">
+                                <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
                                 <label for="">Direccion</label>
-                                <input type="text" placeholder="Direccion">
+                                <input type="text" name='direccion' placeholder="Direccion" required>
                                 
                             </section>
 
@@ -191,7 +190,7 @@ if ($result = $conn->query($query)) {
                         <h2 class="modal_title"> Editando Persona</h2>
                     </section>
                     <section class="modal-body">
-                        <form action="" class="form-Persona">    
+                        <form action="../php/editpers.php" method="POST" class="form-Persona">    
                             <section>
                                 <label for="">Cedula</label>
                                 <input type="text" id="edit-cedula" placeholder="12345687">
