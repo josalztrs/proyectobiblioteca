@@ -12,13 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo_persona, tipo_carrera, telefono, email, direccion) VALUES (:cedula, :nombre, :tipo_persona, :tipo_carrera, :telefono, :email, :direccion)");
-        $stmt->bindParam(':cedula', $cedula);
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':tipo_persona', $tipo_persona);
-        $stmt->bindParam(':tipo_carrera', $tipo_carrera);
-        $stmt->bindParam(':telefono', $telefono);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':direccion', $direccion);
+        $stmt->bind_Param(':cedula', $cedula);
+        $stmt->bind_Param(':nombre', $nombre);
+        $stmt->bind_Param(':tipo_persona', $tipo_persona);
+        $stmt->bind_Param(':tipo_carrera', $tipo_carrera);
+        $stmt->bind_Param(':telefono', $telefono);
+        $stmt->bind_Param(':email', $email);
+        $stmt->bind_Param(':direccion', $direccion);
         $stmt->execute();
 
         // Redirect to the Personas page after successful insertion
