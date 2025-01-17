@@ -3,12 +3,15 @@
 <?php
 include '../php/connection.php';
 
-try {
-    $stmt = $conn->prepare("SELECT * FROM personas");
-    $stmt->execute();
-    $personas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    echo 'Query failed: ' . $e->getMessage();
+$personas = [];
+$query = "SELECT * FROM personas";
+if ($result = $conn->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $personas[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
 }
 ?>
 <head>
