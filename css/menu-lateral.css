@@ -77,12 +77,16 @@ header > ul >li:hover {
 header > ul >li > a >i{
     font-size: 20px;
     color: #251b4b; 
+    
 }
+
 /* menu lateral plegable */
 .menu__lateral{
     width: 80px;
     height: 100%;
+    /* background: linear-gradient(to bottom, #8680f9 30% , #a4a7fd 75%); */
     background: linear-gradient(to bottom, #1a78e4 20% , #a4a7fd 90%);
+    /* background: linear-gradient(to bottom, #4e34b6 30%, #FAFAF9 75%); */
     position: fixed;
     top: 0;
     left: 0;
@@ -151,7 +155,7 @@ header > ul >li > a >i{
     width: 20px;
     margin-right: 28px;
     cursor: pointer;
-    filter:drop-shadow(1px 1px 20px #0a4e9c) ;
+    filter:drop-shadow(1px 1px 20px #4830a3) ;
     
 }
 .opciones__menu li a  h4{
@@ -202,6 +206,19 @@ header > ul >li > a >i{
     .mover-menu-lateral{
         width: 80px;
         left: -80px;
+    }
+}
+
+.rotate {
+    animation: rotate 0.5s ease-in-out forwards;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
 
