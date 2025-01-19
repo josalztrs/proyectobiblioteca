@@ -357,7 +357,13 @@ function filterTable() {
 }
 </script>
 </section>
-            
+            <section class="paginator-dos">
+                <div class="btn-pager">
+                    <button id="prevPage" onclick="changePage(-1)">Anterior</button>
+                    <span id="pageInfo"></span>
+                    <button id="nextPage" onclick="changePage(1)">Siguiente</button>
+                </div>
+            </section> 
         </div>
         
     </main>
