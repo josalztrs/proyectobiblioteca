@@ -123,8 +123,11 @@ if ($result = $conn->query($query)) {
     </div>
 
     <main>
-        <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar"><i class="fa-solid fa-plus"></i></button>  
-        <!-- modal registrar -->
+        <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
+            <i class="fa-solid fa-plus"></i>
+            <span class="btn-text">Registrar Persona</span>
+        </button> 
+    <!-- modal registrar -->
         <section class="modal "  id="modal">
                 <div class="modal_container">
                    
