@@ -20,6 +20,8 @@ if ($result = $conn->query($query)) {
     <title>Personas</title>
     <link rel="stylesheet" href="../css/menu-lateral.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pager.css">
+
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
 </head>
    
@@ -272,6 +274,23 @@ if ($result = $conn->query($query)) {
                 <li> <button id="word" title="Word"> <i class="fa-solid fa-file-word"> </i> </button> </li>
             </ul>
 
+            <!-- Paginador -->
+            <section class="paginator">
+                <div class="row-selector">
+                    <label for="rows"> Mostrar:</label>
+                    <select id="rows" onchange="updateRows()">
+                        <option value="5">5 Filas</option>
+                        <option value="10">10 Filas</option>
+                    </select>
+                </div>
+
+                <div class="btn-pager">
+                    <button id="prevPage" onclick="changePage(-1)">Anterior</button>
+                    <span id="pageInfo"></span>
+                    <button id="nextPage" onclick="changePage(1)">Siguiente</button>
+                </div>
+            </section>
+
             <!-- tabla de registros -->
             <section class="tabla-section">
                 <table class="tabla-A">
@@ -350,6 +369,7 @@ function filterTable() {
             });
         }); 
     </script>
+    <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>
 </body>
 </html>
