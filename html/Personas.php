@@ -347,7 +347,7 @@ if ($result = $conn->query($query)) {
             </section>
 <script>
 function filterTable() {
-    var input, filter, table, tr, td, i, j, txtValue;
+    let input, filter, table, tr, td, i, j, txtValue;
     input = document.getElementById("Buscar");
     filter = input.value.toUpperCase();
     table = document.querySelector(".tabla-A");
