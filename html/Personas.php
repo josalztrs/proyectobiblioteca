@@ -282,6 +282,8 @@ if ($result = $conn->query($query)) {
                     <select id="rows" onchange="updateRows()">
                         <option value="5">5 Filas</option>
                         <option value="10">10 Filas</option>
+                        <option value="20">20 Filas</option>
+
                     </select>
                 </div>
 
