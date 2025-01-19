@@ -249,20 +249,22 @@ if ($result = $conn->query($query)) {
 
         <div class="contend-tabla">
             
-            <div  class="header-div">
+        <div  class="header-div">
 
-                <section class="contend-PDf">
-                    <button  title="PDF"> <i class="fa-solid fa-file-pdf"></i> </button>
-                    <button  title="Excel"> <i class="fa-solid fa-file-excel"></i> </button>
-                    <button  title="Word"> <i class="fa-solid fa-file-word"></i> </button>
-                </section>
+            <section class="buscar-tabla" >
+                <button  title="Buscar"  name="Buscar" id="Buscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+                <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" >
+                
+            </section>
 
-                <section class="buscar-tabla">
-                    <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">
-                    <button title="Buscar" name="BuscarBtn" id="BuscarBtn" onclick="filterTable()"> <i class="fa-solid fa-magnifying-glass"></i> </button>
-                </section>
+            <section class="contend-PDf">
+                <button class="btn-descargar" title="Descargar" type="button">
+                    <span class="btn-span">Descargar Registros</span> <!---->
+                    <i class="fa-solid fa-download"></i>
+                </button> 
+            </section>
 
-            </div>
+        </div>
 
             <!-- tabla de registros -->
             <section class="tabla-section">
