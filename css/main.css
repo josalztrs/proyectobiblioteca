@@ -269,7 +269,7 @@ main{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-.contend-tabla {
+/* .contend-tabla {
     width: 100%;
     color: black;
     display: flex;
@@ -287,14 +287,14 @@ main{
     margin-top: 20px;
     overflow-y: auto;
     max-height: 500px;
-    /* border: 1px solid black; */
 }
 .tabla-A {
     border-collapse: collapse;
-    /* border: 1px solid blue; */
     width: 100%;
     color: black;
     background-color: white;
+    text-align: center;
+
 }
 
 .tabla-A th, .table-A td {
@@ -331,8 +331,66 @@ main{
 }
 .tabla-A button:hover {
     background-color: #26baec;
+} */
+.contend-tabla {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
+.tabla-section {
+    width: 95%;
+    margin-top: 25px;
+    overflow-y: auto;
+    max-height: 500px;
+    margin-bottom: 20px;
+    border-radius: 10px 10px 0px 0px;
+}
+.tabla-A {
+    border-collapse: collapse;
+    width: 100%;
+    color: #251b4b;
+    background-color: white;
+    text-align: center;
+}
+.tabla-A th {
+    padding: 8px 0px;
+    color: black;
+    position: sticky;
+    top: 0;
+    transition: background-color 0.3s;
+    background-color: #251b4b; 
+    color: white; 
+}
+.tabla-A td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    /* background-color: white; */
+    /* background-color: rgba(239, 239, 240, 0.6); */
+}
+
+.tabla-A tr:hover {
+    background-color: rgba(200, 200, 200, 0.6); 
+}
+
+.tabla-A button {
+    background-color: #408EC8; 
+    color: white; 
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.tabla-A button:hover {
+    background-color: #26baec;
+}
 /* modal  */
 .modal{
     position: fixed;
