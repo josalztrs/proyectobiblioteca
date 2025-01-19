@@ -10,6 +10,7 @@ include '../php/connection.php';
     <link rel="stylesheet" href="../css/menu-lateral.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/graficas.css">
+    <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
               <!-- link para poder usar la libreria chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
