@@ -92,7 +92,7 @@ main{
 .btn-agregar{
     width: 40px;
     height: 30px;
-    margin-left: 20px;
+    margin-left: 40px;
     border: none;
     cursor: pointer;
     border-radius: 20px 20px 0px 0px;
@@ -100,20 +100,36 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     transition: all 400ms ease;
+    overflow: hidden;
 }
 .btn-agregar i {
-    width: 100%;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     transition: transform 300ms ease;
 }
+
+.btn-text {
+    display: none; 
+    font-size: 14px; 
+    white-space: nowrap; 
+    margin-left: 5px;
+    color: white;
+}
+
 .btn-agregar:hover {
+    width: 180px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
     transform: scale(1.1); 
-    border-radius: 20px 20px 5px 5px;
-
+    border-radius: 20px 20px 1px 1px;
+    background-color: #3d2e81;
 }
+
+.btn-agregar:hover .btn-text {
+    display: block; /* Mostrar el texto al hacer hover */
+}
+
 .btn-agregar i:hover{
     transform: rotate(720deg); 
 }
