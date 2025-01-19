@@ -21,6 +21,7 @@ if ($result = $conn->query($query)) {
     <link rel="stylesheet" href="../css/menu-lateral.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pager.css">
+    <link rel="stylesheet" href="../css/modal.css">
 
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
 </head>
