@@ -1,0 +1,65 @@
+.paginator {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.paginator-dos{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.btn-pager{
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+.paginator-dos > .btn-pager{
+    justify-content: end;
+}
+.btn-pager button {
+    padding:5px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-pager button:hover {
+    background-color: #3d2e81;
+    color: white;
+}
+
+.row-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    background-color: #251b4b;
+    color: white;
+    border-radius: 10px 0px 10px 10px;
+}
+
+.row-selector label {
+    margin-right: 10px;
+    font-weight: 120;
+}
+
+.row-selector select {
+    width: 50%;
+    max-width: 60px;
+    height: 24px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #251b4b;
+    cursor: pointer;
+}
