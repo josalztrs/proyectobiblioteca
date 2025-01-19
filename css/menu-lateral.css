@@ -82,8 +82,7 @@ header > ul >li > a >i{
 .menu__lateral{
     width: 80px;
     height: 100%;
-    background: linear-gradient(to bottom, #0a4e9c 30% , #0F73E6 75%);
-    /* background: linear-gradient(to bottom, #4e34b6 30%, #FAFAF9 75%); */
+    background: linear-gradient(to bottom, #1a78e4 20% , #a4a7fd 90%);
     position: fixed;
     top: 0;
     left: 0;
