@@ -115,7 +115,17 @@ if ($result = $conn->query($query)) {
     </div>
         
     <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
-
+    <script>
+         document.getElementById('btn-open').addEventListener('click', function() {
+            const namePagIcon = document.querySelector('.name__pag i');
+            namePagIcon.classList.add('rotate');
+    
+            // Remover la clase después de la animación para que se pueda volver a aplicar
+            setTimeout(() => {
+                namePagIcon.classList.remove('rotate');
+            }, 500); // 500ms es el mismo tiempo que la animación
+        });
+    </script>
     <div class="titulo">
         <div>
             <h1>
