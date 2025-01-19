@@ -266,6 +266,12 @@ if ($result = $conn->query($query)) {
 
         </div>
 
+            <ul class="contend-PDf-list">
+                <li> <button  title="PDF"> <i class="fa-solid fa-file-pdf"> </i> </button> </li>
+                <li> <button  title="Excel"> <i class="fa-solid fa-file-excel"> </i> </button> </li>
+                <li> <button id="word" title="Word"> <i class="fa-solid fa-file-word"> </i> </button> </li>
+            </ul>
+
             <!-- tabla de registros -->
             <section class="tabla-section">
                 <table class="tabla-A">
@@ -334,6 +340,16 @@ function filterTable() {
         </div>
         
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const btnDescargar = document.querySelector('.btn-descargar');
+        const lista = document.querySelector('.contend-PDf-list');
+
+            btnDescargar.addEventListener('click', function() {
+            lista.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar la lista
+            });
+        }); 
+    </script>
     <script src="../js/modal-persona.js"></script>
 </body>
 </html>
