@@ -10,18 +10,7 @@ include'php\login.php';
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <!-- <header>
-        <div class="header__superior">
-            <div class="logo-unefa"> 
-                <img src="imagenes/logo-unefa.png" alt="logo-unefa">
-            </div>
-    
-            <div class="titulo">
-                <h1>Biblioteca Luis Beltrán Prieto Figueroa</h1>
-            </div>
-        </div>
-    
-    </header> -->
+   
         <!-- login form -->
 
     <div class="login-form">  
