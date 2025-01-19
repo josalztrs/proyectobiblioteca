@@ -115,17 +115,7 @@ if ($result = $conn->query($query)) {
     </div>
         
     <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
-    <script>
-         document.getElementById('btn-open').addEventListener('click', function() {
-            const namePagIcon = document.querySelector('.name__pag i');
-            namePagIcon.classList.add('rotate');
     
-            // Remover la clase después de la animación para que se pueda volver a aplicar
-            setTimeout(() => {
-                namePagIcon.classList.remove('rotate');
-            }, 500); // 500ms es el mismo tiempo que la animación
-        });
-    </script>
     <div class="titulo">
         <div>
             <h1>
@@ -280,8 +270,8 @@ if ($result = $conn->query($query)) {
         </div>
 
             <ul class="contend-PDf-list">
-                <li> <button  title="PDF"> <i class="fa-solid fa-file-pdf"> </i> </button> </li>
-                <li> <button  title="Excel"> <i class="fa-solid fa-file-excel"> </i> </button> </li>
+                <li> <button id="pdf" title="PDF"> <i class="fa-solid fa-file-pdf"> </i> </button> </li>
+                <li> <button id="excel" title="Excel"> <i class="fa-solid fa-file-excel"> </i> </button> </li>
                 <li> <button id="word" title="Word"> <i class="fa-solid fa-file-word"> </i> </button> </li>
             </ul>
 
@@ -391,5 +381,6 @@ function filterTable() {
     </script>
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>
+    <script src="../js/rotar-icono-menu.js"></script>
 </body>
 </html>

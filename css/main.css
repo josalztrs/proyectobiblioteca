@@ -238,8 +238,16 @@ main{
     border-radius: 15px 0px 15px 15px;
     background-color: #3d2e81;
 }
+
 .contend-PDf-list li  #word:hover{
     border-radius: 0px 15px 15px 15px;
+    background-color: #26baec;
+}
+.contend-PDf-list li  #pdf:hover{
+background-color: #f70404;
+}
+.contend-PDf-list li  #excel:hover{
+    background-color: #2cd253;
 }
 .buscar-tabla input {
     width: 300px; 

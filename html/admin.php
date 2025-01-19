@@ -187,18 +187,40 @@ include '../php/connection.php';
         </div>
 
         <!-- Graficas -->
-         <section class="content-graficos">
-            <h2>Graficos con la libreria de javascript chartjs</h2>
-            <div>
-                <button onclick="changeChartType('bar')">Gráfico de Barras</button>
-                <button onclick="changeChartType('line')">Gráfico de Líneas</button>
-                <button onclick="changeChartType('pie')">Gráfico de Torta</button>
-            </div>
-                <canvas id="mychart" ></canvas>
-         </section>
+        <div  class="div-graficas">
+            <section class="content-graficos">
+                <h2>Registros de Libros/Tesis</h2>
+                <div>
+                    <button onclick="changeChartType('bar')">Gráfico de Barras</button>
+                    <button onclick="changeChartType('line')">Gráfico de Líneas</button>
+                    <button onclick="changeChartType('pie')">Gráfico de Torta</button>
+                </div>
+                    <canvas id="mychart" ></canvas>
+             </section>
+
+             <section class="content-graficos">
+                <h2>Registros de...</h2>
+                <div>
+                    <button onclick="changeChartType('bar')">Gráfico de Barras</button>
+                    <button onclick="changeChartType('line')">Gráfico de Líneas</button>
+                    <button onclick="changeChartType('pie')">Gráfico de Torta</button>
+                </div>
+                    <canvas id="mychart" ></canvas>
+             </section>
+
+             <section class="content-graficos">
+                <h2>Registros de</h2>
+                <div>
+                    <button onclick="changeChartType('bar')">Gráfico de Barras</button>
+                    <button onclick="changeChartType('line')">Gráfico de Líneas</button>
+                    <button onclick="changeChartType('pie')">Gráfico de Torta</button>
+                </div>
+                    <canvas id="mychart" ></canvas>
+             </section>
+        </div>
         <script src="../js/graficos.js"></script>
     </main>
-   
+    <script src="../js/rotar-icono-menu.js"></script>
 </body>
 </html>
 
