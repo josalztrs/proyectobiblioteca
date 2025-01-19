@@ -325,6 +325,7 @@ if ($result = $conn->query($query)) {
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                     <button class="deleteBtn" title="Eliminar" onclick="deletePerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button class="deleteBtn" title="Imprimir" ><i class="fa-solid fa-download"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
