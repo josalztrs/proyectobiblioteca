@@ -255,8 +255,8 @@ if ($result = $conn->query($query)) {
         <div  class="header-div">
 
             <section class="buscar-tabla" >
-                <button  title="Buscar"  name="Buscar" id="Buscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
-                <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" >
+                <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+                <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">
                 
             </section>
 

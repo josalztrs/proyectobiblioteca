@@ -190,7 +190,7 @@ include '../php/connection.php';
         <!-- Graficas -->
         <div  class="div-graficas">
             <section class="content-graficos">
-                <h2>Registros de Libros/Tesis</h2>
+                <h2>Documentos</h2>
                 <div>
                     <button onclick="changeChartType('bar')">Gráfico de Barras</button>
                     <button onclick="changeChartType('line')">Gráfico de Líneas</button>
@@ -200,7 +200,7 @@ include '../php/connection.php';
              </section>
 
              <section class="content-graficos">
-                <h2>Registros de...</h2>
+                <h2>Personas</h2>
                 <div>
                     <button onclick="changeChartType('bar')">Gráfico de Barras</button>
                     <button onclick="changeChartType('line')">Gráfico de Líneas</button>
@@ -210,7 +210,7 @@ include '../php/connection.php';
              </section>
 
              <section class="content-graficos">
-                <h2>Registros de</h2>
+                <h2>Prestamos</h2>
                 <div>
                     <button onclick="changeChartType('bar')">Gráfico de Barras</button>
                     <button onclick="changeChartType('line')">Gráfico de Líneas</button>
