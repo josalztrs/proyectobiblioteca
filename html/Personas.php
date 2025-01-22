@@ -53,13 +53,13 @@ if ($result = $conn->query($query)) {
     </header>
     
     <div class="menu__lateral" id="menu-lateral">
-           
+       
         <div class="name__pag">
             <i class="fa-solid fa-earth-americas"></i>
             <h4>Biblioteca</h4>
-                
+            
         </div>
-    
+
         <ul class="opciones__menu">
             <li>
                 <a href="./admin.php" class="menu-item" onclick="highlightMenu(this)">
@@ -69,49 +69,45 @@ if ($result = $conn->query($query)) {
             </li>
             
             <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
-                    <h4>Prestamos</h4>
-                </a>
-            </li>
-                
-            <li>
                 <a href="./Personas.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-users" title="Personas"></i>
                     <h4>Personas</h4>
                 </a>
             </li>
-        
             <li>
                 <a href="#" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-book" title="Libros"></i>
                     <h4>Libros</h4>
                 </a>
             </li>
-            
             <li>
                 <a href="#" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-user-graduate" title="Tesis"></i>
                     <h4>Tesis</h4>
                 </a>
             </li>
-    
+
             <li>
                 <a href="#" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-regular fa-rectangle-list" title="Materias"></i>
                     <h4>Materias</h4>
                 </a>
             </li>
-        
+
+            <li>
+                <a href="#" class="menu-item" onclick="highlightMenu(this)">
+                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
+                    <h4>Prestamos</h4>
+                </a>
+            </li>
+
             <li>
                 <a href="#" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-regular fa-file" title="Reporte"></i>
                     <h4>Reporte</h4>
                 </a>
             </li>
-        
         </ul>
-
     </div>
         
     <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
@@ -149,21 +145,31 @@ if ($result = $conn->query($query)) {
 
                                 <section class="section-A">
                                     
-                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()" required>
-                                        <option value="" disabled selected>Selecione el Tipo</option>
+                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                        <option value="" disabled selected>Tipo</option>
                                         <option value="estudiante">Estudiante</option>
-                                        <option value="profesor">Personal UNEFA</option>
+                                        <option value="interno">Interno</option>
                                         <option value="externo">Externo</option>
                                     </select>
 
-                                    <select id="tipo-carrera" name="tipo-carrera" disabled required>
-                                        <option value="" disabled selected>Selecione La Carrera</option>
-                                        <option value="Ing Sistemas">Ing Sistemas</option>
-                                        <option value="Ing Civil">Ing Civil</option>
-                                        <option value="Enfermeria">Enfermeria</option>
+                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                        <option value="" disabled selected> Carrera</option>
                                         <option value="Administracion">Administracion</option>
+                                        <option value="Enfermeria">Enfermeria</option>
+                                        <option value="Ing Civil">Ing Civil</option>
+                                        <option value="Ing Sistemas">Ing Sistemas</option>                                   
                                         <option value="Turismo">Turismo</option>
+                                        <option value="maestri">Maestria</option>
                                         <option value="Postgrado">Postgrado</option>
+                                        <option value="docto">Doctorado</option>
+                                    </select>
+
+                                    <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                        <option value="" disabled selected>cargo</option>
+                                        <option value="admin">Administrativo</option>
+                                        <option value="direct">Directivo</option>
+                                        <option value="docent">Docente</option>
+                                        <option value="obrer">Obrero</option>                                    
                                     </select>
 
                                 </section>
@@ -195,6 +201,7 @@ if ($result = $conn->query($query)) {
                     <section class="modal-header">
                         <h2 class="modal_title"> Editando Persona</h2>
                     </section>
+                    
                     <section class="modal-body">
                         <form action="../php/editpers.php" method="POST" class="form-Persona">    
                             <section>
@@ -203,21 +210,34 @@ if ($result = $conn->query($query)) {
                                 <label for="">Nombres</label>
                                 <input type="text" id="edit-nombres" placeholder="Nombre Completo">
                                 <section class="section-A">
-                                    <select id="edit-tipo-persona" name="tipo-persona" onchange="toggleInput()">
-                                        <option value="" disabled selected>Selecione el Tipo</option>
+                                    
+                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                        <option value="" disabled selected>Tipo</option>
                                         <option value="estudiante">Estudiante</option>
-                                        <option value="profesor">Profesor</option>
+                                        <option value="interno">Interno</option>
                                         <option value="externo">Externo</option>
                                     </select>
-                                    <select id="edit-tipo-carrera" name="tipo-carrera" disabled>
-                                        <option value="" disabled selected>Selecione La Carrera</option>
-                                        <option value="Ing Sistemas">Ing Sistemas</option>
-                                        <option value="Ing Civil">Ing Civil</option>
-                                        <option value="Enfermeria">Enfermeria</option>
+
+                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                        <option value="" disabled selected> Carrera</option>
                                         <option value="Administracion">Administracion</option>
+                                        <option value="Enfermeria">Enfermeria</option>
+                                        <option value="Ing Civil">Ing Civil</option>
+                                        <option value="Ing Sistemas">Ing Sistemas</option>                                   
                                         <option value="Turismo">Turismo</option>
+                                        <option value="maestri">Maestria</option>
                                         <option value="Postgrado">Postgrado</option>
+                                        <option value="docto">Doctorado</option>
                                     </select>
+
+                                    <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                        <option value="" disabled selected>cargo</option>
+                                        <option value="admin">Administrativo</option>
+                                        <option value="direct">Directivo</option>
+                                        <option value="docent">Docente</option>
+                                        <option value="obrer">Obrero</option>                                    
+                                    </select>
+
                                 </section>
                                 <label for="">Telefono</label>
                                 <input type="text" id="edit-telefono" placeholder="Telf">
@@ -262,18 +282,14 @@ if ($result = $conn->query($query)) {
 
             <section class="contend-PDf">
                 <button class="btn-descargar" title="Descargar" type="button">
-                    <span class="btn-span">Descargar Registros</span> <!---->
-                    <i class="fa-solid fa-download"></i>
+                    <span class="btn-span">Exportar Registros</span> <!---->
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <!-- <i class="fa-solid fa-download"></i> -->
                 </button> 
             </section>
 
         </div>
 
-            <ul class="contend-PDf-list">
-                <li> <button id="pdf" title="PDF"> <i class="fa-solid fa-file-pdf"> </i> </button> </li>
-                <li> <button id="excel" title="Excel"> <i class="fa-solid fa-file-excel"> </i> </button> </li>
-                <li> <button id="word" title="Word"> <i class="fa-solid fa-file-word"> </i> </button> </li>
-            </ul>
 
             <!-- Paginador -->
             <section class="paginator">
@@ -328,7 +344,6 @@ if ($result = $conn->query($query)) {
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                     <button class="deleteBtn" title="Eliminar" onclick="deletePerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
-                                    <button class="deleteBtn" title="Imprimir" ><i class="fa-solid fa-download"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
