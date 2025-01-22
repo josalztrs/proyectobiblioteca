@@ -10,7 +10,7 @@ include '../php/connection.php';
     <link rel="stylesheet" href="../css/menu-lateral.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/graficas.css">
-    <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
+    <link rel="stylesheet" href="../fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
               <!-- link para poder usar la libreria chartjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -76,12 +76,7 @@ include '../php/connection.php';
                     <h4>Inicio</h4>
                 </a>
             </li>
-            <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
-                    <h4>Prestamos</h4>
-                </a>
-            </li>
+            
             <li>
                 <a href="./Personas.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-users" title="Personas"></i>
@@ -107,6 +102,14 @@ include '../php/connection.php';
                     <h4>Materias</h4>
                 </a>
             </li>
+
+            <li>
+                <a href="#" class="menu-item" onclick="highlightMenu(this)">
+                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
+                    <h4>Prestamos</h4>
+                </a>
+            </li>
+
             <li>
                 <a href="#" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-regular fa-file" title="Reporte"></i>
@@ -129,16 +132,6 @@ include '../php/connection.php';
     <main>
         
         <div class="card">
-
-            <div class="card-contend">
-                <div class="card-section">
-                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
-                    <a href="#">
-                        <h4>Prestamos</h4>
-                    </a>
-                </div>
-                
-            </div>
 
             <div class="card-contend">
 
@@ -178,9 +171,19 @@ include '../php/connection.php';
 
             <div class="card-contend">
                 <div class="card-section">
+                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
+                    <a href="#">
+                        <h4>Prestamos</h4>
+                    </a>
+                </div>
+                
+            </div>
+
+            <div class="card-contend">
+                <div class="card-section">
                     <i class="fa-regular fa-file" title="Reporte"></i>
                     <a href="#">
-                        <h4>Materias</h4>
+                        <h4>Reporte</h4>
                     </a>
                 </div>
             </div>

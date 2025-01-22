@@ -45,13 +45,22 @@ document.querySelector('#modal-Delete button[type="submit"]').addEventListener('
 function toggleInput() {
     const tipoSelect = document.getElementById('tipo-persona');
     const carreraInput = document.getElementById('tipo-carrera');
+    const cargoInput = document.getElementById('tipo-cargo');
 
-    // Verificar si la opción seleccionada es "Estudiante"
+    // Deshabilitar ambos selects al inicio
+    carreraInput.disabled = true;
+    cargoInput.disabled = true;
+
+    // Limpiar los valores de los selects
+    carreraInput.value = '';
+    cargoInput.value = '';
+
+
+    // Verificar la opción seleccionada
     if (tipoSelect.value === 'estudiante') {
-        carreraInput.disabled = false; // Habilitar el input
-    } else {
-        carreraInput.disabled = true; // Deshabilitar el input
-        carreraInput.value = ''; // Limpiar el input si no es estudiante
+        carreraInput.disabled = false; 
+    } else if (tipoSelect.value === 'interno') {
+        cargoInput.disabled = false; 
     }
 }
 

@@ -95,7 +95,7 @@
 
 /* input de seleccion */
 select {
-    width: 49%; 
+    width: 32%; 
     padding: 10px; 
     margin-top: 5px; 
     border: 1px solid #ccc; 
