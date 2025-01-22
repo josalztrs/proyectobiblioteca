@@ -335,6 +335,8 @@ if ($result = $conn->query($query)) {
                     </tbody>
                 </table>
             </section>
+
+            <!-- Script para la busqueda dinamica -->
 <script>
 function filterTable() {
     let input, filter, table, tr, td, i, j, txtValue;
@@ -358,6 +360,46 @@ function filterTable() {
     }
 }
 </script>
+
+        <!-- Script para datos del modal editar -->
+<script>
+    const table = document.querySelector('.tabla-A');
+    const modaleditar = document.getElementById('modal-edit');
+    const inputs = document.querySelectorAll('input');
+    let count = 0;
+    table.addEventListener("click",(e)=>{
+        e.stopPropagation();
+        let data = e.target.parentElement.parentElement.children;
+        
+        filldata(data);
+        modaleditar.classList.toggle('modal-edit'); 
+    });
+    const filldata = (data)=>{
+        console.log(data[2].textContent);
+        document.getElementById('edit-cedula').value = data[2].textContent;
+
+        console.log(data[1].textContent);
+        document.getElementById('edit-nombres').value = data[1].textContent;
+
+        console.log(data[5].value);
+        document.getElementById('edit-tipo-persona').value = data[5].value;
+
+        console.log(data[6].textContent);
+        document.getElementById('edit-tipo-carrera').value = data[6].value;
+
+        console.log(data[3].textContent);
+        document.getElementById('edit-telefono').value = data[3].textContent;
+
+        console.log(data[4].textContent);
+        document.getElementById('edit-email').value = data[4].textContent;
+        
+        console.log(data[7].textContent);
+        document.getElementById('edit-direccion').value = data[7].textContent;
+    }
+</script>
+
+
+<!-- Paginador -->
 </section>
             <section class="paginator-dos">
                 <div class="btn-pager">
