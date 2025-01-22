@@ -26,7 +26,7 @@ if ($result = $conn->query($query)) {
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
 </head>
    
-<body id="body" >  <!--onload="loadHTML('header', 'header.html'); loadHTML('menu', 'menu-lateral.html');"  <div id="header"></div> <div id="menu"></div> -->
+<body id="body" > 
     
     <header>
         <div class="icono__menu" id="btn-open">
@@ -52,6 +52,7 @@ if ($result = $conn->query($query)) {
 
     </header>
     
+    <!-- menu late -->
     <div class="menu__lateral" id="menu-lateral">
        
         <div class="name__pag">
@@ -110,7 +111,7 @@ if ($result = $conn->query($query)) {
         </ul>
     </div>
         
-    <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
+     <!-- script para desplazar el menu  -->
     
     <div class="titulo">
         <div>
@@ -126,32 +127,27 @@ if ($result = $conn->query($query)) {
             <i class="fa-solid fa-plus"></i>
             <span class="btn-text">Registrar Persona</span>
         </button> 
-    <!-- modal registrar -->
+     <!-- modal registrar -->
         <section class="modal "  id="modal">
-                <div class="modal_container">
-                   
-                    <section class="modal-header">
-                        <h2 class="modal_title"> Registrando Persona</h2>
-                    </section>
+            <div class="modal_container">  
+                <section class="modal-header">
+                    <h2 class="modal_title"> Registrando Persona</h2>
+                </section>
                     
-                   <section class="modal-body">
-
-                        <form action="../php/nuevpers.php" method="POST" class="form-Persona">    
-                            <section>
-                                <label for="">Cedula</label>
-                                <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
-                                <label for="">Nombres</label>
-                                <input type="text" name='nombre' placeholder="Nombre Completo">
-
-                                <section class="section-A">
-                                    
+                <section class="modal-body">
+                    <form action="../php/nuevpers.php" method="POST" class="form-Persona">    
+                        <section>
+                            <label for="">Cedula</label>
+                            <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
+                            <label for="">Nombres</label>
+                            <input type="text" name='nombre' placeholder="Nombre Completo">
+                                <section class="section-A">                                    
                                     <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
                                         <option value="" disabled selected>Tipo</option>
                                         <option value="estudiante">Estudiante</option>
                                         <option value="interno">Interno</option>
                                         <option value="externo">Externo</option>
                                     </select>
-
                                     <select id="tipo-carrera" name="tipo-carrera" disabled >
                                         <option value="" disabled selected> Carrera</option>
                                         <option value="Administracion">Administracion</option>
@@ -163,7 +159,6 @@ if ($result = $conn->query($query)) {
                                         <option value="Postgrado">Postgrado</option>
                                         <option value="docto">Doctorado</option>
                                     </select>
-
                                     <select id="tipo-cargo" name="tipo-cargo" disabled >
                                         <option value="" disabled selected>cargo</option>
                                         <option value="admin">Administrativo</option>
@@ -174,122 +169,108 @@ if ($result = $conn->query($query)) {
 
                                 </section>
 
-                                <label for="">Telefono</label>
-                                <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required>
-                                <label for="">Email</label>
-                                <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
-                                <label for="">Direccion</label>
-                                <input type="text" name='direccion' placeholder="Direccion" required>
-                                
-                            </section>
+                            <label for="">Telefono</label>
+                            <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required>
+                            <label for="">Email</label>
+                            <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
+                            <label for="">Direccion</label>
+                            <input type="text" name='direccion' placeholder="Direccion" required>                                
+                        </section>
 
-                            <div class="btn">
-                                    <button type="reset" id="cancelar" class="modal_close">Cancelar</button>
-                                    <button type="submit">Registrar</button>
-                                    <!-- <button type="reset" id="cancelar">Cancelar</button> -->
-                            </div>
+                        <div class="btn">
+                            <button type="reset" id="cancelar" class="modal_close">Cancelar</button>
+                            <button type="submit">Registrar</button>
+                        </div>
                             
-                        </form>
-                   </section>                 
+                    </form>
+                </section>                 
                     
-                </div>
-            </section>
+            </div>
+        </section>
            
-        <!-- Modal de editar -->
-            <section class="modal" id="modal-edit">
-                <div class="modal_container">
-                    <section class="modal-header">
-                        <h2 class="modal_title"> Editando Persona</h2>
-                    </section>
-                    
-                    <section class="modal-body">
-                        <form action="../php/editpers.php" method="POST" class="form-Persona">    
-                            <section>
-                                <label for="">Cedula</label>
-                                <input type="text" id="edit-cedula" placeholder="12345687">
-                                <label for="">Nombres</label>
-                                <input type="text" id="edit-nombres" placeholder="Nombre Completo">
-                                <section class="section-A">
-                                    
-                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
-                                        <option value="" disabled selected>Tipo</option>
-                                        <option value="estudiante">Estudiante</option>
-                                        <option value="interno">Interno</option>
-                                        <option value="externo">Externo</option>
-                                    </select>
+     <!-- Modal de editar -->
+        <section class="modal" id="modal-edit">
+            <div class="modal_container">
+                <section class="modal-header">
+                    <h2 class="modal_title"> Editando Persona</h2>
+                </section>                    
+                <section class="modal-body">
+                    <form action="../php/editpers.php" method="POST" class="form-Persona">    
+                        <section>
+                            <label for="">Cedula</label>
+                            <input type="text" id="edit-cedula" placeholder="12345687">
+                            <label for="">Nombres</label>
+                            <input type="text" id="edit-nombres" placeholder="Nombre Completo">
+                            <section class="section-A">                                    
+                                <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                    <option value="" disabled selected>Tipo</option>
+                                    <option value="estudiante">Estudiante</option>
+                                    <option value="interno">Interno</option>
+                                    <option value="externo">Externo</option>
+                                </select>
 
-                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
-                                        <option value="" disabled selected> Carrera</option>
-                                        <option value="Administracion">Administracion</option>
-                                        <option value="Enfermeria">Enfermeria</option>
-                                        <option value="Ing Civil">Ing Civil</option>
-                                        <option value="Ing Sistemas">Ing Sistemas</option>                                   
-                                        <option value="Turismo">Turismo</option>
-                                        <option value="maestri">Maestria</option>
-                                        <option value="Postgrado">Postgrado</option>
-                                        <option value="docto">Doctorado</option>
-                                    </select>
+                                <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                    <option value="" disabled selected> Carrera</option>
+                                    <option value="Administracion">Administracion</option>
+                                    <option value="Enfermeria">Enfermeria</option>
+                                    <option value="Ing Civil">Ing Civil</option>
+                                    <option value="Ing Sistemas">Ing Sistemas</option>                                   
+                                    <option value="Turismo">Turismo</option>
+                                    <option value="maestri">Maestria</option>
+                                    <option value="Postgrado">Postgrado</option>
+                                    <option value="docto">Doctorado</option>
+                                </select>
 
-                                    <select id="tipo-cargo" name="tipo-cargo" disabled >
-                                        <option value="" disabled selected>cargo</option>
-                                        <option value="admin">Administrativo</option>
-                                        <option value="direct">Directivo</option>
-                                        <option value="docent">Docente</option>
-                                        <option value="obrer">Obrero</option>                                    
-                                    </select>
+                                <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                    <option value="" disabled selected>cargo</option>
+                                    <option value="admin">Administrativo</option>
+                                    <option value="direct">Directivo</option>
+                                    <option value="docent">Docente</option>
+                                    <option value="obrer">Obrero</option>                                    
+                                </select>
 
-                                </section>
-                                <label for="">Telefono</label>
-                                <input type="text" id="edit-telefono" placeholder="Telf">
-                                <label for="">Email</label>
-                                <input type="email" id="edit-email" placeholder="email">
-                                <label for="">Direccion</label>
-                                <input type="text" id="edit-direccion" placeholder="Direccion">
                             </section>
-                            <div class="btn">
-                                <button type="reset" id="cancelar-edit" class="modal_close">Cancelar</button>
-                                <button type="submit">Guardar Cambios</button>
-                            </div>
-                        </form>
-                    </section>                 
-                </div>
-            </section>
+                            <label for="">Telefono</label>
+                            <input type="text" id="edit-telefono" placeholder="Telf">
+                            <label for="">Email</label>
+                            <input type="email" id="edit-email" placeholder="email">
+                            <label for="">Direccion</label>
+                            <input type="text" id="edit-direccion" placeholder="Direccion">
+                        </section>
+                        <div class="btn">
+                            <button type="reset" id="cancelar-edit" class="modal_close">Cancelar</button>
+                            <button type="submit">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </section>                 
+            </div>
+        </section>
             
-            <!-- Modal Eliminar  -->
-            <section class="modal " id="modal-Delete">
-        
-                <div class="modal_container-Delet">
-                    
-                    <h4 class="modal_title">¿Quiere Eliminar  El Registro?</h4>
-
-                    <div class="btn">
-                        <button type="reset" id="cancelar-delete" class="modal_close">Cancelar</button>
-                        <button type="submit">Confirmar</button>
-                    </div>
+     <!-- Modal Eliminar  -->
+        <section class="modal " id="modal-Delete">        
+            <div class="modal_container-Delet">                    
+                <h4 class="modal_title">¿Quiere Eliminar  El Registro?</h4>
+                <div class="btn">
+                    <button type="reset" id="cancelar-delete" class="modal_close">Cancelar</button>
+                    <button type="submit">Confirmar</button>
                 </div>
-        
-            </section>
+            </div>        
+        </section>
 
-        <div class="contend-tabla">
-            
-        <div  class="header-div">
+        <div class="contend-tabla">            
+            <div  class="header-div">
+                <section class="buscar-tabla" >
+                    <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+                    <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">                
+                </section>
 
-            <section class="buscar-tabla" >
-                <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
-                <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">
-                
-            </section>
-
-            <section class="contend-PDf">
-                <button class="btn-descargar" title="Descargar" type="button">
-                    <span class="btn-span">Exportar Registros</span> <!---->
-                    <i class="fa-solid fa-file-pdf"></i>
-                    <!-- <i class="fa-solid fa-download"></i> -->
-                </button> 
-            </section>
-
-        </div>
-
+                <section class="contend-PDf">
+                    <button class="btn-descargar" title="Descargar" type="button">
+                        <span class="btn-span">Exportar Registros</span> <!---->
+                        <i class="fa-solid fa-file-pdf"></i>                    
+                    </button> 
+                </section>
+            </div>
 
             <!-- Paginador -->
             <section class="paginator">
@@ -299,7 +280,6 @@ if ($result = $conn->query($query)) {
                         <option value="5">5 Filas</option>
                         <option value="10">10 Filas</option>
                         <option value="20">20 Filas</option>
-
                     </select>
                 </div>
 
@@ -352,70 +332,70 @@ if ($result = $conn->query($query)) {
             </section>
 
             <!-- Script para la busqueda dinamica -->
-<script>
-function filterTable() {
-    let input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("Buscar");
-    filter = input.value.toUpperCase();
-    table = document.querySelector(".tabla-A");
-    tr = table.getElementsByTagName("tr");
+            <script>
+                function filterTable() {
+                    let input, filter, table, tr, td, i, j, txtValue;
+                    input = document.getElementById("Buscar");
+                    filter = input.value.toUpperCase();
+                    table = document.querySelector(".tabla-A");
+                    tr = table.getElementsByTagName("tr");
 
-    for (i = 1; i < tr.length; i++) {
-        tr[i].style.display = "none";
-        td = tr[i].getElementsByTagName("td");
-        for (j = 0; j < td.length; j++) {
-            if (td[j]) {
-                txtValue = td[j].textContent || td[j].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                    break;
+                    for (i = 1; i < tr.length; i++) {
+                        tr[i].style.display = "none";
+                        td = tr[i].getElementsByTagName("td");
+                        for (j = 0; j < td.length; j++) {
+                            if (td[j]) {
+                                txtValue = td[j].textContent || td[j].innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
-            }
-        }
-    }
-}
-</script>
+            </script>
 
-        <!-- Script para datos del modal editar -->
-<script>
-    const table = document.querySelector('.tabla-A');
-    const modaleditar = document.getElementById('modal-edit');
-    const inputs = document.querySelectorAll('input');
-    let count = 0;
-    table.addEventListener("click",(e)=>{
-        e.stopPropagation();
-        let data = e.target.parentElement.parentElement.children;
-        
-        filldata(data);
-        modaleditar.classList.toggle('modal-edit'); 
-    });
-    const filldata = (data)=>{
-        console.log(data[2].textContent);
-        document.getElementById('edit-cedula').value = data[2].textContent;
+            <!-- Script para datos del modal editar -->
+            <script>
+                const table = document.querySelector('.tabla-A');
+                const modaleditar = document.getElementById('modal-edit');
+                const inputs = document.querySelectorAll('input');
+                let count = 0;
+                table.addEventListener("click",(e)=>{
+                    e.stopPropagation();
+                    let data = e.target.parentElement.parentElement.children;
+                    
+                    filldata(data);
+                    modaleditar.classList.toggle('modal-edit'); 
+                });
+                const filldata = (data)=>{
+                    console.log(data[2].textContent);
+                    document.getElementById('edit-cedula').value = data[2].textContent;
 
-        console.log(data[1].textContent);
-        document.getElementById('edit-nombres').value = data[1].textContent;
+                    console.log(data[1].textContent);
+                    document.getElementById('edit-nombres').value = data[1].textContent;
 
-        console.log(data[5].value);
-        document.getElementById('edit-tipo-persona').value = data[5].value;
+                    console.log(data[5].value);
+                    document.getElementById('edit-tipo-persona').value = data[5].value;
 
-        console.log(data[6].textContent);
-        document.getElementById('edit-tipo-carrera').value = data[6].value;
+                    console.log(data[6].textContent);
+                    document.getElementById('edit-tipo-carrera').value = data[6].value;
 
-        console.log(data[3].textContent);
-        document.getElementById('edit-telefono').value = data[3].textContent;
+                    console.log(data[3].textContent);
+                    document.getElementById('edit-telefono').value = data[3].textContent;
 
-        console.log(data[4].textContent);
-        document.getElementById('edit-email').value = data[4].textContent;
-        
-        console.log(data[7].textContent);
-        document.getElementById('edit-direccion').value = data[7].textContent;
-    }
-</script>
+                    console.log(data[4].textContent);
+                    document.getElementById('edit-email').value = data[4].textContent;
+                    
+                    console.log(data[7].textContent);
+                    document.getElementById('edit-direccion').value = data[7].textContent;
+                }
+            </script>
 
 
-<!-- Paginador -->
-</section>
+            <!-- Paginador -->
+            <!-- </section> -->
             <section class="paginator-dos">
                 <div class="btn-pager">
                     <button id="prevPage" onclick="changePage(-1)">Anterior</button>
@@ -426,7 +406,8 @@ function filterTable() {
         </div>
         
     </main>
-    <script>
+
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
         const btnDescargar = document.querySelector('.btn-descargar');
         const lista = document.querySelector('.contend-PDf-list');
@@ -435,7 +416,8 @@ function filterTable() {
             lista.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar la lista
             });
         }); 
-    </script>
+    </script> -->
+    <script src="../js/mover_menu.js"></script>
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>
     <script src="../js/rotar-icono-menu.js"></script>
