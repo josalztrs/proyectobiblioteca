@@ -100,7 +100,6 @@ select {
     margin-top: 5px; 
     border: 1px solid #ccc; 
     border-radius: 4px; 
-    appearance: none; 
     background-color: #fff; 
     /* background-image: url('data:image/png;base64,...');  */
     background-repeat: no-repeat; 
