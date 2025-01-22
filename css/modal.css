@@ -101,7 +101,6 @@ select {
     border: 1px solid #ccc; 
     border-radius: 4px; 
     background-color: #fff; 
-    /* background-image: url('data:image/png;base64,...');  */
     background-repeat: no-repeat; 
     background-position: right 10px center; 
     background-size: 12px; 
@@ -160,7 +159,6 @@ select {
     font-size: 25px;
     color: #251b4b;
     font-weight: 600;
-    /* filter:drop-shadow(1px 1px 20px #4830a3) ; */
 }
 .modal_container-Delet .btn {
     /* max-width: 230px; */

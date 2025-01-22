@@ -142,6 +142,7 @@ main{
     padding: 0px 10px;
     justify-content: space-between; 
     align-items: center; 
+    margin-bottom: 50px;
 }
 .buscar-tabla {
     display: flex;
@@ -216,39 +217,7 @@ main{
     opacity: 1; /* Muestra la lista cuando se le añade la clase 'show' */
 }
 
-/* .contend-PDf-list li {
-    display: inline; 
-    width: 100%;
-    height: 100%;   
-} */
-/* .contend-PDf-list li button{
-    width: 60px; 
-    height: 35px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    color: white;
-    background-color: #251b4b;
-}
 
-.contend-PDf-list  li button i{
-    font-size: 20px;
-}
-.contend-PDf-list li button:hover{
-    border-radius: 15px 0px 15px 15px;
-    background-color: #3d2e81;
-}
-
-.contend-PDf-list li  #word:hover{
-    border-radius: 0px 15px 15px 15px;
-    background-color: #26baec;
-}
-.contend-PDf-list li  #pdf:hover{
-background-color: #f70404;
-}
-.contend-PDf-list li  #excel:hover{
-    background-color: #2cd253;
-} */
 .buscar-tabla input {
     width: 300px; 
     height: 100%; 
@@ -369,7 +338,7 @@ background-color: #f70404;
     text-align: center;
 }
 .tabla-A th {
-    padding: 8px 0px;
+    padding: 8px 15px;
     color: black;
     position: sticky;
     top: 0;
@@ -380,8 +349,6 @@ background-color: #f70404;
 .tabla-A td {
     padding: 8px;
     border-bottom: 1px solid #ddd;
-    /* background-color: white; */
-    /* background-color: rgba(239, 239, 240, 0.6); */
 }
 
 .tabla-A tr:hover {
@@ -395,6 +362,7 @@ background-color: #f70404;
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 .tabla-A button:hover {
     background-color: #26baec;
