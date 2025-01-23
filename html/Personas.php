@@ -22,8 +22,11 @@ if ($result = $conn->query($query)) {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
+
 </head>
    
 <body id="body" > 
@@ -153,16 +156,16 @@ if ($result = $conn->query($query)) {
                                         <option value="Ing Civil">Ing Civil</option>
                                         <option value="Ing Sistemas">Ing Sistemas</option>                                   
                                         <option value="Turismo">Turismo</option>
-                                        <option value="maestri">Maestria</option>
+                                        <option value="Maestria">Maestria</option>
                                         <option value="Postgrado">Postgrado</option>
-                                        <option value="docto">Doctorado</option>
+                                        <option value="Doctorado">Doctorado</option>
                                     </select>
                                     <select id="tipo-cargo" name="tipo-cargo" disabled >
                                         <option value="" disabled selected>cargo</option>
-                                        <option value="admin">Administrativo</option>
-                                        <option value="direct">Directivo</option>
-                                        <option value="docent">Docente</option>
-                                        <option value="obrer">Obrero</option>                                    
+                                        <option value="Administrativo">Administrativo</option>
+                                        <option value="Directivo">Directivo</option>
+                                        <option value="Docente">Docente</option>
+                                        <option value="Obrero">Obrero</option>                                    
                                     </select>
 
                                 </section>
@@ -200,31 +203,31 @@ if ($result = $conn->query($query)) {
                             <label for="">Nombres</label>
                             <input type="text" id="edit-nombres" placeholder="Nombre Completo">
                             <section class="section-A">                                    
-                                <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                <select id="edit-tipo" name="editar-tipo" onchange="toggleInput()">
                                     <option value="" disabled selected>Tipo</option>
-                                    <option value="estudiante">Estudiante</option>
-                                    <option value="interno">Interno</option>
-                                    <option value="externo">Externo</option>
+                                    <option value="ESTUDIANTE">Estudiante</option>
+                                    <option value="INTERNO">Interno</option>
+                                    <option value="EXTERNO">Externo</option>
                                 </select>
 
-                                <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                <select id="edit-carrera" name="editar-carrera" disabled >
                                     <option value="" disabled selected> Carrera</option>
-                                    <option value="Administracion">Administracion</option>
-                                    <option value="Enfermeria">Enfermeria</option>
-                                    <option value="Ing Civil">Ing Civil</option>
-                                    <option value="Ing Sistemas">Ing Sistemas</option>                                   
-                                    <option value="Turismo">Turismo</option>
-                                    <option value="maestri">Maestria</option>
-                                    <option value="Postgrado">Postgrado</option>
-                                    <option value="docto">Doctorado</option>
+                                    <option value="ADMINISTRACION">Administracion</option>
+                                    <option value="ENFERMERIA">Enfermeria</option>
+                                    <option value="ING CIVIL">Ing Civil</option>
+                                    <option value="ING SISTEMAS">Ing Sistemas</option>                                   
+                                    <option value="TURISMO">Turismo</option>
+                                    <option value="MAESTRIA">Maestria</option>
+                                    <option value="POSTGRADO">Postgrado</option>
+                                    <option value="DOCTORADO">Doctorado</option>
                                 </select>
 
-                                <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                <select id="edit-cargo" name="editar-cargo" disabled >
                                     <option value="" disabled selected>cargo</option>
-                                    <option value="admin">Administrativo</option>
-                                    <option value="direct">Directivo</option>
-                                    <option value="docent">Docente</option>
-                                    <option value="obrer">Obrero</option>                                    
+                                    <option value="ADMINISTRATIVO">Administrativo</option>
+                                    <option value="DIRECTIVO">Directivo</option>
+                                    <option value="DOCENTE">Docente</option>
+                                    <option value="OBRERO">Obrero</option>                                    
                                 </select>
 
                             </section>
@@ -331,67 +334,9 @@ if ($result = $conn->query($query)) {
                 </table>
             </section>
 
-            <!-- Script para la busqueda dinamica -->
-            <script>
-                function filterTable() {
-                    let input, filter, table, tr, td, i, j, txtValue;
-                    input = document.getElementById("Buscar");
-                    filter = input.value.toUpperCase();
-                    table = document.querySelector(".tabla-A");
-                    tr = table.getElementsByTagName("tr");
 
-                    for (i = 1; i < tr.length; i++) {
-                        tr[i].style.display = "none";
-                        td = tr[i].getElementsByTagName("td");
-                        for (j = 0; j < td.length; j++) {
-                            if (td[j]) {
-                                txtValue = td[j].textContent || td[j].innerText;
-                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                    tr[i].style.display = "";
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            </script>
 
-            <!-- Script para datos del modal editar -->
-            <script>
-                const table = document.querySelector('.tabla-A');
-                const modaleditar = document.getElementById('modal-edit');
-                const inputs = document.querySelectorAll('input');
-                let count = 0;
-                table.addEventListener("click",(e)=>{
-                    e.stopPropagation();
-                    let data = e.target.parentElement.parentElement.children;
-                    
-                    filldata(data);
-                    modaleditar.classList.toggle('modal-edit'); 
-                });
-                const filldata = (data)=>{
-                    console.log(data[2].textContent);
-                    document.getElementById('edit-cedula').value = data[2].textContent;
 
-                    console.log(data[1].textContent);
-                    document.getElementById('edit-nombres').value = data[1].textContent;
-
-                    console.log(data[5].value);
-                    document.getElementById('edit-tipo-persona').value = data[5].value;
-
-                    console.log(data[6].textContent);
-                    document.getElementById('edit-tipo-carrera').value = data[6].value;
-
-                    console.log(data[3].textContent);
-                    document.getElementById('edit-telefono').value = data[3].textContent;
-
-                    console.log(data[4].textContent);
-                    document.getElementById('edit-email').value = data[4].textContent;
-                    
-                    console.log(data[7].textContent);
-                    document.getElementById('edit-direccion').value = data[7].textContent;
-                }
-            </script>
 
             <!-- Paginador -->
             <!-- </section> -->

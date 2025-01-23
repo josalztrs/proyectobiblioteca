@@ -1,17 +1,22 @@
 <?php
 include 'connection.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cedula = $_POST['cedula'] ?? '';
-    $nombre = $_POST['nombre'] ?? '';
-    $tipo_persona = $_POST['tipo-persona'] ?? '';
-    $tipo_carrera = $_POST['tipo-carrera'] ?? '';
-    $telefono = $_POST['telefono'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $direccion = $_POST['direccion'] ?? '';
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, carrera = ?, telefono = ?, correo = ?, direccion = ? WHERE cedula = ?");
-    $stmt->bind_param('sssssss', $cedula, $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cedula = $_POST['edit-cedula'] ?? '';
+    $nombre = strtoupper($_POST['edit-nombres'] ?? '');
+    $tipo_persona = strtoupper($_POST['edit-tipo'] ?? '');
+    $tipo_carrera = strtoupper($_POST['edit-carrera'] ?? '');
+    $tipo_cargo = strtoupper($_POST['edit-cargo'] ?? '');
+    $telefono = strtoupper($_POST['edit-telefono'] ?? '');
+    $email = strtoupper($_POST['edit-email'] ?? '');
+    $direccion = strtoupper($_POST['edit-direccion'] ?? '');
+
+    $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, carrera = ?, telefono = ?, correo = ?, direccion = ?, cargo = ? WHERE cedula = ?");
+    $stmt->bind_param('ssssssss', $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $tipo_cargo, $cedula);
 
     if ($stmt->execute()) {
         // Redirect to the Personas page after successful insertion
