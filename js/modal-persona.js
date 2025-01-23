@@ -24,21 +24,22 @@ document.getElementById('cancelar-edit').addEventListener('click', (e) => {
 });
 
      // modal eliminar registro
-const modalDelet = document.getElementById('modal-Delete');
-function deletPerson() {
-    modalDelet.classList.add('modal--show');
-}
-//  cerrando modal eliminar registro
-document.getElementById('cancelar-delete').addEventListener('click', (e) =>{
-    e.preventDefault();
-    modalDelet.classList.remove('modal--show');
-});
-// confirmar ELiminar
-document.querySelector('#modal-Delete button[type="submit"]').addEventListener('click', (e) => {
-    e.preventDefault();
-    
-    modalDelet.classList.remove('modal--show'); // Cerrar el modal
-});
+     const modalDelet = document.getElementById('modal-Delete');
+     function deletPerson() {
+         modalDelet.classList.add('modal--show');
+         
+     }
+     //  cerrando modal eliminar registro
+     document.getElementById('cancelar-delete').addEventListener('click', (e) =>{
+         e.preventDefault();
+         modalDelet.classList.remove('modal--show');
+     });
+     // confirmar ELiminar
+     document.querySelector('#modal-Delete button[type="submit"]').addEventListener('click', (e) => {
+         e.preventDefault();
+         
+         modalDelet.classList.remove('modal--show'); // Cerrar el modal
+     });
 
 
 // select del formulario registrar persona

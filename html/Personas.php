@@ -113,9 +113,7 @@ if ($result = $conn->query($query)) {
             </li>
         </ul>
     </div>
-        
-     <!-- script para desplazar el menu  -->
-    
+            
     <div class="titulo">
         <div>
             <h1>
@@ -267,6 +265,26 @@ if ($result = $conn->query($query)) {
                     <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">                
                 </section>
 
+                <section class="filter-paginator">
+                    <div class="row-selector">
+                        <label for="rows"> Mostrar:</label>
+                        <select id="rows" onchange="updateRows()">
+                            <option value="5">5 Filas</option>
+                            <option value="10">10 Filas</option>
+                            <option value="20">20 Filas</option>
+                        </select>
+                    </div>
+                        <!-- Paginador -->
+                    <section class="paginador">
+                        <div class="btn-pager">
+                            <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                            <span id="pageInfo" class="page-info"></span>
+                            <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </section>
+    
+                </section>
+
                 <section class="contend-PDf">
                     <button class="btn-descargar" title="Descargar" type="button">
                         <span class="btn-span">Exportar Registros</span> <!---->
@@ -274,25 +292,7 @@ if ($result = $conn->query($query)) {
                     </button> 
                 </section>
             </div>
-
-            <!-- Paginador -->
-            <section class="paginator">
-                <div class="row-selector">
-                    <label for="rows"> Mostrar:</label>
-                    <select id="rows" onchange="updateRows()">
-                        <option value="5">5 Filas</option>
-                        <option value="10">10 Filas</option>
-                        <option value="20">20 Filas</option>
-                    </select>
-                </div>
-
-                <div class="btn-pager">
-                    <button id="prevPage" onclick="changePage(-1)">Anterior</button>
-                    <span id="pageInfo"></span>
-                    <button id="nextPage" onclick="changePage(1)">Siguiente</button>
-                </div>
-            </section>
-
+            
             <!-- tabla de registros -->
             <section class="tabla-section">
                 <table class="tabla-A">
@@ -326,7 +326,7 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="deletePerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -338,14 +338,15 @@ if ($result = $conn->query($query)) {
 
 
 
-
             <!-- Paginador -->
             <!-- </section> -->
             <section class="paginator-dos">
                 <div class="btn-pager">
-                    <button id="prevPage" onclick="changePage(-1)">Anterior</button>
-                    <span id="pageInfo"></span>
-                    <button id="nextPage" onclick="changePage(1)">Siguiente</button>
+                <div class="btn-pager">
+                    <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <span id="pageInfo" class="page-info"></span>
+                    <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
                 </div>
             </section> 
         </div>
