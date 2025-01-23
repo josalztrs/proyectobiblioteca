@@ -202,31 +202,31 @@ if ($result = $conn->query($query)) {
                             <label for="">Nombres</label>
                             <input type="text" id="edit-nombres" placeholder="Nombre Completo">
                             <section class="section-A">                                    
-                                <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                <select id="edit-tipo" name="editar-tipo" onchange="toggleInput()">
                                     <option value="" disabled selected>Tipo</option>
-                                    <option value="estudiante">Estudiante</option>
-                                    <option value="interno">Interno</option>
-                                    <option value="externo">Externo</option>
+                                    <option value="Estudiante">Estudiante</option>
+                                    <option value="Interno">Interno</option>
+                                    <option value="Externo">Externo</option>
                                 </select>
 
-                                <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                <select id="edit-carrera" name="editar-carrera" disabled >
                                     <option value="" disabled selected> Carrera</option>
                                     <option value="Administracion">Administracion</option>
                                     <option value="Enfermeria">Enfermeria</option>
                                     <option value="Ing Civil">Ing Civil</option>
                                     <option value="Ing Sistemas">Ing Sistemas</option>                                   
                                     <option value="Turismo">Turismo</option>
-                                    <option value="maestri">Maestria</option>
+                                    <option value="Maestria">Maestria</option>
                                     <option value="Postgrado">Postgrado</option>
-                                    <option value="docto">Doctorado</option>
+                                    <option value="Doctorado">Doctorado</option>
                                 </select>
 
-                                <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                <select id="edit-cargo" name="editar-cargo" disabled >
                                     <option value="" disabled selected>cargo</option>
-                                    <option value="admin">Administrativo</option>
-                                    <option value="direct">Directivo</option>
-                                    <option value="docent">Docente</option>
-                                    <option value="obrer">Obrero</option>                                    
+                                    <option value="Administrativo">Administrativo</option>
+                                    <option value="Directivo">Directivo</option>
+                                    <option value="Docente">Docente</option>
+                                    <option value="Obrero">Obrero</option>                                    
                                 </select>
 
                             </section>
@@ -365,7 +365,7 @@ if ($result = $conn->query($query)) {
                 table.addEventListener("click",(e)=>{
                     e.stopPropagation();
                     let data = e.target.parentElement.parentElement.children;
-                    
+                    console.log(data);
                     filldata(data);
                     modaleditar.classList.toggle('modal-edit'); 
                 });
@@ -376,12 +376,6 @@ if ($result = $conn->query($query)) {
                     console.log(data[1].textContent);
                     document.getElementById('edit-nombres').value = data[1].textContent;
 
-                    console.log(data[5].value);
-                    document.getElementById('edit-tipo-persona').value = data[5].value;
-
-                    console.log(data[6].textContent);
-                    document.getElementById('edit-tipo-carrera').value = data[6].value;
-
                     console.log(data[3].textContent);
                     document.getElementById('edit-telefono').value = data[3].textContent;
 
@@ -390,6 +384,9 @@ if ($result = $conn->query($query)) {
                     
                     console.log(data[7].textContent);
                     document.getElementById('edit-direccion').value = data[7].textContent;
+
+                    console.log(data[5].textContent);
+                    document.getElementById('edit-tipo').value = data[5].textContent;
                 }
             </script>
 
