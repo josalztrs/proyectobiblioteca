@@ -133,7 +133,7 @@ if ($result = $conn->query($query)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevpers.php" method="POST" class="form-Persona">    
+                    <form action="../php/nuevpers.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
                             <label for="">Cedula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
@@ -271,7 +271,7 @@ if ($result = $conn->query($query)) {
                             <option value="20">20 Filas</option>
                         </select>
                     </div>
-                        <!-- Paginador -->
+                        
                     <section class="paginador">
                         <div class="btn-pager">
                             <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>

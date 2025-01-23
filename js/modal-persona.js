@@ -1,6 +1,7 @@
 const  openModal = document.querySelector('.btn-agregar');
 const  modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal_close');
+// const formPersona = document.getElementById('formPersona'); // Referencia al formulario
 
 openModal.addEventListener('click', (e)=>{
     e.preventDefault();
@@ -10,6 +11,7 @@ openModal.addEventListener('click', (e)=>{
 closeModal.addEventListener('click', (e)=>{
     e.preventDefault();
     modal.classList.remove('modal--show');
+    // formPersona.reset(); // Limpia los campos del formulario
 });
 
 // Modal de editar
