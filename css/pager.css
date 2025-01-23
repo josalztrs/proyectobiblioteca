@@ -39,7 +39,7 @@
     margin: 0 5px;
     border: none;
     border-radius: 5px;
-    color: black;
+    color: #251b4b;
     cursor: pointer;
     background-color: #ffffff;
     transition: background-color 0.3s, transform 0.2s;
@@ -58,7 +58,14 @@
     align-items: center;
 
 }
-
+.page-info{
+    color:#251b4b;
+    background-color: #ffffff;
+    height: 30px;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
 
 
 

@@ -133,6 +133,7 @@ if ($result = $conn->query($query)) {
             <div class="modal_container">  
                 <section class="modal-header">
                     <h2 class="modal_title"> Registrando Persona</h2>
+                    <button class="modal_close" id="cancelar"> <i class="fa-solid fa-xmark"></i></button>
                 </section>
                     
                 <section class="modal-body">
@@ -179,7 +180,7 @@ if ($result = $conn->query($query)) {
                         </section>
 
                         <div class="btn">
-                            <button type="reset" id="cancelar" class="modal_close">Cancelar</button>
+                            <button type="reset"  >Limpiar</button>
                             <button type="submit">Registrar</button>
                         </div>
                             
@@ -193,7 +194,9 @@ if ($result = $conn->query($query)) {
         <section class="modal" id="modal-edit">
             <div class="modal_container">
                 <section class="modal-header">
-                    <h2 class="modal_title"> Editando Persona</h2>
+                    <h2 class="modal_title"> Editando Persona 
+                        <!-- <button id="cancelar-edit" class="modal_close"> <i class="fa-solid fa-xmark"></i></button> -->
+                    </h2>
                 </section>                    
                 <section class="modal-body">
                     <form action="../php/editpers.php" method="POST" class="form-Persona">    
@@ -334,17 +337,11 @@ if ($result = $conn->query($query)) {
                 </table>
             </section>
 
-
-
-
-
             <!-- Paginador -->
-            <!-- </section> -->
             <section class="paginator-dos">
                 <div class="btn-pager">
                 <div class="btn-pager">
                     <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
-                    <span id="pageInfo" class="page-info"></span>
                     <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
                 </div>

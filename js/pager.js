@@ -17,7 +17,7 @@ function displayPage(page) {
     }
 
     // Actualizar la información de la página
-    document.getElementById('pageInfo').innerText = `Pág ${page} de ${Math.ceil(rows.length / rowsPerPage)}`;
+    document.getElementById('pageInfo').innerText = `Pág ${page} / ${Math.ceil(rows.length / rowsPerPage)}`;
 }
 
 function changePage(direction) {
