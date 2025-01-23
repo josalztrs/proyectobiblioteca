@@ -249,12 +249,15 @@ if ($result = $conn->query($query)) {
             
      <!-- Modal Eliminar  -->
         <section class="modal " id="modal-Delete">        
-            <div class="modal_container-Delet">                    
-                <h4 class="modal_title">¿Quiere Eliminar  El Registro?</h4>
+            <div class="modal_container-Delet">
+                <form action="../php/elimpers.php" method="POST">                   
+                <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
+                <input type="hidden" name="id" id="delete-id">
                 <div class="btn">
                     <button type="reset" id="cancelar-delete" class="modal_close">Cancelar</button>
                     <button type="submit">Confirmar</button>
                 </div>
+                </form>
             </div>        
         </section>
 
