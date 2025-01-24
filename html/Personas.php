@@ -32,86 +32,12 @@ if ($result = $conn->query($query)) {
 <body id="body" > 
     
     <header>
-        <div class="icono__menu" id="btn-open">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    
-        <ul>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-bell" title="Notificaciones"></i>
-                </a>
-            </li>
-            <li>
-                 <a href="#">
-                    <i class="fa-solid fa-user" title="Perfil"></i>
-                </a></li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
-                </a>
-            </li>
-        </ul>
-
+        <?php include "header.php" ?>
     </header>
     
     <!-- menu late -->
     <div class="menu__lateral" id="menu-lateral">
-       
-        <div class="name__pag">
-            <i class="fa-solid fa-earth-americas"></i>
-            <h4>Biblioteca</h4>
-            
-        </div>
-
-        <ul class="opciones__menu">
-            <li>
-                <a href="./admin.php" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-house" title="Inicio"></i>
-                    <h4>Inicio</h4>
-                </a>
-            </li>
-            
-            <li>
-                <a href="./Personas.php" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-users" title="Personas"></i>
-                    <h4>Personas</h4>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-book" title="Libros"></i>
-                    <h4>Libros</h4>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-user-graduate" title="Tesis"></i>
-                    <h4>Tesis</h4>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-regular fa-rectangle-list" title="Materias"></i>
-                    <h4>Materias</h4>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
-                    <h4>Prestamos</h4>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-regular fa-file" title="Reporte"></i>
-                    <h4>Reporte</h4>
-                </a>
-            </li>
-        </ul>
+        <?php include "menu-lateral.php" ?>
     </div>
             
     <div class="titulo">
@@ -194,9 +120,7 @@ if ($result = $conn->query($query)) {
         <section class="modal" id="modal-edit">
             <div class="modal_container">
                 <section class="modal-header">
-                    <h2 class="modal_title"> Editando Persona 
-                        <!-- <button id="cancelar-edit" class="modal_close"> <i class="fa-solid fa-xmark"></i></button> -->
-                    </h2>
+                    <h2 class="modal_title"> Editando Persona</h2>
                 </section>                    
                 <section class="modal-body">
                     <form action="../php/editpers.php" method="POST" class="form-Persona">    
@@ -242,7 +166,7 @@ if ($result = $conn->query($query)) {
                             <input type="text" id="edit-direccion" placeholder="Direccion">
                         </section>
                         <div class="btn">
-                            <button type="reset" id="cancelar-edit" class="modal_close">Cancelar</button>
+                            <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->
                             <button type="submit">Guardar Cambios</button>
                         </div>
                     </form>
@@ -257,7 +181,7 @@ if ($result = $conn->query($query)) {
                 <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
                 <input type="hidden" name="id" id="delete-id">
                 <div class="btn">
-                    <button type="reset" id="cancelar-delete" class="modal_close">Cancelar</button>
+                    <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
                     <button type="submit">Confirmar</button>
                 </div>
                 </form>
