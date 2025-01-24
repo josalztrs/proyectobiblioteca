@@ -31,5 +31,11 @@
             </h1>
         </div>
     </div> 
+
+
+    <script src="../js/mover_menu.js"></script>
+    <script src="../js/pager.js"></script>
+    <script src="../js/modal-persona.js"></script>
+    <script src="../js/rotar-icono-menu.js"></script>
 </body>
 </html>

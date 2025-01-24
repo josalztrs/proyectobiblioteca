@@ -71,7 +71,7 @@ include '../php/connection.php';
 
             <div class="card-contend">
                 <div class="card-section">                   
-                    <a href="">
+                    <a href="./libros.php" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-book" title="Libros"></i>
                         <h4>Libros</h4>
                     </a>
@@ -80,7 +80,7 @@ include '../php/connection.php';
 
             <div class="card-contend">
                 <div class="card-section">
-                    <a href="#">
+                    <a href="./Tesis.php" onclick="highlightMenu(this)">
                         <i class="fa-solid fa-user-graduate" title="Tesis"></i>
                         <h4>Tesis</h4>
                     </a>
@@ -91,7 +91,7 @@ include '../php/connection.php';
 
             <div class="card-contend">
                 <div class="card-section"> 
-                    <a href="#">
+                    <a href="./prestamos.php" onclick="highlightMenu(this)">
                         <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
                         <h4>Prestamos</h4>
                     </a>
@@ -101,7 +101,7 @@ include '../php/connection.php';
 
             <div class="card-contend">
                 <div class="card-section">
-                    <a href="#">
+                    <a href="./reportes.php" onclick="highlightMenu(this)">
                         <i class="fa-regular fa-file" title="Reporte"></i>
                         <h4>Reporte</h4>
                     </a>

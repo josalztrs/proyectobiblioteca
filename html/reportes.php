@@ -34,7 +34,7 @@
     </div>
 
     <main id="main-repo">
-        <div class="contenedor-reportes">
+        <div class="contenedor-repor">
             <div class="card-reportes">
                 <div class="card-contendReport">
 
@@ -63,8 +63,8 @@
         <div class="contenedor-reportes">
             <div class="consulta"> <!--Bloque para consultar los datos de la poblacion-->
                 <section class="seccion-consulta">
-                    <p>Registro Comunal</p>
-                    <p id="Tconsul">consulta tus Datos</p>
+                    <p>Biblioteca Luis Beltran Prieto Figueroa</p>
+                    <p id="Tconsul">Consultar Persona</p>
                 </section>
             <br>
             <hr id="hr2">

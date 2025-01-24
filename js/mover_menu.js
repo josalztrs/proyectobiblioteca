@@ -34,15 +34,31 @@ function open_close_menu(){
         }
     });
 
-    // funcion para marcar el estado actual de la pagin (en donde se encuentra)
-    function highlightMenu(selected) {
-        // Remove 'active' class from all menu items
-            const menuItems = document.querySelectorAll('.menu-item');
-                menuItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            // Add 'active' class to the selected menu item
-            selected.classList.add('active');
+    // Función para marcar el estado actual de la página (en donde se encuentra)
+function highlightMenu(selected) {
+    // Remove 'active' class from all menu items
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    // Add 'active' class to the selected menu item
+    selected.classList.add('active');
+}
+
+// Función para marcar el menú activo basado en la URL actual
+function setActiveMenu() {
+    const currentPath = window.location.pathname.split('/').pop(); // Obtiene el nombre del archivo actual
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+        if (item.getAttribute('href') === currentPath) {
+            item.classList.add('active'); // Marca el menú activo
         }
+    });
+}
+
+// Llama a la función al cargar la página
+window.onload = setActiveMenu;
+    
 
        
