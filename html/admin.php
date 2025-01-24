@@ -36,7 +36,7 @@ include '../php/connection.php';
 
 </head>
 
-<body id="body" >  <!--onload="loadHTML('header', 'header.html'); loadHTML('menu', 'menu-lateral.html');"  <div id="header"></div> <div id="menu"></div> -->
+<body id="body" >  
     
     <header>
         <?php include "header.php" ?>
@@ -61,34 +61,27 @@ include '../php/connection.php';
         <div class="card">
 
             <div class="card-contend">
-
-                <div class="card-section">
-                    <i class="fa-solid fa-users" title="Personas"></i>
+                <div class="card-section">                    
                     <a href="./Personas.php" onclick="highlightMenu(this)">
+                        <i class="fa-solid fa-users" title="Personas"></i>   
                         <h4>Personas</h4>
                     </a>
-
                 </div>
-
             </div>
 
             <div class="card-contend">
-
-                <div class="card-section">
-                    <i class="fa-solid fa-book" title="Libros"></i>
+                <div class="card-section">                   
                     <a href="">
+                    <i class="fa-solid fa-book" title="Libros"></i>
                         <h4>Libros</h4>
                     </a>
                 </div>
-
             </div>
 
             <div class="card-contend">
-
                 <div class="card-section">
-
-                    <i class="fa-solid fa-user-graduate" title="Tesis"></i>
                     <a href="#">
+                        <i class="fa-solid fa-user-graduate" title="Tesis"></i>
                         <h4>Tesis</h4>
                     </a>
 
@@ -97,9 +90,9 @@ include '../php/connection.php';
             </div>
 
             <div class="card-contend">
-                <div class="card-section">
-                    <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
+                <div class="card-section"> 
                     <a href="#">
+                        <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
                         <h4>Prestamos</h4>
                     </a>
                 </div>
@@ -108,8 +101,8 @@ include '../php/connection.php';
 
             <div class="card-contend">
                 <div class="card-section">
-                    <i class="fa-regular fa-file" title="Reporte"></i>
                     <a href="#">
+                        <i class="fa-regular fa-file" title="Reporte"></i>
                         <h4>Reporte</h4>
                     </a>
                 </div>

@@ -19,13 +19,13 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
+                <a href="./libros.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-book" title="Libros"></i>
                     <h4>Libros</h4>
                 </a>
             </li>
             <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
+                <a href="./Tesis.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-user-graduate" title="Tesis"></i>
                     <h4>Tesis</h4>
                 </a>
@@ -39,14 +39,14 @@
             </li>
 
             <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
+                <a href="./prestamos.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
                     <h4>Prestamos</h4>
                 </a>
             </li>
 
             <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
+                <a href="./reportes.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-regular fa-file" title="Reporte"></i>
                     <h4>Reporte</h4>
                 </a>

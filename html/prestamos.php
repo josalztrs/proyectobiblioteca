@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestamos</title>
+    <link rel="stylesheet" href="../css/menu-lateral.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pager.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/busquedadinamica.js"></script>
+    <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
+    <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+    <header>
+        <?php include "header.php" ?>
+    </header>
+    
+    <!-- menu late -->
+    <div class="menu__lateral" id="menu-lateral">
+        <?php include "menu-lateral.php" ?>
+    </div>
+            
+    <div class="titulo">
+        <div>
+            <h1>
+                <i class="fa-solid fa-gauge"></i>
+                Registros De Prestamos
+            </h1>
+        </div>
+    </div>
+
+    <main>
+        <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
+            <i class="fa-solid fa-plus"></i>
+            <span class="btn-text">Realizar Prestamo</span>
+        </button> 
+     <!-- modal registrar -->
+        <section class="modal "  id="modal">
+            <div class="modal_container">  
+                <section class="modal-header">
+                    <h2 class="modal_title"> Registrando Prestamo</h2>
+                    <button class="modal_close" id="cancelar"> <i class="fa-solid fa-xmark"></i></button>
+                </section>
+                    
+                <section class="modal-body">
+                    <form action="../php/nuevpers.php" method="POST" class="form-Persona" id="formPersona">    
+                        <section>
+                            <label for="">Cedula</label>
+                            <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
+                            <label for="">Nombres</label>
+                            <input type="text" name='nombre' placeholder="Nombre Completo">
+                                <section class="section-A">                                    
+                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                        <option value="" disabled selected>Tipo</option>
+                                        <option value="estudiante">Estudiante</option>
+                                        <option value="interno">Interno</option>
+                                        <option value="externo">Externo</option>
+                                    </select>
+                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                        <option value="" disabled selected> Carrera</option>
+                                        <option value="Administracion">Administracion</option>
+                                        <option value="Enfermeria">Enfermeria</option>
+                                        <option value="Ing Civil">Ing Civil</option>
+                                        <option value="Ing Sistemas">Ing Sistemas</option>                                   
+                                        <option value="Turismo">Turismo</option>
+                                        <option value="Maestria">Maestria</option>
+                                        <option value="Postgrado">Postgrado</option>
+                                        <option value="Doctorado">Doctorado</option>
+                                    </select>
+                                    <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                        <option value="" disabled selected>cargo</option>
+                                        <option value="Administrativo">Administrativo</option>
+                                        <option value="Directivo">Directivo</option>
+                                        <option value="Docente">Docente</option>
+                                        <option value="Obrero">Obrero</option>                                    
+                                    </select>
+
+                                </section>
+
+                            <label for="">Telefono</label>
+                            <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required>
+                            <label for="">Email</label>
+                            <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
+                            <label for="">Direccion</label>
+                            <input type="text" name='direccion' placeholder="Direccion" required>                                
+                        </section>
+
+                        <div class="btn">
+                            <button type="reset"  >Limpiar</button>
+                            <button type="submit">Registrar</button>
+                        </div>
+                            
+                    </form>
+                </section>                 
+                    
+            </div>
+        </section>
+                
+     <!-- Modal Eliminar  -->
+        <section class="modal " id="modal-Delete">        
+            <div class="modal_container-Delet">
+                <form action="../php/elimpers.php" method="POST">                   
+                <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
+                <input type="hidden" name="id" id="delete-id">
+                <div class="btn">
+                    <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
+                    <button type="submit">Confirmar</button>
+                </div>
+                </form>
+            </div>        
+        </section>
+
+        <div class="contend-tabla">            
+            <div  class="header-div">
+                <section class="buscar-tabla" >
+                    <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+                    <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">                
+                </section>
+
+                <section class="filter-paginator">
+                    <div class="row-selector">
+                        <label for="rows"> Mostrar:</label>
+                        <select id="rows" onchange="updateRows()">
+                            <option value="5">5 Filas</option>
+                            <option value="10">10 Filas</option>
+                            <option value="20">20 Filas</option>
+                        </select>
+                    </div>
+                        
+                    <section class="paginador">
+                        <div class="btn-pager">
+                            <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                            <span id="pageInfo" class="page-info"></span>
+                            <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </section>
+    
+                </section>
+
+                <section class="contend-PDf">
+                    <button class="btn-descargar" title="Descargar" type="button">
+                        <span class="btn-span">Exportar Registros</span> <!---->
+                        <i class="fa-solid fa-file-pdf"></i>                    
+                    </button> 
+                </section>
+            </div>
+            
+            <!-- tabla de registros -->
+            <section class="tabla-section">
+                <table class="tabla-A">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Libros</th>
+                            <th>Persona</th>
+                            <th>Tipo</th>
+                            <th>Fecha Prestamo</th>
+                            <th>Fecha Devolucion</th>
+                            <th>cant</th>
+                            <th>Observacion</th>
+                            <th>Estado</th>
+                            <!-- <th>Fecha de Ingreso</th> -->
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-B">
+                        <?php foreach ($personas as $index => $persona): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($persona['id']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['nombre']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['cedula']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['telefono']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['correo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['tipo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['carrera']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['direccion']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['cargo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
+                                <td>
+                                    <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Paginador -->
+            <section class="paginator-dos">
+                <div class="btn-pager">
+                <div class="btn-pager">
+                    <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                </div>
+            </section> 
+        </div>
+        
+    </main>
+
+
+    <script src="../js/mover_menu.js"></script>
+    <script src="../js/pager.js"></script>
+    <script src="../js/modal-persona.js"></script>
+    <script src="../js/rotar-icono-menu.js"></script>
+
+
+</body>
+</html>
