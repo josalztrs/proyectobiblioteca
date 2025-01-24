@@ -70,13 +70,13 @@ if ($result = $conn->query($query)) {
                             <label for="">Nombres</label>
                             <input type="text" name='nombre' placeholder="Nombre Completo">
                                 <section class="section-A">                                    
-                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
+                                    <select id="tipo-persona" name="persona" onchange="toggleInput()">
                                         <option value="" disabled selected>Tipo</option>
                                         <option value="estudiante">Estudiante</option>
                                         <option value="interno">Interno</option>
                                         <option value="externo">Externo</option>
                                     </select>
-                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
+                                    <select id="tipo-carrera" name="carrera" disabled >
                                         <option value="" disabled selected> Carrera</option>
                                         <option value="Administracion">Administracion</option>
                                         <option value="Enfermeria">Enfermeria</option>
@@ -87,7 +87,7 @@ if ($result = $conn->query($query)) {
                                         <option value="Postgrado">Postgrado</option>
                                         <option value="Doctorado">Doctorado</option>
                                     </select>
-                                    <select id="tipo-cargo" name="tipo-cargo" disabled >
+                                    <select id="tipo-cargo" name="cargo" disabled >
                                         <option value="" disabled selected>cargo</option>
                                         <option value="Administrativo">Administrativo</option>
                                         <option value="Directivo">Directivo</option>

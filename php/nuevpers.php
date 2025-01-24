@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $direccion = strtoupper($_POST['direccion'] ?? '');
     $fechingreso = date('Y-m-d');
 
-    $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo_persona, tipo_carrera, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, carrera, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $fechingreso);
 
     if ($stmt->execute()) {
