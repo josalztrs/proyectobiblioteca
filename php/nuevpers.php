@@ -15,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtoupper($_POST['email'] ?? '');
     $direccion = strtoupper($_POST['direccion'] ?? '');
     $fechingreso = date('Y-m-d');
-    $cargo = strtoupper($_POST['cargo'] ?? '');
+    $cargo = strtoupper($_POST['tipo-cargo'] ?? '');
+
+
     if ($tipo_persona == 'INTERNO') {
         $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, telefono, correo, direccion, fechingreso, cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $telefono, $email, $direccion, $fechingreso, $cargo);
