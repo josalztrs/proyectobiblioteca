@@ -15,19 +15,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtoupper($_POST['email'] ?? '');
     $direccion = strtoupper($_POST['direccion'] ?? '');
     $fechingreso = date('Y-m-d');
+    $cargo = strtoupper($_POST['cargo'] ?? '');
+    if ($tipo_persona == 'INTERNO') {
+        $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, telefono, correo, direccion, fechingreso, cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $telefono, $email, $direccion, $fechingreso, $cargo);
+        if ($stmt->execute()) {
 
-    $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, carrera, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $fechingreso);
+            header("Location: ../html/Personas.php");
+            exit();
+        } else {
+            echo 'Query failed: ' . $stmt->error;
+        }
+    
+        $stmt->close();
+        $conn->close();
+    }
+    if($tipo_persona == 'ESTUDIANTE') {
+        $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, carrera, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $fechingreso);
+        if ($stmt->execute()) {
 
-    if ($stmt->execute()) {
+            header("Location: ../html/Personas.php");
+            exit();
+        } else {
+            echo 'Query failed: ' . $stmt->error;
+        }
+    
+        $stmt->close();
+        $conn->close();
+    }
+    if($tipo_persona=='EXTERNO'){
+        $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('sssssss', $cedula, $nombre, $tipo_persona, $telefono, $email, $direccion, $fechingreso);
+        if ($stmt->execute()) {
 
-        header("Location: ../html/Personas.php");
-        exit();
-    } else {
-        echo 'Query failed: ' . $stmt->error;
+            header("Location: ../html/Personas.php");
+            exit();
+        } else {
+            echo 'Query failed: ' . $stmt->error;
+        }
+    
+        $stmt->close();
+        $conn->close();
+
     }
 
-    $stmt->close();
-    $conn->close();
+
+
 }
 ?>
