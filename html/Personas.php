@@ -234,8 +234,8 @@ if ($result = $conn->query($query)) {
                             <th>Correo</th>
                             <th>Tipo</th>
                             <th>Carrera</th>
-                            <th>Direccion</th>
                             <th>Cargo</th>
+                            <th>Direccion</th>
                             <th>Fecha de Ingreso</th>
                             <th></th>
                         </tr>
@@ -250,8 +250,8 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($persona['correo']); ?></td>
                                 <td><?php echo htmlspecialchars($persona['tipo']); ?></td>
                                 <td><?php echo htmlspecialchars($persona['carrera']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['direccion']); ?></td>
                                 <td><?php echo htmlspecialchars($persona['cargo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['direccion']); ?></td>
                                 <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
