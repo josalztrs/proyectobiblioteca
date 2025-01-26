@@ -139,7 +139,7 @@ if ($result = $conn->query($query)) {
 
                                 <select id="edit-carrera" name="edit-carrera" disabled >
                                     <option value="" disabled selected> Carrera</option>
-                                    <option value="ADMINISTRACION">Administracion</option>
+                                    <option value="ADMINISTRACION">Administración</option>
                                     <option value="ENFERMERIA">Enfermeria</option>
                                     <option value="ING CIVIL">Ing Civil</option>
                                     <option value="ING SISTEMAS">Ing Sistemas</option>                                   

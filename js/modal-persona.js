@@ -80,7 +80,7 @@ function toggleInput_Edit() {
     carreraSelect.value = '';
     cargoSelect.value = '';
 
-    // Verificar la opción seleccionada
+    // Verificar  opción seleccionada
     if (tipoSelect.value === 'ESTUDIANTE') {
         carreraSelect.disabled = false; 
     } else if (tipoSelect.value === 'INTERNO') {
