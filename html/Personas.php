@@ -130,7 +130,7 @@ if ($result = $conn->query($query)) {
                             <label for="">Nombres</label>
                             <input type="text" id="edit-nombres" name="edit-nombres" placeholder="Nombre Completo">
                             <section class="section-A">                                    
-                                <select id="edit-tipo" name="edit-tipo" onchange="toggleInput()">
+                                <select id="edit-tipo" name="edit-tipo" onchange="toggleInput_Edit()">
                                     <option value="" disabled selected>Tipo</option>
                                     <option value="ESTUDIANTE">Estudiante</option>
                                     <option value="INTERNO">Interno</option>

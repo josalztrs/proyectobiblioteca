@@ -67,6 +67,27 @@ function toggleInput() {
     }
 }
 
+function toggleInput_Edit() {
+    const tipoSelect = document.getElementById('edit-tipo');
+    const carreraSelect = document.getElementById('edit-carrera');
+    const cargoSelect = document.getElementById('edit-cargo');
+
+    // Deshabilitar ambos selects al inicio
+    carreraSelect.disabled = true;
+    cargoSelect.disabled = true;
+
+    // Limpiar los valores de los selects
+    carreraSelect.value = '';
+    cargoSelect.value = '';
+
+    // Verificar la opción seleccionada
+    if (tipoSelect.value === 'ESTUDIANTE') {
+        carreraSelect.disabled = false; 
+    } else if (tipoSelect.value === 'INTERNO') {
+        cargoSelect.disabled = false; 
+    } 
+}
+
 function ValidarNumeros(event){
     let charCode  = (event.which) ?event.which : event.keyCode;
         if(charCode <48 || charCode > 57){
