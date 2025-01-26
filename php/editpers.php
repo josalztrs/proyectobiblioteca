@@ -16,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $direccion = strtoupper($_POST['edit-direccion'] ?? '');
     
     if($tipo_cargo==""){
-        $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, carrera = ?, telefono = ?, correo = ?, direccion = ? WHERE cedula = ?");
-        $stmt->bind_param('sssssss', $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $cedula);
+        $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, carrera = ?, telefono = ?, correo = ?, direccion = ?, cargo = ? WHERE cedula = ?");
+        $stmt->bind_param('ssssssss', $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $cedula, $tipo_cargo);
         if ($stmt->execute()) {
             header("Location: ../html/Personas.php");
             exit();
@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
     }
     else if ($tipo_carrera==""){
-        $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, cargo = ?, telefono = ?, correo = ?, direccion = ? WHERE cedula = ?");
-        $stmt->bind_param('sssssss', $nombre, $tipo_persona, $tipo_cargo, $telefono, $email, $direccion, $cedula);
+        $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, cargo = ?, telefono = ?, correo = ?, direccion = ?, carrera = ? WHERE cedula = ?");
+        $stmt->bind_param('ssssssss', $nombre, $tipo_persona, $tipo_cargo, $telefono, $email, $direccion, $cedula, $tipo_carrera);
         if ($stmt->execute()) {
             header("Location: ../html/Personas.php");
             exit();
