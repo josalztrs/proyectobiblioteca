@@ -15,11 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtoupper($_POST['edit-email'] ?? '');
     $direccion = strtoupper($_POST['edit-direccion'] ?? '');
 
+    
+    
     $stmt = $conn->prepare("UPDATE personas SET nombre = ?, tipo = ?, carrera = ?, telefono = ?, correo = ?, direccion = ?, cargo = ? WHERE cedula = ?");
     $stmt->bind_param('ssssssss', $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $tipo_cargo, $cedula);
 
     if ($stmt->execute()) {
-        // Redirect to the Personas page after successful insertion
         header("Location: ../html/Personas.php");
         exit();
     } else {

@@ -126,18 +126,18 @@ if ($result = $conn->query($query)) {
                     <form action="../php/editpers.php" method="POST" class="form-Persona">    
                         <section>
                             <label for="">Cedula</label>
-                            <input type="text" id="edit-cedula" placeholder="12345687">
+                            <input type="text" id="edit-cedula" name="edit-cedula" placeholder="12345687">
                             <label for="">Nombres</label>
-                            <input type="text" id="edit-nombres" placeholder="Nombre Completo">
+                            <input type="text" id="edit-nombres" name="edit-nombres" placeholder="Nombre Completo">
                             <section class="section-A">                                    
-                                <select id="edit-tipo" name="editar-tipo" onchange="toggleInput()">
+                                <select id="edit-tipo" name="edit-tipo" onchange="toggleInput()">
                                     <option value="" disabled selected>Tipo</option>
                                     <option value="ESTUDIANTE">Estudiante</option>
                                     <option value="INTERNO">Interno</option>
                                     <option value="EXTERNO">Externo</option>
                                 </select>
 
-                                <select id="edit-carrera" name="editar-carrera" disabled >
+                                <select id="edit-carrera" name="edit-carrera" disabled >
                                     <option value="" disabled selected> Carrera</option>
                                     <option value="ADMINISTRACION">Administracion</option>
                                     <option value="ENFERMERIA">Enfermeria</option>
@@ -149,7 +149,7 @@ if ($result = $conn->query($query)) {
                                     <option value="DOCTORADO">Doctorado</option>
                                 </select>
 
-                                <select id="edit-cargo" name="editar-cargo" disabled >
+                                <select id="edit-cargo" name="edit-cargo" disabled >
                                     <option value="" disabled selected>cargo</option>
                                     <option value="ADMINISTRATIVO">Administrativo</option>
                                     <option value="DIRECTIVO">Directivo</option>
@@ -159,11 +159,11 @@ if ($result = $conn->query($query)) {
 
                             </section>
                             <label for="">Telefono</label>
-                            <input type="text" id="edit-telefono" placeholder="Telf">
+                            <input type="text" id="edit-telefono" name="edit-telefono" placeholder="Telf">
                             <label for="">Email</label>
-                            <input type="email" id="edit-email" placeholder="email">
+                            <input type="email" id="edit-email" name="edit-email" placeholder="email">
                             <label for="">Direccion</label>
-                            <input type="text" id="edit-direccion" placeholder="Direccion">
+                            <input type="text" id="edit-direccion" name="edit-direccion" placeholder="Direccion">
                         </section>
                         <div class="btn">
                             <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->
@@ -179,7 +179,6 @@ if ($result = $conn->query($query)) {
             <div class="modal_container-Delet">
                 <form action="../php/elimpers.php" method="POST">                   
                 <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
-                <input type="hidden" name="id" id="delete-id">
                 <div class="btn">
                     <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
                     <button type="submit">Confirmar</button>
@@ -216,8 +215,8 @@ if ($result = $conn->query($query)) {
                 </section>
 
                 <section class="contend-PDf">
-                    <button class="btn-descargar" title="Descargar" type="button">
-                        <span class="btn-span">Exportar Registros</span> <!---->
+                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_personas.php', '_blank')">
+                        <span class="btn-span">Exportar Registros</span>
                         <i class="fa-solid fa-file-pdf"></i>                    
                     </button> 
                 </section>
