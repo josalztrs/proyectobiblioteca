@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log(data[5].textContent);
         document.getElementById('edit-tipo').value = data[5].textContent;
+
+        
         if(document.getElementById('edit-tipo').value == 'ESTUDIANTE'){
             document.getElementById('edit-carrera').disabled = false;
             console.log(data[6].textContent);
