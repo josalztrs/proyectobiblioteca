@@ -98,11 +98,11 @@ if ($result = $conn->query($query)) {
                                 </section>
 
                             <label for="">Telefono</label>
-                            <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required>
+                            <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required  maxlength="11" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Email</label>
                             <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
                             <label for="">Direccion</label>
-                            <input type="text" name='direccion' placeholder="Direccion" required>                                
+                            <input type="text" name='direccion' placeholder="Direccion" required maxlength="30">                                
                         </section>
 
                         <div class="btn">
@@ -159,11 +159,11 @@ if ($result = $conn->query($query)) {
 
                             </section>
                             <label for="">Telefono</label>
-                            <input type="text" id="edit-telefono" name="edit-telefono" placeholder="Telf">
+                            <input type="text" id="edit-telefono" name="edit-telefono" placeholder="Telf" maxlength="11" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Email</label>
                             <input type="email" id="edit-email" name="edit-email" placeholder="email">
                             <label for="">Direccion</label>
-                            <input type="text" id="edit-direccion" name="edit-direccion" placeholder="Direccion">
+                            <input type="text" id="edit-direccion" name="edit-direccion" placeholder="Direccion" maxlength="30">
                         </section>
                         <div class="btn">
                             <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->

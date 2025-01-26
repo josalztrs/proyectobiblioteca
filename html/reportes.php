@@ -33,46 +33,53 @@
         </div>
     </div>
 
-    <main id="main-repo">
-        <div class="contenedor-repor">
-            <div class="card-reportes">
-                <div class="card-contendReport">
+    <main>
+        <div class="main-rep">
+            <div class="conten-repor">
+                <div class="card-report">
+                    <div class="card-contendReport">
 
-                    <div class="card-sectionPrest">
-                        <a href="#" >
-                            <i class="fa-brands fa-leanpub" title="Libros Prestados"></i>
-                            <h4>Libros Prestados</h4>
-                        </a>
+                        <div class="card-sectionPrest">
+                            <a href="#" >
+                                <i class="fa-brands fa-leanpub" title="Libros Prestados"></i>
+                                <h4>Libros Prestados</h4>
+                            </a>
+
+                        </div>
 
                     </div>
 
-                </div>
+                    <div class="card-contendReport">
 
-                <div class="card-contendReport">
+                        <div class="card-sectionPrest">
+                            <a href="#">
+                                <!-- <i class="fa-solid fa-users" title="Personas Morosas"></i> -->
+                                <i class="fa-solid fa-face-angry"></i>
+                                <h4>Personas Morosas</h4>
+                            </a>
+                        </div>
 
-                    <div class="card-sectionPrest">
-                        <a href="#">
-                             <i class="fa-solid fa-users" title="Personas Morosas"></i>
-                            <h4>Personas Morosas</h4>
-                        </a>
                     </div>
-
                 </div>
             </div>
-        </div>
-        <div class="contenedor-reportes">
-            <div class="consulta"> <!--Bloque para consultar los datos de la poblacion-->
-                <section class="seccion-consulta">
-                    <p>Biblioteca Luis Beltran Prieto Figueroa</p>
-                    <p id="Tconsul">Consultar Persona</p>
-                </section>
-            <br>
-            <hr id="hr2">
-                <section class="seccion-buscar" id="seccion-buscar" >
-                    <input type="text"  placeholder="ingresa la cedula"  id="CEDULA" name="CEDULA" maxlength="9" onkeypress = "return ValidarNumeros(event)">
-                    <button onclick="buscarCedula()">Buscar</button>
-                </section>
             
+            <div class="contenedor-reportes">
+                <div class="consulta"> <!-- Bloque para consultar los datos de la población -->
+                    <section class="seccion-consulta">
+                        <p class="titulo-biblioteca">Biblioteca Luis Beltran Prieto Figueroa</p>
+                        <div class="hrCenter"><hr></div>
+                        <p id="Tconsul">Consultar Persona</p>
+                    </section>
+
+                    <section class="seccion-buscar" id="seccion-buscar">
+                        <input type="text" placeholder="Ingresa la cédula" id="CEDULA" name="CEDULA" maxlength="9" onkeypress="return ValidarNumeros(event)">
+                        <button onclick="buscarCedula()">Buscar</button>
+                    </section>
+
+                    <section class="seccion-resultados" id="seccion-resultados">
+                        <p id="resultado-consulta">Aquí aparecerán los datos consultados.</p>
+                    </section>
+                </div>
             </div>
         </div>
     </main>
