@@ -9,6 +9,11 @@ $pdf = new PDF('L', 'mm', 'a4');
 
 $pdf->AliasNbPages();
 $pdf->AddPage();
+
+$pdf->SetFont('Arial', 'B', 15);
+$pdf->Cell(0, 10, 'LISTADO DE PERSONAS REGISTRADAS EN EL SISTEMA', 0, 1, 'C');
+$pdf->Ln(5);
+
 $pdf->SetFont('Arial', 'B', 10);
 
 $pdf->SetFillColor(27, 40, 69);
@@ -30,17 +35,17 @@ while ($row = $resultado->fetch_assoc()){
     $pdf->SetFillColor(288,288,288);
     $pdf->Ln();
     $pdf->Cell(10, 10, $row["id"], 1, 0, 'C', 1);
-    $pdf->Cell(50, 10, $row['nombre'], 1, 0, 'C', 1);   
-    $pdf->Cell(20, 10, $row['cedula'], 1, 0, 'C', 1);
-    $pdf->Cell(20, 10, $row['telefono'], 1, 0, 'C', 1);
+    $pdf->Cell(50, 10, iconv('UTF-8', 'ISO-8859-1', $row['nombre']), 1, 0, 'C', 1);   
+    $pdf->Cell(20, 10, iconv('UTF-8', 'ISO-8859-1', $row['cedula']), 1, 0, 'C', 1);
+    $pdf->Cell(20, 10, iconv('UTF-8', 'ISO-8859-1', $row['telefono']), 1, 0, 'C', 1);
     $pdf->SetFont('Arial', '', 8);
-    $pdf->Cell(60, 10, $row['correo'], 1, 0, 'C', 1);
+    $pdf->Cell(60, 10, iconv('UTF-8', 'ISO-8859-1', $row['correo']), 1, 0, 'C', 1);
     $pdf->SetFont('Arial', '', 8);
-    $pdf->Cell(20, 10, $row['tipo'], 1, 0, 'C', 1);
-    $pdf->Cell(20, 10, $row['cargo'], 1, 0, 'C', 1);    
-    $pdf->Cell(25, 10, $row['carrera'], 1, 0, 'C', 1);
-    $pdf->Cell(55, 10, $row['direccion'], 1, 0, 'C', 1);
+    $pdf->Cell(20, 10, iconv('UTF-8', 'ISO-8859-1', $row['tipo']), 1, 0, 'C', 1);
+    $pdf->Cell(20, 10, iconv('UTF-8', 'ISO-8859-1', $row['cargo']), 1, 0, 'C', 1);    
+    $pdf->Cell(25, 10, iconv('UTF-8', 'ISO-8859-1', $row['carrera']), 1, 0, 'C', 1);
+    $pdf->Cell(55, 10, iconv('UTF-8', 'ISO-8859-1', $row['direccion']), 1, 0, 'C', 1);
 
 }
-$pdf->Output('I', 'Prueba.pdf');
+$pdf->Output('I', 'ListadoPersonas.pdf');
 ?>

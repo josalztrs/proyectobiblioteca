@@ -39,7 +39,7 @@ if ($result = $conn->query($querydos)) {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
-    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/editlib.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
@@ -112,7 +112,7 @@ if ($result = $conn->query($querydos)) {
            
      
         <!-- Modal de editar -->
-        <section class="modal" id="modal-edit-lib">
+        <section class="modal" id="modal-edit">
             <div class="modal_container">
                 <section class="modal-header">
                     <h2 class="modal_title"> Editando Persona</h2>
@@ -191,7 +191,7 @@ if ($result = $conn->query($querydos)) {
                 </section>
 
                 <section class="contend-PDf">
-                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_personas.php', '_blank')">
+                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_libros.php', '_blank')">
                         <span class="btn-span">Exportar Registros</span>
                         <i class="fa-solid fa-file-pdf"></i>                    
                     </button> 
