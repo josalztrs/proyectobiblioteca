@@ -120,6 +120,7 @@ if ($result = $conn->query($querydos)) {
                 <section class="modal-body">
                     <form action="../php/editlib.php" method="POST" class="form-Persona">    
                         <section>
+                            <input type="hidden" id="edit-id">
                             <label for="">Cota</label>
                             <input type="text" name='edit-cota' id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
                             <label for="">Titulo</label>

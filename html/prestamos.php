@@ -46,7 +46,7 @@
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevpers.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevprest.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
                             <label for="">Cedula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>

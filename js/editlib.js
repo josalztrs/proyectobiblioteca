@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const filldata = (data) => {
+        console.log(data[0].textContent);
+        document.getElementById('edit-id').value = data[0].textContent;
         console.log(data[1].textContent);
         document.getElementById('edit-cota').value = data[1].textContent;
         console.log(data[2].textContent);
