@@ -64,10 +64,17 @@ if ($result = $conn->query($querydos)) {
     </div>
 
     <main>
-        <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
-            <i class="fa-solid fa-plus"></i>
-            <span class="btn-text">Registrar Libros</span>
-        </button> 
+       <section class="botones">
+            <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
+                <i class="fa-solid fa-plus"></i>
+                <span class="btn-text">Registrar Libros</span>
+            </button> 
+            
+            <button class="btn-AgMat" type="button" title="r-materia" onclick="openModal_Materia()">
+                <i class="fa-regular fa-rectangle-list" title="Materias"></i>
+                <span >Agregar Materia</span>
+            </button>
+       </section>
 
      <!-- modal registrar -->
         <section class="modal "  id="modal">
@@ -109,7 +116,30 @@ if ($result = $conn->query($querydos)) {
                 </section>                                     
             </div>
         </section>
-           
+         
+     <!-- modal agregar materia -->
+        <section class="modal "  id="modal-RegisMat">
+            <div class="modal_container">  
+                <section class="modal-header">
+                    <h2 class="modal_title"> Registrando Materia</h2>
+                    <button class="modal_close" id="cancelar-AggMat"> <i class="fa-solid fa-xmark"></i></button>
+                </section>
+                    
+                <section class="modal-body">
+                    <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formPersona">    
+                        <section>
+                            <label for="">Nombre De La Materia</label>
+                            <input type="text" name='nombre' placeholder="Nombre">
+                        </section>
+
+                        <div class="btn">
+                            <button type="reset"  >Limpiar</button>
+                            <button type="submit">Registrar</button>
+                        </div>                            
+                    </form>
+                </section>                                     
+            </div>
+        </section>
      
         <!-- Modal de editar -->
         <section class="modal" id="modal-edit">
@@ -150,7 +180,8 @@ if ($result = $conn->query($querydos)) {
             </div>
         </section>
             
-     <!-- Modal Eliminar  -->
+     
+        <!-- Modal Eliminar  -->
         <section class="modal " id="modal-Delete">        
             <div class="modal_container-Delet">
                 <form action="../php/elimpers.php" method="POST">                   

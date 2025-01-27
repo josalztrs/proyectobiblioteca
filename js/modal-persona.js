@@ -106,7 +106,14 @@ function ValidarCedula(event) {
     }
 } 
 
-
-
+// Modal para agregar una materia 
+const modalMateria = document.getElementById('modal-RegisMat');
+function openModal_Materia() {
+    modalMateria.classList.add('modal--show');
+}
+document.getElementById('cancelar-AggMat').addEventListener('click', (e) => {
+    e.preventDefault();
+    modalMateria.classList.remove('modal--show');
+});
 
 
