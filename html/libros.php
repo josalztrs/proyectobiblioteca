@@ -58,16 +58,17 @@
                             <input type="text" name='autor' placeholder="editorial">
                             <label for="">Año de Edicion</label>
                             <input type="date" name='Anio de Edicion' placeholder="Año de Edicion">
-                                <section class="section-A">
-                                    <input type="text" id="filterInput" placeholder="Escribe para filtrar..."  oninput="filterOptions()">
-                                    <select id="tipo-materia" name="tipo-materia">
-                                        <option value="1">Fisica</option>
-                                        <option value="2">Quimica</option>
-                                        <option value="3">Lenguaje</option>
-                                    </select>
-                                </section>
-                                <label for="">Descripcion</label>
-                                <input type="text" name='descripcion' placeholder="Descripcion">
+                            <label for="">Materia</label>
+                            <input type="text" id="filterInput" placeholder="Escribe para filtrar..."  list="filterInp">
+                                <datalist id="filterInp">
+                                    <option value="Matematica"></option>
+                                    <option value="Fisica"></option>
+                                    <option value="Programacion"></option>
+                                    <option value="Lenguaje"></option>
+                                    <option value="Lengua"></option>
+                                </datalist>                                        
+                            <label for="">Descripcion</label>
+                            <input type="text" name='descripcion' placeholder="Descripcion">
                         </section>
 
                         <div class="btn">
