@@ -2,7 +2,11 @@
 <html lang="en">
 
 <?php
-include '../php/connection.php';
+if (file_exists('../php/connection.php')) {
+    require_once '../php/connection.php';
+} else {
+    die('Error: connection.php file not found.');
+}
 
 $prestamos = [];
 $query =    "SELECT DISTINCT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, 
