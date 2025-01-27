@@ -145,6 +145,7 @@ include '../php/connection.php';
         <script src="../js/graficos.js"></script>
     </main>
     <script src="../js/rotar-icono-menu.js"></script>
+    <script src="../js/pagina-hover.js"></script>
 </body>
 </html>
 
