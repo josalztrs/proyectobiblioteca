@@ -88,6 +88,7 @@ function toggleInput_Edit() {
     } 
 }
 
+// Validar que solo acepte la entrada de numeros
 function ValidarNumeros(event){
     let charCode  = (event.which) ?event.which : event.keyCode;
         if(charCode <48 || charCode > 57){
@@ -96,5 +97,9 @@ function ValidarNumeros(event){
         }
         return true;
    } 
+
+// select de agrega libros en el modal
+
+
 
 

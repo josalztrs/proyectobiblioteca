@@ -6,8 +6,11 @@
     <title>Libros</title>
     <link rel="stylesheet" href="../css/menu-lateral.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/graficas.css">
-    <link rel="stylesheet" href="../fontawasome/fontawesome-free-6.7.2-web/css/all.css">
+    <link rel="stylesheet" href="../css/pager.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/busquedadinamica.js"></script>
+    <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
 </head>
 <body id="body">
@@ -28,6 +31,213 @@
             </h1>
         </div>
     </div>
+
+    <main>
+        <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
+            <i class="fa-solid fa-plus"></i>
+            <span class="btn-text">Registrar Libros</span>
+        </button> 
+     <!-- modal registrar -->
+        <section class="modal "  id="modal">
+            <div class="modal_container">  
+                <section class="modal-header">
+                    <h2 class="modal_title"> Registrando Libro</h2>
+                    <button class="modal_close" id="cancelar"> <i class="fa-solid fa-xmark"></i></button>
+                </section>
+                    
+                <section class="modal-body">
+                    <form action="../php/nuevpers.php" method="POST" class="form-Persona" id="formPersona">    
+                        <section>
+                            <label for="">Cota</label>
+                            <input type="text" name='Cota' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" >
+                            <label for="">Titulo</label>
+                            <input type="text" name='autor' placeholder="Titulo  del libro">
+                            <label for="">Autor</label>
+                            <input type="text" name='autor' placeholder="autor del libro">
+                            <label for="">Editorial</label>
+                            <input type="text" name='autor' placeholder="editorial">
+                            <label for="">Año de Edicion</label>
+                            <input type="date" name='Anio de Edicion' placeholder="Año de Edicion">
+                                <section class="section-A">
+                                    <input type="text" id="filterInput" placeholder="Escribe para filtrar..."  oninput="filterOptions()">
+                                    <select id="tipo-materia" name="tipo-materia">
+                                        <option value="1">Fisica</option>
+                                        <option value="2">Quimica</option>
+                                        <option value="3">Lenguaje</option>
+                                    </select>
+                                </section>
+                                <label for="">Descripcion</label>
+                                <input type="text" name='descripcion' placeholder="Descripcion">
+                        </section>
+
+                        <div class="btn">
+                            <button type="reset"  >Limpiar</button>
+                            <button type="submit">Registrar</button>
+                        </div>                            
+                    </form>
+                </section>                                     
+            </div>
+        </section>
+           
+     <!-- Modal de editar -->
+        <section class="modal" id="modal-edit">
+            <div class="modal_container">
+                <section class="modal-header">
+                    <h2 class="modal_title"> Editando Persona</h2>
+                </section>                    
+                <section class="modal-body">
+                    <form action="../php/editpers.php" method="POST" class="form-Persona">    
+                        <section>
+                            <label for="">Cedula</label>
+                            <input type="text" id="edit-cedula" name="edit-cedula" placeholder="12345687">
+                            <label for="">Nombres</label>
+                            <input type="text" id="edit-nombres" name="edit-nombres" placeholder="Nombre Completo">
+                            <section class="section-A">                                    
+                                <select id="edit-tipo" name="edit-tipo" onchange="toggleInput()">
+                                    <option value="" disabled selected>Tipo</option>
+                                    <option value="ESTUDIANTE">Estudiante</option>
+                                    <option value="INTERNO">Interno</option>
+                                    <option value="EXTERNO">Externo</option>
+                                </select>
+
+                                <select id="edit-carrera" name="edit-carrera" disabled >
+                                    <option value="" disabled selected> Carrera</option>
+                                    <option value="ADMINISTRACION">Administracion</option>
+                                    <option value="ENFERMERIA">Enfermeria</option>
+                                    <option value="ING CIVIL">Ing Civil</option>
+                                    <option value="ING SISTEMAS">Ing Sistemas</option>                                   
+                                    <option value="TURISMO">Turismo</option>
+                                    <option value="MAESTRIA">Maestria</option>
+                                    <option value="POSTGRADO">Postgrado</option>
+                                    <option value="DOCTORADO">Doctorado</option>
+                                </select>
+
+                                <select id="edit-cargo" name="edit-cargo" disabled >
+                                    <option value="" disabled selected>cargo</option>
+                                    <option value="ADMINISTRATIVO">Administrativo</option>
+                                    <option value="DIRECTIVO">Directivo</option>
+                                    <option value="DOCENTE">Docente</option>
+                                    <option value="OBRERO">Obrero</option>                                    
+                                </select>
+
+                            </section>
+                            <label for="">Telefono</label>
+                            <input type="text" id="edit-telefono" name="edit-telefono" placeholder="Telf">
+                            <label for="">Email</label>
+                            <input type="email" id="edit-email" name="edit-email" placeholder="email">
+                            <label for="">Direccion</label>
+                            <input type="text" id="edit-direccion" name="edit-direccion" placeholder="Direccion">
+                        </section>
+                        <div class="btn">
+                            <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->
+                            <button type="submit">Guardar Cambios</button>
+                        </div>
+                    </form>
+                </section>                 
+            </div>
+        </section>
+            
+     <!-- Modal Eliminar  -->
+        <section class="modal " id="modal-Delete">        
+            <div class="modal_container-Delet">
+                <form action="../php/elimpers.php" method="POST">                   
+                <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
+                <div class="btn">
+                    <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
+                    <button type="submit">Confirmar</button>
+                </div>
+                </form>
+            </div>        
+        </section>
+
+        <div class="contend-tabla">            
+            <div  class="header-div">
+                <section class="buscar-tabla" >
+                    <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
+                    <input type="text" name="Buscar" placeholder="Buscar" id="Buscar" onkeyup="filterTable()">                
+                </section>
+
+                <section class="filter-paginator">
+                    <div class="row-selector">
+                        <label for="rows"> Mostrar:</label>
+                        <select id="rows" onchange="updateRows()">
+                            <option value="5">5 Filas</option>
+                            <option value="10">10 Filas</option>
+                            <option value="20">20 Filas</option>
+                        </select>
+                    </div>
+                        
+                    <section class="paginador">
+                        <div class="btn-pager">
+                            <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                            <span id="pageInfo" class="page-info"></span>
+                            <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </section>
+    
+                </section>
+
+                <section class="contend-PDf">
+                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_personas.php', '_blank')">
+                        <span class="btn-span">Exportar Registros</span>
+                        <i class="fa-solid fa-file-pdf"></i>                    
+                    </button> 
+                </section>
+            </div>
+            
+            <!-- tabla de registros -->
+            <section class="tabla-section">
+                <table class="tabla-A">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombres</th>
+                            <th>Cedula</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Tipo</th>
+                            <th>Carrera</th>
+                            <th>Direccion</th>
+                            <th>Cargo</th>
+                            <th>Fecha de Ingreso</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-B">
+                        <?php foreach ($personas as $index => $persona): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($persona['id']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['nombre']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['cedula']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['telefono']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['correo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['tipo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['carrera']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['direccion']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['cargo']); ?></td>
+                                <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
+                                <td>
+                                    <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Paginador -->
+            <section class="paginator-dos">
+                <div class="btn-pager">
+                <div class="btn-pager">
+                    <button id="prevPage" onclick="changePage(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="nextPage" onclick="changePage(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                </div>
+            </section> 
+        </div>
+        
+    </main>
 
     <script src="../js/mover_menu.js"></script>
     <script src="../js/pager.js"></script>

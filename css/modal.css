@@ -182,3 +182,14 @@ select {
     width: 100%;
     justify-content: space-evenly;
 }
+
+/* Modal de Agregar Libros */
+#filterInput{
+    margin-bottom: 10px;
+    padding: 5px;
+}
+/* #tipo-materia {
+    display: none; 
+    position: absolute; 
+    z-index: 1; 
+} */

@@ -66,7 +66,7 @@ if ($result = $conn->query($query)) {
                     <form action="../php/nuevpers.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
                             <label for="">Cedula</label>
-                            <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required maxlength="9" onkeypress = "return ValidarNumeros(event)">
+                            <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required maxlength="8" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Nombres</label>
                             <input type="text" name='nombre' placeholder="Nombre Completo">
                                 <section class="section-A">                                    
@@ -126,7 +126,7 @@ if ($result = $conn->query($query)) {
                     <form action="../php/editpers.php" method="POST" class="form-Persona">    
                         <section>
                             <label for="">Cedula</label>
-                            <input type="text" id="edit-cedula" name="edit-cedula" placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required maxlength="9" onkeypress = "return ValidarNumeros(event)">
+                            <input type="text" id="edit-cedula" name="edit-cedula" placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required maxlength="8" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Nombres</label>
                             <input type="text" id="edit-nombres" name="edit-nombres" placeholder="Nombre Completo">
                             <section class="section-A">                                    
