@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+include '../php/connection.php';
+
+$prestamos = [];
+$query = "SELECT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, personas.nombre AS persona_nombre, personas.cedula AS persona_cedula, libros.cota AS libro_titulo, libros.cota AS libro_cota FROM prestamos INNER JOIN personas ON prestamos.cedula = personas.cedula INNER JOIN libros ON prestamos.cota = libros.cota;";
+
+if ($result = $conn->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $prestamos[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
+}
+?>
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,31 +173,27 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Libros</th>
-                            <th>Persona</th>
-                            <th>Tipo</th>
+                            <th>Cota Del Libro</th>
+                            <th>Titulo</th>
+                            <th>C.I Persona</th>
+                            <th>Nombre</th>
                             <th>Fecha Prestamo</th>
                             <th>Fecha Devolucion</th>
-                            <th>cant</th>
-                            <th>Observacion</th>
                             <th>Estado</th>
-                            <!-- <th>Fecha de Ingreso</th> -->
                             <th></th>
                         </tr>
                     </thead>
                     <tbody id="tabla-B">
-                        <?php foreach ($personas as $index => $persona): ?>
+                        <?php foreach ($prestamos as $index => $prestamo): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($persona['id']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['nombre']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['cedula']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['telefono']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['correo']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['tipo']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['carrera']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['direccion']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['cargo']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['prestamo_id']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['libro_cota']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['libro_titulo']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['persona_cedula']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['persona_nombre']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['fecha_prestamo']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['fecha_entrega']); ?></td>
+                                <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                     <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
