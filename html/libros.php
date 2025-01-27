@@ -232,7 +232,7 @@ if ($result = $conn->query($querydos)) {
                                 <td><?php echo htmlspecialchars($libro['CPrest']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-toggle-on"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -257,7 +257,7 @@ if ($result = $conn->query($querydos)) {
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>
     <script src="../js/rotar-icono-menu.js"></script>
-    <script src="../js/pagina-hover.js"></script>
+    <!-- <script src="../js/pagina-hover.js"></script> -->
 
 </body>
 </html>
