@@ -46,12 +46,28 @@ include '../php/connection.php';
        <?php include "menu-lateral.php" ?>   
     </div>
     
-    <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
+   <script>
+        document.getElementById('notificaciones').addEventListener('click', function(event) {
+    event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+    const notificacionesList = document.getElementById('notificaciones-list');
+    notificacionesList.style.display = notificacionesList.style.display === 'block' ? 'none' : 'block';
+});
+
+// Cerrar la lista de notificaciones si se hace clic fuera de ella
+document.addEventListener('click', function(event) {
+    const notificacionesList = document.getElementById('notificaciones-list');
+    const notificacionesLink = document.getElementById('notificaciones');
+    if (!notificacionesLink.contains(event.target) && !notificacionesList.contains(event.target)) {
+        notificacionesList.style.display = 'none';
+    }
+});
+   </script>
+    
     <div class="titulo">
         <div>
             <h1>
                 <i class="fa-solid fa-gauge"></i>
-                Panel de Administracion
+                Panel de Administración
             </h1>
         </div>
     </div>
@@ -142,17 +158,12 @@ include '../php/connection.php';
                     <canvas id="mychart" ></canvas>
              </section>
         </div>
-        <script src="../js/graficos.js"></script>
+        
     </main>
     <script src="../js/rotar-icono-menu.js"></script>
+    <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
+    <script src="../js/graficos.js"></script>
+    <script src="../js/header.js"></script>
     <!-- <script src="../js/pagina-hover.js"></script> -->
 </body>
 </html>
-
-<!-- <i class="fa-solid fa-bars"></i> icono menu
-<i class="fa-solid fa-house" title="Inicio"></i> icono Inicio
-<i class="fa-solid fa-hourglass-half" title="Prestamos"></i> iconos Prestamos
-<i class="fa-solid fa-users" title="Personas"></i> iconos Personas
-<i class="fa-solid fa-book" title="Libros"></i> iconos Libros
-<i class="fa-regular fa-rectangle-list" title="Materias"></i> iconos Materias
-<i class="fa-regular fa-file" title="Reporte"></i> icono reporte -->

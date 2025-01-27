@@ -288,6 +288,7 @@ if ($result = $conn->query($querydos)) {
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>
     <script src="../js/rotar-icono-menu.js"></script>
+    <script src="../js/header.js"></script>
     <!-- <script src="../js/pagina-hover.js"></script> -->
 
 </body>

@@ -1,17 +1,19 @@
 .div-graficas{
+  margin-top: 40px;
   display: flex;
-  border: 1px solid black;
+  border: 1px solid blue;
+  height: 500px ;
 }
 
 .content-graficos{
     /* width: 40%; */
-    width: 400px;
-    height: 300px;
-    /* margin-top: 20px; */
+    width: 550px;
+    height: 380px;
+    margin-top: 20px;
     /* height: 200px; */
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 5px;
     background-color: #ffffff;
     /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); */

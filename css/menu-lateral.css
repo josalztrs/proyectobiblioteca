@@ -89,6 +89,38 @@ header > ul >li > a >i{
     color: #251b4b; 
     
 }
+.notificaciones-list {
+    display: none; 
+    position: absolute; 
+    background: white; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    list-style: none; 
+    padding: 20px; 
+    margin-top: 10px; 
+    z-index: 100; 
+    /* border: 1px solid black; */
+}
+.notificaciones-list::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent; 
+    border-bottom: 10px solid white; 
+    position: absolute;
+    top: -10px; 
+    left: 10px; 
+}
+.notificaciones-list li {
+    padding: 5px 10px; 
+    margin-bottom: 5px;
+}
+
+.notificaciones-list li:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Efecto hover */
+}
+
 
 /* menu lateral plegable */
 .menu__lateral{
