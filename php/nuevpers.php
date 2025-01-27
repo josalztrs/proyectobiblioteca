@@ -17,6 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fechingreso = date('Y-m-d');
     $cargo = strtoupper($_POST['tipo-cargo'] ?? '');
 
+    $query = "SELECT COUNT(*) as count FROM personas WHERE cedula = ?";
+                            $stmt = $conn->prepare($query);
+                            $stmt->bind_param("s", $cedula);
+                            $stmt->execute();
+                            $result = $stmt->get_result();
+                            $row = $result->fetch_assoc();
+
+                            if ($row['count'] > 0) {
+                                echo "<script>alert('La cédula ya está registrada.');</script>";
+                                echo "<script>window.history.back();</script>";
+                                exit;
+                            }
 
     if ($tipo_persona == 'INTERNO') {
         $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, telefono, correo, direccion, fechingreso, cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");

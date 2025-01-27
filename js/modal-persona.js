@@ -98,7 +98,14 @@ function ValidarNumeros(event){
         return true;
    } 
 
-// select de agrega libros en el modal
+function ValidarCedula(event) {
+    let charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode < 48 || charCode > 57) {
+        event.preventDefault();
+        return false;
+    }
+} 
+
 
 
 

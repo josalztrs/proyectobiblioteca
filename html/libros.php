@@ -1,5 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+include '../php/connection.php';
+
+$libros = [];
+$query = "SELECT libros.*, materia.nombremateria, 
+          SUM(CASE WHEN libros.estado = 'EN STOCK' THEN 1 ELSE 0 END) AS CTotal, 
+          SUM(CASE WHEN libros.estado = 'PRESTADO' THEN 1 ELSE 0 END) AS CPrest 
+          FROM libros 
+          INNER JOIN materia ON libros.materia = materia.id 
+          GROUP BY libros.cota, libros.anio_edic";
+
+if ($result = $conn->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $libros[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
+}
+
+$materias = [];
+$querydos = "SELECT * FROM materia";
+if ($result = $conn->query($querydos)) {
+    while ($row = $result->fetch_assoc()) {
+        $materias[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +39,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
-    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/editlib.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
@@ -37,6 +68,7 @@
             <i class="fa-solid fa-plus"></i>
             <span class="btn-text">Registrar Libros</span>
         </button> 
+
      <!-- modal registrar -->
         <section class="modal "  id="modal">
             <div class="modal_container">  
@@ -46,27 +78,25 @@
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevpers.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
                             <label for="">Cota</label>
-                            <input type="text" name='Cota' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" >
+                            <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
                             <label for="">Titulo</label>
-                            <input type="text" name='autor' placeholder="Titulo  del libro">
+                            <input type="text" name='titulo' placeholder="Titulo  del libro">
                             <label for="">Autor</label>
                             <input type="text" name='autor' placeholder="autor del libro">
                             <label for="">Editorial</label>
-                            <input type="text" name='autor' placeholder="editorial">
+                            <input type="text" name='editorial' placeholder="editorial">
                             <label for="">Año de Edicion</label>
-                            <input type="date" name='Anio de Edicion' placeholder="Año de Edicion">
+                            <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>">
                             <label for="">Materia</label>
-                            <input type="text" id="filterInput" placeholder="Escribe para filtrar..."  list="filterInp">
-                                <datalist id="filterInp">
-                                    <option value="Matematica"></option>
-                                    <option value="Fisica"></option>
-                                    <option value="Programacion"></option>
-                                    <option value="Lenguaje"></option>
-                                    <option value="Lengua"></option>
-                                </datalist>                                        
+                            <select name="materia">
+                                <option value="" disabled selected>Seleccione una materia</option>
+                                <?php foreach ($materias as $materia): ?>
+                                    <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                <?php endforeach; ?>
+                            </select>
                             <label for="">Descripcion</label>
                             <input type="text" name='descripcion' placeholder="Descripcion">
                         </section>
@@ -80,54 +110,35 @@
             </div>
         </section>
            
-     <!-- Modal de editar -->
+     
+        <!-- Modal de editar -->
         <section class="modal" id="modal-edit">
             <div class="modal_container">
                 <section class="modal-header">
                     <h2 class="modal_title"> Editando Persona</h2>
                 </section>                    
                 <section class="modal-body">
-                    <form action="../php/editpers.php" method="POST" class="form-Persona">    
+                    <form action="../php/editlib.php" method="POST" class="form-Persona">    
                         <section>
-                            <label for="">Cedula</label>
-                            <input type="text" id="edit-cedula" name="edit-cedula" placeholder="12345687">
-                            <label for="">Nombres</label>
-                            <input type="text" id="edit-nombres" name="edit-nombres" placeholder="Nombre Completo">
-                            <section class="section-A">                                    
-                                <select id="edit-tipo" name="edit-tipo" onchange="toggleInput()">
-                                    <option value="" disabled selected>Tipo</option>
-                                    <option value="ESTUDIANTE">Estudiante</option>
-                                    <option value="INTERNO">Interno</option>
-                                    <option value="EXTERNO">Externo</option>
-                                </select>
-
-                                <select id="edit-carrera" name="edit-carrera" disabled >
-                                    <option value="" disabled selected> Carrera</option>
-                                    <option value="ADMINISTRACION">Administracion</option>
-                                    <option value="ENFERMERIA">Enfermeria</option>
-                                    <option value="ING CIVIL">Ing Civil</option>
-                                    <option value="ING SISTEMAS">Ing Sistemas</option>                                   
-                                    <option value="TURISMO">Turismo</option>
-                                    <option value="MAESTRIA">Maestria</option>
-                                    <option value="POSTGRADO">Postgrado</option>
-                                    <option value="DOCTORADO">Doctorado</option>
-                                </select>
-
-                                <select id="edit-cargo" name="edit-cargo" disabled >
-                                    <option value="" disabled selected>cargo</option>
-                                    <option value="ADMINISTRATIVO">Administrativo</option>
-                                    <option value="DIRECTIVO">Directivo</option>
-                                    <option value="DOCENTE">Docente</option>
-                                    <option value="OBRERO">Obrero</option>                                    
-                                </select>
-
-                            </section>
-                            <label for="">Telefono</label>
-                            <input type="text" id="edit-telefono" name="edit-telefono" placeholder="Telf">
-                            <label for="">Email</label>
-                            <input type="email" id="edit-email" name="edit-email" placeholder="email">
-                            <label for="">Direccion</label>
-                            <input type="text" id="edit-direccion" name="edit-direccion" placeholder="Direccion">
+                            <label for="">Cota</label>
+                            <input type="text" name='edit-cota' id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
+                            <label for="">Titulo</label>
+                            <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro">
+                            <label for="">Autor</label>
+                            <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro">
+                            <label for="">Editorial</label>
+                            <input type="text" name='edit-editorial' id ='edit-editorial' placeholder="editorial">
+                            <label for="">Año de Edicion</label>
+                            <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>">
+                            <label for="">Materia</label>
+                            <select name="edit-materia" id="edit-materia">
+                                <option value="" disabled selected>Seleccione una materia</option>
+                                <?php foreach ($materias as $materia): ?>
+                                    <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label for="">Descripcion</label>
+                            <input type="text" name='edit-descripcion' id='edit-descripcion' placeholder="Descripcion">
                         </section>
                         <div class="btn">
                             <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->
@@ -151,7 +162,8 @@
             </div>        
         </section>
 
-        <div class="contend-tabla">            
+        <!-- Tabla de Libros  -->
+    <div class="contend-tabla">            
             <div  class="header-div">
                 <section class="buscar-tabla" >
                     <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
@@ -179,7 +191,7 @@
                 </section>
 
                 <section class="contend-PDf">
-                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_personas.php', '_blank')">
+                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_libros.php', '_blank')">
                         <span class="btn-span">Exportar Registros</span>
                         <i class="fa-solid fa-file-pdf"></i>                    
                     </button> 
@@ -191,32 +203,32 @@
                 <table class="tabla-A">
                     <thead>
                         <tr>
-                            <th>Codigo</th>
-                            <th>Nombres</th>
-                            <th>Cedula</th>
-                            <th>Telefono</th>
-                            <th>Correo</th>
-                            <th>Tipo</th>
-                            <th>Carrera</th>
-                            <th>Direccion</th>
-                            <th>Cargo</th>
-                            <th>Fecha de Ingreso</th>
+                            <th>ID</th>
+                            <th>Cota</th>
+                            <th>Titulo</th>
+                            <th>Autor</th>
+                            <th>Editorial</th>
+                            <th>Año de Edicion</th>
+                            <th>Materia</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad Total</th>
+                            <th>Cantidad Prestados</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody id="tabla-B">
-                        <?php foreach ($personas as $index => $persona): ?>
+                        <?php foreach ($libros as $index => $libro): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($persona['id']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['nombre']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['cedula']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['telefono']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['correo']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['tipo']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['carrera']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['direccion']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['cargo']); ?></td>
-                                <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['id']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['cota']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['titulo']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['autor']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['editorial']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['anio_edic']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['nombremateria']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['descripcion']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['CTotal']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['CPrest']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                     <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-trash-can"></i></button>

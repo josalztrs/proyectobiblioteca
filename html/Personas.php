@@ -67,6 +67,7 @@ if ($result = $conn->query($query)) {
                         <section>
                             <label for="">Cedula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required maxlength="8" onkeypress = "return ValidarNumeros(event)">
+
                             <label for="">Nombres</label>
                             <input type="text" name='nombre' placeholder="Nombre Completo">
                                 <section class="section-A">                                    
