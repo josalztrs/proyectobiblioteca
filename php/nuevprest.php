@@ -8,10 +8,11 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['cedula'] ?? '';
     $cota = $_POST['cota'] ?? '';
-    $fechaPrest = $_POST['fechaPrest'] ?? date('Y-m-d');
-    $fechaDev = date('Y-m-d', strtotime('+ 3 days'));
+    $fechaPrest = $_POST['fecha_prest'] ?? '';
+    $fechaDev = $_POST['fecha_ent'] ?? '';
 
-    $query = "INSERT INTO prestamos (cedula, cota, fechaPrest, fechaDev) VALUES (?, ?, ?, ?)";
+
+    $query = "INSERT INTO prestamos (cedula, cota, fecha_prestamo, fecha_entrega) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('ssss', $cedula, $cota, $fechaPrest, $fechaDev);
     if ($stmt->execute()) {

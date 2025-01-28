@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if(data[5].textContent == 'INTERNO'){
             document.getElementById('edit-carrera').disabled = true;
             document.getElementById('edit-cargo').disabled = false;
-            console.log(data[8].textContent);
-            document.getElementById('edit-cargo').value = data[8].textContent;            
+            console.log(data[7].textContent);
+            document.getElementById('edit-cargo').value = data[7].textContent;            
             document.getElementById('edit-carrera').value = "";   
         }
 
-        console.log(data[7].textContent);
-        document.getElementById('edit-direccion').value = data[7].textContent;
+        console.log(data[8].textContent);
+        document.getElementById('edit-direccion').value = data[8].textContent;
 
     }
 });
