@@ -14,5 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const filldata = (data) => {
+        console.log(data[3]);
+        document.getElementById('edit-cedula').value = data[3].textContent;
+        console.log(data[1]);
+        document.getElementById('edit-cota').value = data[1].textContent;
+        console.log([5]);
+        document.getElementById('edit-fecha_prest').value = data[5].textContent;
+        console.log([6]);
+        document.getElementById('edit-fecha_ent').value = data[6].textContent;
     }
 });
