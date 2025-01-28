@@ -2,10 +2,18 @@
 <html lang="en">
 
 <?php
-include '../php/connection.php';
+if (file_exists('../php/connection.php')) {
+    require_once '../php/connection.php';
+} else {
+    die('Error: connection.php file not found.');
+}
 
 $prestamos = [];
-$query = "SELECT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, personas.nombre AS persona_nombre, personas.cedula AS persona_cedula, libros.cota AS libro_titulo, libros.cota AS libro_cota FROM prestamos INNER JOIN personas ON prestamos.cedula = personas.cedula INNER JOIN libros ON prestamos.cota = libros.cota;";
+$query =    "SELECT DISTINCT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, 
+            personas.nombre AS persona_nombre, personas.cedula AS persona_cedula, libros.titulo AS libro_titulo, 
+            libros.cota AS libro_cota FROM prestamos 
+            INNER JOIN personas ON prestamos.cedula = personas.cedula 
+            INNER JOIN libros ON prestamos.cota = libros.cota;";
 
 if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {

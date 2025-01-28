@@ -127,10 +127,10 @@ if ($result = $conn->query($querydos)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevmat.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
                             <label for="">Nombre De La Materia</label>
-                            <input type="text" name='nombre' placeholder="Nombre">
+                            <input type="text" name='nombre_materia' placeholder="Nombre">
                         </section>
 
                         <div class="btn">
