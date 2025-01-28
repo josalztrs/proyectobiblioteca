@@ -1,11 +1,21 @@
 const  openModal = document.querySelector('.btn-agregar');
 const  modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal_close');
-// const formPersona = document.getElementById('formPersona'); // Referencia al formulario
+const fechaPrestamo = document.getElementById('fechaPrestamo');
 
 openModal.addEventListener('click', (e)=>{
     e.preventDefault();
     modal.classList.add('modal--show');
+
+    // Obtener la fecha actual en formato YYYY-MM-DD
+    const today = new Date().toISOString().split('T')[0];
+    fechaPrestamo.value = today;
+
+    // Calcular la fecha de entrega sumando 3 días
+    const entregaDate = new Date();
+    entregaDate.setDate(entregaDate.getDate() + 3); // Sumar 3 días
+    const entregaDateString = entregaDate.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+    fechaEntrega.value = entregaDateString; 
 });
 
 closeModal.addEventListener('click', (e)=>{

@@ -39,6 +39,7 @@ if ($result = $conn->query($querydos)) {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/header.css">
     <script src="../js/editlib.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">

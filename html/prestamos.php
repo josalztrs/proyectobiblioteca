@@ -27,6 +27,7 @@ if ($result = $conn->query($query)) {
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/header.css">
     <script src="../js/cargadatosedit.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
@@ -69,55 +70,23 @@ if ($result = $conn->query($query)) {
                         <section>
                             <label for="">Cedula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
-                            <label for="">Nombres</label>
-                            <input type="text" name='nombre' placeholder="Nombre Completo">
-                                <section class="section-A">                                    
-                                    <select id="tipo-persona" name="tipo-persona" onchange="toggleInput()">
-                                        <option value="" disabled selected>Tipo</option>
-                                        <option value="estudiante">Estudiante</option>
-                                        <option value="interno">Interno</option>
-                                        <option value="externo">Externo</option>
-                                    </select>
-                                    <select id="tipo-carrera" name="tipo-carrera" disabled >
-                                        <option value="" disabled selected> Carrera</option>
-                                        <option value="Administracion">Administracion</option>
-                                        <option value="Enfermeria">Enfermeria</option>
-                                        <option value="Ing Civil">Ing Civil</option>
-                                        <option value="Ing Sistemas">Ing Sistemas</option>                                   
-                                        <option value="Turismo">Turismo</option>
-                                        <option value="Maestria">Maestria</option>
-                                        <option value="Postgrado">Postgrado</option>
-                                        <option value="Doctorado">Doctorado</option>
-                                    </select>
-                                    <select id="tipo-cargo" name="tipo-cargo" disabled >
-                                        <option value="" disabled selected>cargo</option>
-                                        <option value="Administrativo">Administrativo</option>
-                                        <option value="Directivo">Directivo</option>
-                                        <option value="Docente">Docente</option>
-                                        <option value="Obrero">Obrero</option>                                    
-                                    </select>
-
-                                </section>
-
-                            <label for="">Telefono</label>
-                            <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required>
-                            <label for="">Email</label>
-                            <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
-                            <label for="">Direccion</label>
-                            <input type="text" name='direccion' placeholder="Direccion" required>                                
+                            <label for="">Cota</label>
+                            <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
+                            <label for="">Fecha Del Prestamo</label>
+                            <input type="date" name='fecha_Prest' placeholder="fecha" id="fechaPrestamo" readonly>
+                            <label for="">Fecha De Entrega</label>
+                            <input type="date" name='fecha_Prest' placeholder="fecha" id="fechaEntrega" readonly>                                                               
                         </section>
 
                         <div class="btn">
                             <button type="reset"  >Limpiar</button>
                             <button type="submit">Registrar</button>
-                        </div>
-                            
+                        </div>                            
                     </form>
-                </section>                 
-                    
+                </section>                                     
             </div>
         </section>
-                
+       
      <!-- Modal Eliminar  -->
         <section class="modal " id="modal-Delete">        
             <div class="modal_container-Delet">
@@ -216,8 +185,6 @@ if ($result = $conn->query($query)) {
         </div>
         
     </main>
-
-
     <script src="../js/mover_menu.js"></script>
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>

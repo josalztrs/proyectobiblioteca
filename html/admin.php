@@ -10,6 +10,7 @@ include '../php/connection.php';
     <link rel="stylesheet" href="../css/menu-lateral.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/graficas.css">
+    <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
               <!-- link para poder usar la libreria chartjs -->
@@ -131,9 +132,9 @@ document.addEventListener('click', function(event) {
             <section class="content-graficos">
                 <h2>Documentos</h2>
                 <div>
-                    <button onclick="changeChartType('bar')">Gráfico de Barras</button>
-                    <button onclick="changeChartType('line')">Gráfico de Líneas</button>
-                    <button onclick="changeChartType('pie')">Gráfico de Torta</button>
+                    <button onclick="changeChartType('mychart','bar')">Gráfico de Barras</button>
+                    <button onclick="changeChartType('mychart','line')">Gráfico de Líneas</button>
+                    <button onclick="changeChartType('mychart','pie')">Gráfico de Torta</button>
                 </div>
                     <canvas id="mychart" ></canvas>
              </section>
@@ -141,21 +142,21 @@ document.addEventListener('click', function(event) {
              <section class="content-graficos">
                 <h2>Personas</h2>
                 <div>
-                    <button onclick="changeChartType('bar')">Gráfico de Barras</button>
-                    <button onclick="changeChartType('line')">Gráfico de Líneas</button>
-                    <button onclick="changeChartType('pie')">Gráfico de Torta</button>
+                    <button onclick="changeChartType('mychart2','bar')">Gráfico de Barras</button>
+                    <button onclick="changeChartType('mychart2','line')">Gráfico de Líneas</button>
+                    <button onclick="changeChartType('mychart2','pie')">Gráfico de Torta</button>
                 </div>
-                    <canvas id="mychart" ></canvas>
+                    <canvas id="mychart2" ></canvas>
              </section>
 
              <section class="content-graficos">
                 <h2>Prestamos</h2>
                 <div>
-                    <button onclick="changeChartType('bar')">Gráfico de Barras</button>
-                    <button onclick="changeChartType('line')">Gráfico de Líneas</button>
-                    <button onclick="changeChartType('pie')">Gráfico de Torta</button>
+                    <button onclick="changeChartType('mychart3','bar')">Gráfico de Barras</button>
+                    <button onclick="changeChartType('mychart3','line')">Gráfico de Líneas</button>
+                    <button onclick="changeChartType('mychart3','pie')">Gráfico de Torta</button>
                 </div>
-                    <canvas id="mychart" ></canvas>
+                    <canvas id="mychart3" ></canvas>
              </section>
         </div>
         
