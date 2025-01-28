@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/reportes.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/cargadatosedit.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="../fontawasome/fontawesome-free-6.7.2-web/css/all.css">

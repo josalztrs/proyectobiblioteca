@@ -88,7 +88,9 @@ header > ul >li > a >i{
 }
 
 .notificaciones-list li:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Efecto hover */
+    background-color: rgba(0, 0, 0, 0.1); 
 }
-
+.swal2-title {
+    border: none !important; /* Elimina el borde */
+}
 
