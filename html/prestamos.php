@@ -104,7 +104,7 @@ if ($result = $conn->query($query)) {
        
       <!-- Modal Editar -->
         <section class="modal" id="modal-edit">
-        <div class="modal_container">  
+            <div class="modal_container">  
                 <section class="modal-header">
                     <h2 class="modal_title"> Editando Prestamo</h2>
                     <button class="modal_close" id="cancelar"></button>
