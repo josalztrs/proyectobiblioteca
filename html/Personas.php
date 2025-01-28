@@ -23,7 +23,7 @@ if ($result = $conn->query($query)) {
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/header.css">
-    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/editpers.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>

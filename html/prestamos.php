@@ -9,7 +9,7 @@ if (file_exists('../php/connection.php')) {
 }
 
 $prestamos = [];
-$query =    "SELECT DISTINCT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, 
+$query =    "SELECT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, 
             personas.nombre AS persona_nombre, personas.cedula AS persona_cedula, libros.titulo AS libro_titulo, 
             libros.cota AS libro_cota FROM prestamos 
             INNER JOIN personas ON prestamos.cedula = personas.cedula 
@@ -36,7 +36,7 @@ if ($result = $conn->query($query)) {
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/header.css">
-    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/editprest.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
@@ -81,9 +81,9 @@ if ($result = $conn->query($query)) {
                             <label for="">Cota</label>
                             <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
                             <label for="">Fecha Del Prestamo</label>
-                            <input type="date" name='fecha_Prest' placeholder="fecha" id="fechaPrestamo" readonly>
+                            <input type="date" name='fecha_prest' placeholder="fecha" id="fechaPrestamo" readonly>
                             <label for="">Fecha De Entrega</label>
-                            <input type="date" name='fecha_Prest' placeholder="fecha" id="fechaEntrega" readonly>                                                               
+                            <input type="date" name='fecha_ent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
                         </section>
 
                         <div class="btn">
