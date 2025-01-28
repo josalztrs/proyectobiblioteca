@@ -86,17 +86,57 @@ if ($result = $conn->query($query)) {
                             <input type="date" name='fecha_prest' placeholder="fecha" id="fechaPrestamo" readonly>
                             <label for="">Fecha De Entrega</label>
                             <input type="date" name='fecha_ent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
+                            <select id="tipo-Estado" name="tipo-Estado" >
+                                <option value="" disabled selected>Estado</option>
+                                <option value="activo">Activo</option>
+                                <option value="descativado">Desactivado</option>
+                            </select>
                         </section>
 
-                        <div class="btn">
-                            <button type="reset"  >Limpiar</button>
-                            <button type="submit">Registrar</button>
+                        <div class="btn" id="Prestamo_R">
+                            <!-- <button type="reset"  >Limpiar</button> -->
+                            <button type="submit" >Registrar</button>
                         </div>                            
                     </form>
                 </section>                                     
             </div>
         </section>
        
+      <!-- Modal Editar -->
+        <section class="modal" id="modal-edit">
+        <div class="modal_container">  
+                <section class="modal-header">
+                    <h2 class="modal_title"> Editando Prestamo</h2>
+                    <button class="modal_close" id="cancelar"></button>
+                </section>
+                    
+                <section class="modal-body">
+                    <form action="" method="POST" class="form-Persona" id="formPersona">    
+                        <section>
+                            <label for="">Cedula</label>
+                            <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
+                            <label for="">Cota</label>
+                            <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
+                            <label for="">Fecha Del Prestamo</label>
+                            <input type="date" name='fecha_prest' placeholder="fecha" id="fechaPrestamo" readonly>
+                            <label for="">Fecha De Entrega</label>
+                            <input type="date" name='fecha_ent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
+                            <select id="tipo-Estado" name="tipo-Estado" >
+                                <option value="" disabled selected>Estado</option>
+                                <option value="activo">Activo</option>
+                                <option value="descativado">Desactivado</option>
+                            </select>
+                        </section>
+
+                        <div class="btn">
+                        <button type="reset" id="cancelar-edit" >Cancelar</button> 
+                        <button type="submit">Guardar Cambios</button>
+                        </div>                            
+                    </form>
+                </section>                                     
+            </div>
+        </section>
+
      <!-- Modal Eliminar  -->
         <section class="modal " id="modal-Delete">        
             <div class="modal_container-Delet">

@@ -2,7 +2,7 @@ const  openModal = document.querySelector('.btn-agregar');
 const  modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal_close');
 const fechaPrestamo = document.getElementById('fechaPrestamo');
-
+const fechaEntrega = document.getElementById('fechaEntrega');
 openModal.addEventListener('click', (e)=>{
     e.preventDefault();
     modal.classList.add('modal--show');
@@ -15,13 +15,13 @@ openModal.addEventListener('click', (e)=>{
     const entregaDate = new Date();
     entregaDate.setDate(entregaDate.getDate() + 3); // Sumar 3 días
     const entregaDateString = entregaDate.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+    console.log("Fecha de entrega:", entregaDateString);
     fechaEntrega.value = entregaDateString; 
 });
 
 closeModal.addEventListener('click', (e)=>{
     e.preventDefault();
     modal.classList.remove('modal--show');
-    // formPersona.reset(); // Limpia los campos del formulario
 });
 
 // Modal de editar
