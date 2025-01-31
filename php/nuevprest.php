@@ -8,13 +8,12 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['cedula'] ?? '';
     $cota = $_POST['cota'] ?? '';
-    $fechaPrest = $_POST['fecha_prest'] ?? '';
-    $fechaDev = $_POST['fecha_ent'] ?? '';
-
+    $fecha_prest = $_POST['fecha_prest'] ?? '';
+    $fecha_ent = $_POST['fecha_ent'] ?? '';
 
     $query = "INSERT INTO prestamos (cedula, cota, fecha_prestamo, fecha_entrega) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('ssss', $cedula, $cota, $fechaPrest, $fechaDev);
+    $stmt->bind_param('ssss', $cedula, $cota, $fecha_prest, $fecha_ent);
     if ($stmt->execute()) {
 
         header("Location: ../html/prestamos.php");

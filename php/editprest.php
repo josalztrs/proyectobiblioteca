@@ -6,15 +6,15 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cedula = $_POST['cedula'] ?? '';
-    $cota = $_POST['cota'] ?? '';
-    $fechaPrest = $_POST['fechaPrest'] ?? '';
-    $fechaPrest = date('Y-m-d');
-    $fechaDev = date('Y-m-d', strtotime($fechaPrest . ' + 3 days'));
+    $cedula = $_POST['edit-cedula'] ?? '';
+    $cota = $_POST['edit-cota'] ?? '';
+    $fechaPrest = $_POST['edit-fecha_prest'] ?? '';
+    $fechaPrest = $_POST['edit-fecha_dev'] ?? '';
 
-    $query = "INSERT INTO prestamos (cedula, cota, fechaPrest, fechaDev) VALUES (?, ?, ?, ?)";
+
+    $query = "UPDATE prestamos SET cota = ?, fechaPrest = ?, fechaDev = ? WHERE cedula = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('ssss', $cedula, $cota, $fechaPrest, $fechaDev);
+    $stmt->bind_param('ssss', $cota, $fechaPrest, $fechaDev, $cedula);
     if ($stmt->execute()) {
 
         header("Location: ../html/prestamos.php");
