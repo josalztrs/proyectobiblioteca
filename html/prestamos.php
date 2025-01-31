@@ -179,7 +179,7 @@ if ($result = $conn->query($query)) {
                 </section>
 
                 <section class="contend-PDf">
-                    <button class="btn-descargar" title="Descargar" type="button">
+                    <button class="btn-descargar" title="Descargar" type="button" onclick="window.open('../fpdf186/gen_pdf_prestamos.php', '_blank')">
                         <span class="btn-span">Exportar Registros</span> <!---->
                         <i class="fa-solid fa-file-pdf"></i>                    
                     </button> 
@@ -215,8 +215,6 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-toggle-on"></i></button>
-                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
