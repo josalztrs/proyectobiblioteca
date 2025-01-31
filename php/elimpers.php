@@ -1,10 +1,10 @@
 <?php
 include 'connection.php';
 // Get the person ID from the request
-$person_id = $_GET['delete-id'];
+$person_id = $_POST['id'];
 
 // Prepare and bind
-$stmt = $conn->prepare("DELETE FROM persons WHERE id = ?");
+$stmt = $conn->prepare("DELETE FROM personas WHERE id = ?");
 $stmt->bind_param("i", $person_id);
 
 if ($stmt->execute()) {

@@ -259,7 +259,10 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-toggle-on"></i></button>
+                                <form action="../php/elimpers.php" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar este registro?');">
+                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($persona['id']); ?>">
+                                    <button type="submit" class="deleteBtn" title="Eliminar"><i class="fa-solid fa-toggle-on"></i></button>
+                                </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
