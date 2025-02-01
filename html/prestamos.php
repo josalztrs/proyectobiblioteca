@@ -197,7 +197,7 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-
+                                    <button class="deleteBtn" title="Cambiar Estado" onclick="confirmDelete('<?php echo htmlspecialchars($libro['id']); ?>', '../php/elimlib.php')"><i class="fa-solid fa-toggle-on"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
