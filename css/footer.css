@@ -1,0 +1,45 @@
+/*  */
+footer {
+    margin-top: 20px;
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 154px;
+    background-color: #251b4b;
+    color: white; /* Asegúrate de que el texto sea visible */
+    /* display: flex; Para centrar el contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    text-align: center; /* Alinear el texto al centro */
+}
+/* footer {
+    background-color: #251b4b;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.footer-content div {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-content h4 {
+    margin-bottom: 10px;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+} */

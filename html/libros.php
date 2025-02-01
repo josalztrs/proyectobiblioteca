@@ -68,14 +68,14 @@ if ($result = $conn->query($querydos)) {
 
     <main>
        <section class="botones">
-            <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
+            <button class="btn-agregar  btn-AgMat" type="button" onclick="openModal()" title="Resgistrar">
                 <i class="fa-solid fa-plus"></i>
                 <span class="btn-text">Registrar Libros</span>
             </button> 
             
             <button class="btn-AgMat" type="button" title="r-materia" onclick="openModal_Materia()">
                 <i class="fa-regular fa-rectangle-list" title="Materias"></i>
-                <span >Agregar Materia</span>
+                <span >Añadir Campo De Estudio</span>
             </button>
        </section>
 
@@ -91,17 +91,17 @@ if ($result = $conn->query($querydos)) {
                     <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
                             <label for="">Cota</label>
-                            <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
+                            <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" required>
                             <label for="">Titulo</label>
-                            <input type="text" name='titulo' placeholder="Titulo  del libro">
+                            <input type="text" name='titulo' placeholder="Titulo  del libro" required>
                             <label for="">Autor</label>
-                            <input type="text" name='autor' placeholder="autor del libro">
+                            <input type="text" name='autor' placeholder="autor del libro" required>
                             <label for="">Editorial</label>
-                            <input type="text" name='editorial' placeholder="editorial">
+                            <input type="text" name='editorial' placeholder="editorial" required>
                             <label for="">Año de Edicion</label>
-                            <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>">
+                            <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             <label for="">Materia</label>
-                            <select name="materia">
+                            <select name="materia" required>
                                 <option value="" disabled selected>Seleccione una materia</option>
                                 <?php foreach ($materias as $materia): ?>
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
@@ -155,17 +155,17 @@ if ($result = $conn->query($querydos)) {
                         <section>
                             <input type="hidden" id="edit-id">
                             <label for="">Cota</label>
-                            <input type="text" name='edit-cota' id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
+                            <input type="text" name='edit-cota' id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" required>
                             <label for="">Titulo</label>
-                            <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro">
+                            <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro" required>
                             <label for="">Autor</label>
-                            <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro">
+                            <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
                             <label for="">Editorial</label>
-                            <input type="text" name='edit-editorial' id ='edit-editorial' placeholder="editorial">
+                            <input type="text" name='edit-editorial' id ='edit-editorial' placeholder="editorial" required>
                             <label for="">Año de Edicion</label>
-                            <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>">
+                            <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             <label for="">Materia</label>
-                            <select name="edit-materia" id="edit-materia">
+                            <select name="edit-materia" id="edit-materia" required>
                                 <option value="" disabled selected>Seleccione una materia</option>
                                 <?php foreach ($materias as $materia): ?>
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
@@ -183,20 +183,6 @@ if ($result = $conn->query($querydos)) {
             </div>
         </section>
             
-     
-        <!-- Modal Eliminar  -->
-        <section class="modal " id="modal-Delete">        
-            <div class="modal_container-Delet">
-                <form action="../php/elimpers.php" method="POST">                   
-                <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
-                <div class="btn">
-                    <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
-                    <button type="submit">Confirmar</button>
-                </div>
-                </form>
-            </div>        
-        </section>
-
         <!-- Tabla de Libros  -->
     <div class="contend-tabla">            
             <div  class="header-div">
@@ -266,7 +252,7 @@ if ($result = $conn->query($querydos)) {
                                 <td><?php echo htmlspecialchars($libro['CPrest']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="deletPerson(this.closest('tr'))"><i class="fa-solid fa-toggle-on"></i></button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($persona['id']); ?>')"><i class="fa-solid fa-toggle-on"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

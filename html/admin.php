@@ -11,6 +11,7 @@ include '../php/connection.php';
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/graficas.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -162,6 +163,15 @@ document.addEventListener('click', function(event) {
         </div>
         
     </main>
+
+    <footer>
+        <section>
+            <p>Universidad Nacional Experimental Politecnica De La Fuerza Armada Nacional Bolivariana</p>
+            <p>Nucleo Nueva Esparta</p>
+        </section>
+    <p>Gabriel Albornoz, Jose Salazar. Ingeniería en Sistemas 6to Semestre. UNEFA Núcleo Nueva Esparta 2024-2025.</p>
+    </footer>
+
     <script src="../js/rotar-icono-menu.js"></script>
     <script src="../js/mover_menu.js"></script> <!-- script para desplazar el menu  -->
     <script src="../js/graficos.js"></script>
