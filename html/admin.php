@@ -101,7 +101,7 @@ document.addEventListener('click', function(event) {
                 <div class="card-section">
                     <a href="./Tesis.php" onclick="highlightMenu(this)">
                         <i class="fa-solid fa-user-graduate" title="Tesis"></i>
-                        <h4>Tesis</h4>
+                        <h4>Trabajos De Investigación</h4>
                     </a>
 
                 </div>
@@ -165,11 +165,7 @@ document.addEventListener('click', function(event) {
     </main>
 
     <footer>
-        <section>
-            <p>Universidad Nacional Experimental Politecnica De La Fuerza Armada Nacional Bolivariana</p>
-            <p>Nucleo Nueva Esparta</p>
-        </section>
-    <p>Gabriel Albornoz, Jose Salazar. Ingeniería en Sistemas 6to Semestre. UNEFA Núcleo Nueva Esparta 2024-2025.</p>
+    <?php include "footer.php" ?> 
     </footer>
 
     <script src="../js/rotar-icono-menu.js"></script>

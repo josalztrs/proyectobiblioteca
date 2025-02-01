@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/cargadatosedit.js"></script>
@@ -30,11 +31,16 @@
         <div>
             <h1>
                 <i class="fa-solid fa-gauge"></i>
-                Registrar Tesis
+                Registrar Trabajos De Investigación
             </h1>
         </div>
     </div> 
-
+    <main>
+        
+    </main>
+    <footer>
+        <?php include "footer.php" ?> 
+    </footer>
 
     <script src="../js/mover_menu.js"></script>
     <script src="../js/pager.js"></script>

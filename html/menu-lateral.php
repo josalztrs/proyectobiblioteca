@@ -27,7 +27,7 @@
             <li>
                 <a href="Tesis.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-user-graduate" title="Tesis"></i>
-                    <h4>Tesis</h4>
+                    <h4>Trabajos</h4>
                 </a>
             </li>
 

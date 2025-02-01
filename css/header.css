@@ -24,7 +24,7 @@ header{
     border-radius: 10px;
 }
 .icono__menu i{
-    font-size:  20px;
+    font-size: 17px;
     cursor: pointer;
     position: absolute;
     color: #251b4b;
@@ -55,7 +55,7 @@ header > ul >li:hover {
 }
 
 header > ul >li > a >i{
-    font-size: 20px;
+    font-size: 17px;
     color: #251b4b; 
     
 }
@@ -69,7 +69,6 @@ header > ul >li > a >i{
     padding: 20px; 
     margin-top: 10px; 
     z-index: 100; 
-    /* border: 1px solid black; */
 }
 .notificaciones-list::before {
     content: '';

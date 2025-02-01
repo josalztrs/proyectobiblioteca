@@ -1,4 +1,5 @@
 .main-rep{
+    margin-top: 80px;
     display: flex;
     border: 1px solid #ccc;
     background-color: #f9f9f9;
@@ -6,13 +7,12 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 .conten-repor{
-    /* border: 1px solid blue;  */
     width: 50%; 
-    max-height: 500px; 
+    max-height: 400px; 
     height: 100%; 
     justify-content: center; 
     align-items: center;
-    /* background-color: #f9f9f9; */
+    
 }
 
 .card-report{
@@ -23,7 +23,7 @@
 }
 .card-contendReport{
     width: calc(100% - 100px); 
-    height: 98px;
+    height: 88px;
     margin: 30px; 
     box-sizing: border-box; 
     transition: transform 0.3s;   
@@ -38,7 +38,7 @@
     display: flex;
     align-items: center;  
     justify-content: flex-start;  
-    height: 100%;
+    height: 80%;
     border-radius:  0px 20px 20px 0px;
     background: white;
     /* background-color: #ffffff; */
@@ -54,7 +54,7 @@
     justify-content: start; 
 }
 .card-sectionPrest i {
-    font-size: 30px; 
+    font-size: 20px; 
     margin-right: 10px; 
     color: white; 
     height: 100%;
@@ -66,24 +66,18 @@
 }
 
 .card-sectionPrest a  h4 {
-    font-size: 22px; 
+    font-size: 15px; 
     margin: 0;
     font-weight: 100; 
     text-transform: uppercase;
 }
 
 .contenedor-reportes {
-    /* border: 1px solid #ccc; */
     width: 85%;
-    /* max-height: 500px; */
     height: 500px;
     display: flex; 
-    /* justify-content: center;  */
     align-items: center;
     flex-direction: column; 
-    /* background-color: #f9f9f9; */
-    /* border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .consulta {
@@ -91,7 +85,6 @@
     margin-top: 50px;
     width: 70%;
     height: 400px;    
-    /* padding: 20px; */
     justify-content: center;
     border-radius: 10px;
     background-color: #fff;
@@ -101,7 +94,6 @@
     background: #251b4b;
     text-transform: uppercase;
     height: auto;
-    /* margin: 10px 0; */
     padding: 20px;
     border-radius: 10px 10px 0px 0px;
     text-align: center;
@@ -109,7 +101,7 @@
 }
 
 .titulo-biblioteca {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
     margin: 0;
     margin-bottom: 10px;
@@ -127,7 +119,7 @@ hr{
     border-radius: 10px;
 }
 #Tconsul {
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 10px;
 }
 
@@ -179,6 +171,6 @@ hr{
 }
 
 #resultado-consulta {
-    font-size: 14px;
+    font-size: 12px;
     color: #333;
 }

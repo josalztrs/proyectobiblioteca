@@ -40,6 +40,7 @@ if ($result = $conn->query($querydos)) {
     <link rel="stylesheet" href="../css/pager.css">
     <link rel="stylesheet" href="../css/modal.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/editlib.js"></script>
@@ -68,14 +69,14 @@ if ($result = $conn->query($querydos)) {
 
     <main>
        <section class="botones">
-            <button class="btn-agregar  btn-AgMat" type="button" onclick="openModal()" title="Resgistrar">
+            <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
                 <i class="fa-solid fa-plus"></i>
                 <span class="btn-text">Registrar Libros</span>
             </button> 
             
             <button class="btn-AgMat" type="button" title="r-materia" onclick="openModal_Materia()">
                 <i class="fa-regular fa-rectangle-list" title="Materias"></i>
-                <span >Añadir Campo De Estudio</span>
+                <span >Añadir Area De Conocimiento</span>
             </button>
        </section>
 
@@ -184,7 +185,7 @@ if ($result = $conn->query($querydos)) {
         </section>
             
         <!-- Tabla de Libros  -->
-    <div class="contend-tabla">            
+        <div class="contend-tabla">            
             <div  class="header-div">
                 <section class="buscar-tabla" >
                     <button  title="BtnBuscar"  name="BtnBuscar" id="BtnBuscar"> <i class="fa-solid fa-magnifying-glass"></i> </button>
@@ -272,6 +273,10 @@ if ($result = $conn->query($querydos)) {
         </div>
         
     </main>
+    
+    <footer>
+        <?php include "footer.php" ?> 
+    </footer>
 
     <script src="../js/mover_menu.js"></script>
     <script src="../js/pager.js"></script>
