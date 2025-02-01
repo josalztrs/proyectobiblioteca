@@ -138,10 +138,10 @@ body{
 
 /* clases para el javascript de ocultar y desplegar la barra lateral */
 .mover-body{
-    margin-left: 200px;
+    margin-left: 170px;
 }
 .mover-menu-lateral{
-    width: 200px;
+    width: 170px;
 }
 
 /* responsive de la pagina */

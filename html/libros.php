@@ -74,11 +74,40 @@ if ($result = $conn->query($querydos)) {
                 <span class="btn-text">Registrar Libros</span>
             </button> 
             
-            <button class="btn-AgMat" type="button" title="r-materia" onclick="openModal_Materia()">
+            <button class="btn-AgMat" type="button" title="r-materia" onclick="openModal_mat()">
                 <i class="fa-regular fa-rectangle-list" title="Materias"></i>
                 <span >Añadir Area De Conocimiento</span>
             </button>
-       </section>
+
+            <!-- Tabla de materias registradas -->
+            <div class="tabla_Conocimiento">
+                <section class="tabla_Area">
+                    <table class="tabla_Materia">
+                        <thead>
+                            <tr>
+                                <th>Area De Conocimiento</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="tabla_body">
+                            <tr>
+                                <td>Ciencias y Tecnologia</td>
+                                <td>
+                                    <button>Eliminar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Literatura</td>
+                                <td>
+                                    <button>Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+
+        </section>
 
      <!-- modal registrar -->
         <section class="modal "  id="modal">
@@ -122,7 +151,7 @@ if ($result = $conn->query($querydos)) {
         </section>
          
      <!-- modal agregar materia -->
-        <section class="modal "  id="modal-RegisMat">
+        <section class="modal"  id="RegisMat">
             <div class="modal_container">  
                 <section class="modal-header">
                     <h2 class="modal_title"> Registrando Materia</h2>
@@ -283,6 +312,7 @@ if ($result = $conn->query($querydos)) {
     <script src="../js/modal-persona.js"></script>
     <script src="../js/rotar-icono-menu.js"></script>
     <script src="../js/header.js"></script>
+    <script src="../js/modal_Materia.js"></script>
     <!-- <script src="../js/pagina-hover.js"></script> -->
 
 </body>

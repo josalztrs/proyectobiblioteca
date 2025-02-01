@@ -77,6 +77,7 @@ main{
 .botones{
     margin-top: 20px;
     display: flex;
+    margin-bottom: 30px;
 }
 .btn-agregar{
     width: 30px;
@@ -380,6 +381,67 @@ main{
     background-color: #26baec;
 }
 
+
+.tabla_Conocimiento{
+    margin-top: 50px;
+    margin-left: 200px;
+    width: 45%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
+.tabla_Area{
+    width: 100%;
+    overflow-y: auto;
+    max-height: 50px;
+    border-radius: 10px 10px 0px 0px;
+}
+.tabla_Materia{
+    border-collapse: collapse;
+    width: 100%;
+    color: #251b4b;
+    background-color: white;
+    text-align: center;
+}
+
+.tabla_Materia th {
+    padding: 4px 2px;
+    color: black;
+    position: sticky;
+    top: 0;
+    transition: background-color 0.3s;
+    background-color: #251b4b; 
+    color: white; 
+    font-size: 13px;
+}
+.tabla_Materia td {
+    padding: 4px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    font-weight: 140;
+}
+
+.tabla_Materia tr:hover {
+    background-color: rgba(200, 200, 200, 0.6); 
+}
+
+.tabla_Materia button {
+    background-color: #408EC8; 
+    color: white; 
+    border: none;
+    padding: 2px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.tabla_Materia button:hover {
+    background-color: #26baec;
+}
 
 @media (max-width: 760px) {
     .card {

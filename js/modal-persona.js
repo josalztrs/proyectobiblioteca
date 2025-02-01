@@ -3,6 +3,7 @@ const  modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal_close');
 const fechaPrestamo = document.getElementById('fechaPrestamo');
 const fechaEntrega = document.getElementById('fechaEntrega');
+
 openModal.addEventListener('click', (e)=>{
     e.preventDefault();
     modal.classList.add('modal--show');
@@ -116,14 +117,5 @@ function ValidarCedula(event) {
     }
 } 
 
-// Modal para agregar una materia 
-const modalMateria = document.getElementById('modal-RegisMat');
-function openModal_Materia() {
-    modalMateria.classList.add('modal--show');
-}
-document.getElementById('cancelar-AggMat').addEventListener('click', (e) => {
-    e.preventDefault();
-    modalMateria.classList.remove('modal--show');
-});
 
 
