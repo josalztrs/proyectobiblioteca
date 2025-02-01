@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupLogoutConfirmation();
 });
 
-function confirmDelete(id) {
+function confirmDelete(id, query) {
     Swal.fire({
         title: '¿Estás seguro?',
         text: "¿Deseas eliminar este registro?",
@@ -49,7 +49,7 @@ function confirmDelete(id) {
             // Si el usuario confirma, se envía el formulario
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = '../php/elimpers.php';
+            form.action = query;
             const input = document.createElement('input');
             input.type = 'hidden';
             input.name = 'id';

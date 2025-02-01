@@ -261,8 +261,8 @@ if ($result = $conn->query($query)) {
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                 <!-- <form action="../php/elimpers.php" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar este registro?');"> -->
                                     <!-- <input type="hidden" name="id" > -->
-                                    <button type="submit" class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($persona['id']); ?>')"><i class="fa-solid fa-toggle-on"></i></button>
-                                </form>
+                                    <button type="submit" class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($persona['id']); ?>', '../php/elimpers.php')"><i class="fa-solid fa-toggle-on"></i></button>
+                                <!-- </form> -->
                                 </td>
                             </tr>
                         <?php endforeach; ?>

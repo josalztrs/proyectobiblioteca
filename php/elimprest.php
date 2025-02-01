@@ -4,12 +4,12 @@ include 'connection.php';
 $person_id = $_POST['id'];
 
 // Prepare and bind
-$stmt = $conn->prepare("DELETE FROM personas WHERE id = ?");
+$stmt = $conn->prepare("DELETE FROM prestamos WHERE id = ?");
 $stmt->bind_param("i", $person_id);
 
 if ($stmt->execute()) {
 
-    header("Location: ../html/Personas.php");
+    header("Location: ../html/prestamos.php");
     exit();
 } else {
     echo 'Query failed: ' . $stmt->error;
