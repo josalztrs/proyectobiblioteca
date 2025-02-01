@@ -282,7 +282,7 @@ if ($result = $conn->query($querydos)) {
                                 <td><?php echo htmlspecialchars($libro['CPrest']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($persona['id']); ?>', '../php/elimlib.php')"><i class="fa-solid fa-toggle-on"></i></button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($libro['id']); ?>', '../php/elimlib.php')"><i class="fa-solid fa-toggle-on"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

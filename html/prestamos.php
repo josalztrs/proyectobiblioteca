@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
-if (file_exists('../php/connection.php')) {
-    require_once '../php/connection.php';
-} else {
-    die('Error: connection.php file not found.');
-}
+include '../php/connection.php';
 
 $prestamos = [];
 $query =    "SELECT DISTINCT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, 
@@ -138,20 +133,6 @@ if ($result = $conn->query($query)) {
             </div>
         </section>
 
-     <!-- Modal Eliminar  -->
-        <section class="modal " id="modal-Delete">        
-            <div class="modal_container-Delet">
-                <form action="../php/elimpers.php" method="POST">                   
-                <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
-                <input type="hidden" name="id" id="delete-id">
-                <div class="btn">
-                    <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
-                    <button type="submit">Confirmar</button>
-                </div>
-                </form>
-            </div>        
-        </section>
-
         <div class="contend-tabla">            
             <div  class="header-div">
                 <section class="buscar-tabla" >
@@ -216,6 +197,8 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                                    <button class="deleteBtn" title="Cambiar Estado" onclick="confirmDelete('<?php echo htmlspecialchars($libro['id']); ?>', '../php/elimlib.php')"><i class="fa-solid fa-toggle-on"></i></button>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
