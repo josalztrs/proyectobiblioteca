@@ -30,20 +30,42 @@ function setupLogoutConfirmation() {
 document.addEventListener('DOMContentLoaded', function() {
     setupLogoutConfirmation();
 });
-// function setupLogoutConfirmation() {
-//     document.getElementById('salir').addEventListener('click', function(event) {
-//         event.preventDefault(); // Evitar el comportamiento por defecto del enlace
-//         const confirmExit = confirm("¿Estás seguro de que deseas salir?");
-//         if (confirmExit) {
+
+function confirmDelete(id) {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¿Deseas eliminar este registro?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Swal.fire(
+            //     'Se ha eliminado Exitosamente'
+            // );
+            // Si el usuario confirma, se envía el formulario
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '../php/elimpers.php';
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'id';
+            input.value = id;
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+
             
-//             // alert("Has salido."); 
-//             window.location.href = '../index.php';
-//         } else {
-//             // alert("Has cancelado la salida."); // Mensaje si se cancela
-//         }
-//     });
-// }
-// // Asegúrate de que la función se ejecute después de que el DOM esté completamente cargado
-// document.addEventListener('DOMContentLoaded', function() {
-//     setupLogoutConfirmation();
-// });
+
+        } else {
+            Swal.fire(
+                'Cancelado',
+                'No se ha eliminado el registro.',
+                'info'
+            );
+        }
+    });
+}

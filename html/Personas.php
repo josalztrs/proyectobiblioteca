@@ -259,9 +259,9 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($persona['fechingreso']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                <form action="../php/elimpers.php" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar este registro?');">
-                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($persona['id']); ?>">
-                                    <button type="submit" class="deleteBtn" title="Eliminar"><i class="fa-solid fa-toggle-on"></i></button>
+                                <!-- <form action="../php/elimpers.php" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar este registro?');"> -->
+                                    <!-- <input type="hidden" name="id" > -->
+                                    <button type="submit" class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($persona['id']); ?>')"><i class="fa-solid fa-toggle-on"></i></button>
                                 </form>
                                 </td>
                             </tr>
@@ -282,17 +282,6 @@ if ($result = $conn->query($query)) {
         </div>
         
     </main>
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        const btnDescargar = document.querySelector('.btn-descargar');
-        const lista = document.querySelector('.contend-PDf-list');
-
-            btnDescargar.addEventListener('click', function() {
-            lista.classList.toggle('show'); // Alterna la clase 'show' para mostrar/ocultar la lista
-            });
-        }); 
-    </script> -->
     <script src="../js/mover_menu.js"></script>
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>

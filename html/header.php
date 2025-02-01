@@ -17,13 +17,6 @@
                 <li>Notificación 7</li>
             </ul>
         </li>
-            
-        <li>
-            <a href="#">
-                <i class="fa-solid fa-user" title="Perfil"></i>
-            </a>
-        </li>
-            
         <li>
             <a href="#" id="salir">
                 <i class="fa-solid fa-right-from-bracket" title="Salir"></i>

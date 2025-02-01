@@ -32,13 +32,6 @@
             </li>
 
             <li>
-                <a href="#" class="menu-item" onclick="highlightMenu(this)">
-                    <i class="fa-regular fa-rectangle-list" title="Materias"></i>
-                    <h4>Materias</h4>
-                </a>
-            </li>
-
-            <li>
                 <a href="prestamos.php" class="menu-item" onclick="highlightMenu(this)">
                     <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
                     <h4>Prestamos</h4>
