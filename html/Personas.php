@@ -262,7 +262,7 @@ if ($result = $conn->query($query)) {
                                 <!-- <form action="../php/elimpers.php" method="POST" onsubmit="return confirm('¿Está seguro de que desea eliminar este registro?');"> -->
                                     <!-- <input type="hidden" name="id" > -->
                                     <button type="submit" class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($persona['id']); ?>', '../php/elimpers.php')"><i class="fa-solid fa-toggle-on"></i></button>
-                                </form>
+                                <!-- </form> -->
                                 </td>
                             </tr>
                         <?php endforeach; ?>
