@@ -339,6 +339,8 @@ main{
     max-height: 500px;
     margin-bottom: 20px;
     border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    max-height: 500px;
 }
 .tabla-A {
     border-collapse: collapse;
@@ -385,7 +387,7 @@ main{
 .tabla_Conocimiento{
     margin-top: 50px;
     margin-left: 200px;
-    width: 45%;
+    width: 35%;
     color: black;
     display: flex;
     flex-direction: column;
@@ -394,13 +396,20 @@ main{
     border-radius: 10px 10px 0px 0px;
     background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.tabla_Area::-webkit-scrollbar {
+    display: none; 
 }
 .tabla_Area{
     width: 100%;
     overflow-y: auto;
-    max-height: 50px;
+    max-height: 70px;
     border-radius: 10px 10px 0px 0px;
+  
 }
+
 .tabla_Materia{
     border-collapse: collapse;
     width: 100%;

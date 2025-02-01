@@ -102,6 +102,12 @@ if ($result = $conn->query($querydos)) {
                                     <button>Eliminar</button>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>MAtematica</td>
+                                <td>
+                                    <button>Eliminar</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </section>
