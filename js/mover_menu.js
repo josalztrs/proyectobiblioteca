@@ -44,6 +44,11 @@ function open_close_menu(){
 //     }
 // });
 window.addEventListener("resize", function() {
+    if(window.innerWidth < 760){
+
+        body.classList.add("mover-body");
+        menu_lateral.classList.add("mover-menu-lateral");
+    }
     if (window.innerWidth > 760) {
             
         if (localStorage.getItem("menuExpanded") === "true") {

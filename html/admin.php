@@ -130,36 +130,36 @@ document.addEventListener('click', function(event) {
         </div>
 
         <!-- Graficas -->
-        <div  class="div-graficas">
+        <div class="div-graficas">
             <section class="content-graficos">
                 <h2>Documentos</h2>
-                <div>
-                    <button onclick="changeChartType('mychart','bar')">Gráfico de Barras</button>
-                    <button onclick="changeChartType('mychart','line')">Gráfico de Líneas</button>
-                    <button onclick="changeChartType('mychart','pie')">Gráfico de Torta</button>
+                <div class="btn-grafi">
+                    <button onclick="changeChartType('mychart', 'bar')"><i class="fa-solid fa-chart-simple"></i></button>
+                    <button onclick="changeChartType('mychart', 'line')"><i class="fa-solid fa-chart-line"></i></button>
+                    <button onclick="changeChartType('mychart', 'pie')"><i class="fa-solid fa-chart-pie"></i></button>
                 </div>
-                    <canvas id="mychart" ></canvas>
-             </section>
+                <canvas id="mychart"></canvas>
+            </section>
 
-             <section class="content-graficos">
+            <section class="content-graficos">
                 <h2>Personas</h2>
-                <div>
-                    <button onclick="changeChartType('mychart2','bar')">Gráfico de Barras</button>
-                    <button onclick="changeChartType('mychart2','line')">Gráfico de Líneas</button>
-                    <button onclick="changeChartType('mychart2','pie')">Gráfico de Torta</button>
+                <div class="btn-grafi">
+                    <button onclick="changeChartType('mychart2', 'bar')"><i class="fa-solid fa-chart-simple"></i></button>
+                    <button onclick="changeChartType('mychart2', 'line')"><i class="fa-solid fa-chart-line"></i></button>
+                    <button onclick="changeChartType('mychart2', 'pie')"><i class="fa-solid fa-chart-pie"></i></button>
                 </div>
-                    <canvas id="mychart2" ></canvas>
-             </section>
+                <canvas id="mychart2"></canvas>
+            </section>
 
-             <section class="content-graficos">
-                <h2>Prestamos</h2>
-                <div>
-                    <button onclick="changeChartType('mychart3','bar')">Gráfico de Barras</button>
-                    <button onclick="changeChartType('mychart3','line')">Gráfico de Líneas</button>
-                    <button onclick="changeChartType('mychart3','pie')">Gráfico de Torta</button>
+            <section class="content-graficos">
+                <h2>Préstamos</h2>
+                <div class="btn-grafi">
+                    <button onclick="changeChartType('mychart3', 'bar')"><i class="fa-solid fa-chart-simple"></i></button>
+                    <button onclick="changeChartType('mychart3', 'line')"><i class="fa-solid fa-chart-line"></i></button>
+                    <button onclick="changeChartType('mychart3', 'pie')"><i class="fa-solid fa-chart-pie"></i></button>
                 </div>
-                    <canvas id="mychart3" ></canvas>
-             </section>
+                <canvas id="mychart3"></canvas>
+            </section>
         </div>
         
     </main>
