@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include '../php/connection.php';    
+include '../php/connection.php';
 ?>
 <head>
     <meta charset="UTF-8">
