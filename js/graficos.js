@@ -1,9 +1,10 @@
 // Datos para los gráficos
 const names = ['Libros', 'Tesis'];
 const names2 = ['Estudiantes', 'Internos', 'Externos'];
+const names3 = ['Activos', 'Devueltos'];
 const ages = [24, 10]; // Datos para documentos
 const ages2 = [30, 15, 25]; // Datos para personas
-const ages3 = [40, 20]; // Datos para préstamos (prestados y devueltos)
+const ages3 = [10, 20]; // Datos para préstamos (prestados y devueltos)
 
 // Colores para los gráficos
 const colors = {
@@ -29,7 +30,7 @@ const colors = {
 let charts = {
     mychart: createChart('mychart', 'bar', names, ages),
     mychart2: createChart('mychart2', 'bar', names2, ages2),
-    mychart3: createChart('mychart3', 'bar', ['Activos', 'Devueltos'], ages3) // Cambiado para préstamos
+    mychart3: createChart('mychart3', 'bar', names3, ages3) // Cambiado para préstamos
 };
 
 // Función para crear un gráfico

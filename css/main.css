@@ -256,69 +256,6 @@ main{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-/* .contend-tabla {
-    width: 100%;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-}
-
-.tabla-section {
-    width: 95%;
-    margin-top: 20px;
-    overflow-y: auto;
-    max-height: 500px;
-}
-.tabla-A {
-    border-collapse: collapse;
-    width: 100%;
-    color: black;
-    background-color: white;
-    text-align: center;
-
-}
-
-.tabla-A th, .table-A td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-.tabla-A tr{
-    text-align: center;
-}
-.tabla-A tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.tabla-A tr:hover {
-    background-color: #ddd;
-}
-
-.tabla-A th, .table-A td {
-    width: 10%;
-    
-}
-.tabla-A tr:hover {
-    background-color: rgba(200, 200, 200, 0.6); 
-}
-
-.tabla-A button {
-    background-color: #408EC8; 
-    color: white; 
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.tabla-A button:hover {
-    background-color: #26baec;
-} */
 .contend-tabla {
     width: 100%;
     color: black;
@@ -459,6 +396,13 @@ main{
 }
 
 @media (max-width: 760px) {
+    
+
+    .tabla-A button{
+        margin-bottom: 5px;
+    }
+}
+@media (max-width: 1120px){
     .card {
         flex-direction: column; 
         align-items: center; 
@@ -468,9 +412,4 @@ main{
         width: 80%; 
         margin: 5px 0; 
     }
-
-    .tabla-A button{
-        margin-bottom: 5px;
-    }
 }
-
