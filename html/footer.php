@@ -7,13 +7,13 @@
     <div class="student">
         <p><strong>Gabriel Albornoz</strong></p>
         <p>Email: gabrielalejandroa40@gmail.com</p>
-        <p>Ingeniería en Sistemas - 6to Semestre</p>
+        <p>Ingeniería De Sistemas - 6to Semestre</p>
     </div>
 
     <div class="student">
         <p><strong>Jose Salazar</strong></p>
         <p>Email: josesalazartrsk16@gmail.com</p>
-        <p>Ingeniería en Sistemas - 6to Semestre</p>
+        <p>Ingeniería De Sistemas - 6to Semestre</p>
     </div>
 </section>
         

@@ -184,7 +184,7 @@ if ($result = $conn->query($querydos)) {
         <section class="modal" id="modal-edit">
             <div class="modal_container">
                 <section class="modal-header">
-                    <h2 class="modal_title"> Editando Persona</h2>
+                    <h2 class="modal_title"> Editando Libro</h2>
                 </section>                    
                 <section class="modal-body">
                     <form action="../php/editlib.php" method="POST" class="form-Persona">    
