@@ -82,11 +82,6 @@ if ($result = $conn->query($query)) {
                             <input type="date" name='fecha_prest' placeholder="fecha" id="fechaPrestamo" readonly>
                             <label for="">Fecha De Entrega</label>
                             <input type="date" name='fecha_ent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
-                            <select id="tipo-Estado" name="tipo-Estado" >
-                                <option value="" disabled selected>Estado</option>
-                                <option value="activo">Activo</option>
-                                <option value="descativado">Desactivado</option>
-                            </select>
                         </section>
 
                         <div class="btn" id="Prestamo_R">
@@ -117,11 +112,6 @@ if ($result = $conn->query($query)) {
                             <input type="date" id='edit-fecha_prest' placeholder="fecha" id="fechaPrestamo" readonly>
                             <label for="">Fecha De Entrega</label>
                             <input type="date" id='edit-fecha_ent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
-                            <select id="edit-tipo-Estado" name="tipo-Estado" >
-                                <option value="" disabled selected>Estado</option>
-                                <option value="activo">Activo</option>
-                                <option value="descativado">Desactivado</option>
-                            </select>
                         </section>
 
                         <div class="btn">
@@ -198,7 +188,7 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Cambiar Estado" onclick="confirmDelete('<?php echo htmlspecialchars($libro['id']); ?>', '../php/elimlib.php')"><i class="fa-solid fa-toggle-on"></i></button>
+                                    <button class="deleteBtn" title="Cambiar Estado" onclick=><i class="fa-solid fa-toggle-on"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $checkPrestamosStmt->execute();
             $checkPrestamosStmt->bind_result($prestamosCount);
             $checkPrestamosStmt->fetch();
+            $checkPrestamosStmt->close();
 
             if ($prestamosCount < 3) {
                 $query = "INSERT INTO prestamos (cedula, cota, fecha_prestamo, fecha_entrega) VALUES (?, ?, ?, ?)";
