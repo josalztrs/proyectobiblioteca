@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<?php
+include '../php/connection.php';
+
+$tesis = [];
+$query = "SELECT * FROM otrosmateriales";
+if ($result = $conn->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $tesis[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,51 +53,12 @@
     </div> 
    
     <main>
+
        <section class="botones">
             <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
                 <i class="fa-solid fa-plus"></i>
                 <span class="btn-text">Registrar Libros</span>
             </button> 
-            
-            <button class="btn-AgMat" type="button" title="r-materia" onclick="openModal_mat()">
-                <i class="fa-regular fa-rectangle-list" title="Materias"></i>
-                <span >Añadir Area De Conocimiento</span>
-            </button>
-
-            <!-- Tabla de materias registradas -->
-            <div class="tabla_Conocimiento">
-                <section class="tabla_Area">
-                    <table class="tabla_Materia">
-                        <thead>
-                            <tr>
-                                <th>Area De Conocimiento</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody class="tabla_body">
-                            <tr>
-                                <td>Ciencias y Tecnologia</td>
-                                <td>
-                                    <button>Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Literatura</td>
-                                <td>
-                                    <button>Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MAtematica</td>
-                                <td>
-                                    <button>Eliminar</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-            </div>
-
         </section>
 
      <!-- modal registrar -->
@@ -241,7 +218,7 @@
                         <?php foreach ($libros as $index => $libro): ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($libro['id']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['cota']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['tipo']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['titulo']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['autor']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['editorial']); ?></td>

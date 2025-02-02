@@ -383,10 +383,9 @@ main{
     background-color: #26baec;
 }
 
-
 .tabla_Conocimiento{
-    margin-top: 50px;
-    margin-left: 200px;
+    margin-top: 30px;
+    margin-left: 500px;
     width: 35%;
     color: black;
     display: flex;
@@ -396,16 +395,23 @@ main{
     border-radius: 10px 10px 0px 0px;
     background-color: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-    overflow-y: scroll;
-    scrollbar-width: none;
+
 }
 .tabla_Area::-webkit-scrollbar {
-    display: none; 
+    width: 8px;
+}
+.tabla_Area::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.tabla_Area::-webkit-scrollbar-thumb {
+    background-color: #3d2e81;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
 }
 .tabla_Area{
     width: 100%;
     overflow-y: auto;
-    max-height: 70px;
+    max-height: 85px;
     border-radius: 10px 10px 0px 0px;
   
 }

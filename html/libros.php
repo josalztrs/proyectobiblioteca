@@ -5,7 +5,7 @@ include '../php/connection.php';
 
 $libros = [];
 $query = "SELECT libros.*, materia.nombremateria, 
-          SUM(CASE WHEN libros.estado = 'EN STOCK' THEN 1 ELSE 0 END) AS CTotal, 
+          SUM(1) AS CTotal, 
           SUM(CASE WHEN libros.estado = 'PRESTADO' THEN 1 ELSE 0 END) AS CPrest 
           FROM libros 
           INNER JOIN materia ON libros.materia = materia.id 
@@ -90,24 +90,14 @@ if ($result = $conn->query($querydos)) {
                             </tr>
                         </thead>
                         <tbody class="tabla_body">
+                        <?php foreach ($materias as $materia): ?>
                             <tr>
-                                <td>Ciencias y Tecnologia</td>
-                                <td>
-                                    <button>Eliminar</button>
-                                </td>
+                                    <td value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></td>
+                                    <td>
+                                    <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($materia['id']); ?>', '../php/elimat.php?>')"><i class="fa-solid fa-toggle-on"></i></button>
+                                    </td>
                             </tr>
-                            <tr>
-                                <td>Literatura</td>
-                                <td>
-                                    <button>Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>MAtematica</td>
-                                <td>
-                                    <button>Eliminar</button>
-                                </td>
-                            </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </section>

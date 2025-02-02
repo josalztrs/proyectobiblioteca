@@ -131,6 +131,7 @@ if ($result = $conn->query($query)) {
                     </form>
                 </section>                                     
             </div>
+            
         </section>
 
         <div class="contend-tabla">            
