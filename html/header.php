@@ -36,11 +36,6 @@ $conn->close();
                 <?php foreach ($PrestamosPendientes as $prestamo): ?>
                 <li><?php echo htmlspecialchars("El prestamo ".$prestamo['id']." ha vencido el plazo de devolucion"); ?></li>
                 <?php endforeach; ?>
-                <li>yu</li>
-                <li>hola</li>
-                <li>fg</li>
-                <li>fhr</li>
-                <li>trhgr</li>
             </div>
 
             <li class="notificaciones-footer">
