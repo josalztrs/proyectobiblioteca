@@ -57,7 +57,7 @@ if ($result = $conn->query($query)) {
        <section class="botones">
             <button class="btn-agregar" type="button" onclick="openModal()" title="Resgistrar">
                 <i class="fa-solid fa-plus"></i>
-                <span class="btn-text">Registrar Libros</span>
+                <span class="btn-text">Registrar Trabajos</span>
             </button> 
         </section>
 

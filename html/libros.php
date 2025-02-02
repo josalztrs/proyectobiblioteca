@@ -126,9 +126,9 @@ if ($result = $conn->query($querydos)) {
                             <input type="text" name='editorial' placeholder="editorial" required>
                             <label for="">Año de Edicion</label>
                             <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
-                            <label for="">Materia</label>
-                            <select name="materia" required>
-                                <option value="" disabled selected>Seleccione una materia</option>
+                            <label for="">Area De Conocimiento</label>
+                            <select name="materia" id="Materia_Selec" required>
+                                <option value="" disabled selected>Seleccione...</option>
                                 <?php foreach ($materias as $materia): ?>
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                 <?php endforeach; ?>
