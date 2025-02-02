@@ -44,7 +44,7 @@
                     <div class="card-contendReport">
 
                         <div class="card-sectionPrest">
-                            <a href="#" >
+                            <a href="../fpdf186/gen_pdf_librosprestados.php" target="_blank" >
                                 <i class="fa-brands fa-leanpub" title="Libros Prestados"></i>
                                 <h4>Libros Prestados</h4>
                             </a>
@@ -56,7 +56,7 @@
                     <div class="card-contendReport">
 
                         <div class="card-sectionPrest">
-                            <a href="#">
+                            <a href="../fpdf186/gen_pdf_morosos.php" target="_blank">
                                 <!-- <i class="fa-solid fa-users" title="Personas Morosas"></i> -->
                                 <i class="fa-solid fa-face-angry"></i>
                                 <h4>Personas Morosas</h4>

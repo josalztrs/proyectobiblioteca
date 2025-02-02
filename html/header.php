@@ -1,20 +1,36 @@
-    <div class="icono__menu" id="btn-open">
+<?php
+include '../php/connection.php';
+
+$PrestamosPendientes = array();
+$FechaAct = date('Y-m-d');
+
+$query = "SELECT * FROM prestamos WHERE fecha_entrega < '$FechaAct' AND estado = 'EN PRESTAMO'";
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $PrestamosPendientes[] = $row;
+    }
+}
+
+$conn->close();
+
+?>
+
+<div class="icono__menu" id="btn-open">
             <i class="fa-solid fa-bars"></i>
     </div>
 
     <ul >
         <li>
-            <a href="#" id="notificaciones">
+            <a href="prestamos.php" id="notificaciones">
                 <i class="fa-solid fa-bell" title="Notificaciones"></i>
             </a>
             <ul class="notificaciones-list" id="notificaciones-list">
-                <li id="ntf-1">Notificación 1</li>
-                <li>Notificación 2</li>
-                <li>Notificación 3</li>
-                <li>Notificación 4</li>
-                <li>Notificación 5</li>
-                <li>Notificación 6</li>
-                <li>Notificación 7</li>
+                <?php foreach ($PrestamosPendientes as $prestamo): ?>
+                <li><?php echo htmlspecialchars("El prestamo ".$prestamo['id']." Ha vencido el plazo de devolucion"); ?></li>
+                <?php endforeach; ?>
+                <li><a href="prestamos.php">Ver todas</a></li>
             </ul>
         </li>
         <li>
