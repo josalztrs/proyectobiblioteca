@@ -188,7 +188,12 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Cambiar Estado" onclick=><i class="fa-solid fa-toggle-on"></i></button>
+                                    
+                                    <form action="../php/elimprest.php" method="POST">
+                                        <input type="hidden" name="prestamo_id" value="<?php echo htmlspecialchars($prestamo['prestamo_id']); ?>">
+                                        <input type="hidden" name="estado" value="<?php echo htmlspecialchars($prestamo['estado']); ?>">
+                                    <button class="deleteBtn" title="Cambiar Estado"><i class="fa-solid fa-toggle-on"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

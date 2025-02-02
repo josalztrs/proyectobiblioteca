@@ -1,11 +1,16 @@
 <?php
 include 'connection.php';
 // Get the person ID from the request
-$person_id = $_POST['id'];
+$person_id = $_POST['prestamo_id']; 
+
+if($_POST['estado'] == "DEVUELTO") {
+    $estado = "EN PRESTAMO";} 
+    else {
+        $estado = "DEVUELTO";}
 
 // Prepare and bind
-$stmt = $conn->prepare("DELETE FROM prestamos WHERE id = ?");
-$stmt->bind_param("i", $person_id);
+$stmt = $conn->prepare("UPDATE prestamos SET estado = ? WHERE id = ?");
+$stmt->bind_param("si", $estado ,$person_id);
 
 if ($stmt->execute()) {
 
