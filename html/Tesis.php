@@ -259,6 +259,7 @@ if ($result = $conn->query($query)) {
     <script src="../js/modal-persona.js"></script>
     <script src="../js/rotar-icono-menu.js"></script>
     <!-- <script src="../js/pagina-hover.js"></script> -->
+    <script src="../js/notificaciones.js"></script>
     <script src="../js/header.js"></script>
 </body>
 </html>

@@ -309,6 +309,7 @@ if ($result = $conn->query($querydos)) {
     <script src="../js/rotar-icono-menu.js"></script>
     <script src="../js/header.js"></script>
     <script src="../js/modal_Materia.js"></script>
+    <script src="../js/notificaciones.js"></script>
     <!-- <script src="../js/pagina-hover.js"></script> -->
 
 </body>

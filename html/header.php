@@ -23,8 +23,9 @@ $conn->close();
 
 <ul >
     <li>
-        <a href="prestamos.php" id="notificaciones">
+        <a href="prestamos.php" id="notificaciones" >
             <i class="fa-solid fa-bell" title="Notificaciones"></i>
+            <span class="notification-dot" id="notification-dot"></span> <!-- Punto rojo -->
         </a>
         
         <ul class="notificaciones-list" id="notificaciones-list">

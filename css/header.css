@@ -73,6 +73,16 @@ header > ul >li > a >i{
     z-index: 100; 
     border-radius: 10px;
 }
+.notification-dot {
+    width: 10px; /* Ancho del punto */
+    height: 10px; /* Altura del punto */
+    background-color: red; /* Color del punto */
+    border-radius: 50%; /* Hacerlo redondo */
+    position: absolute; /* Posicionarlo */
+    top: 0; /* Ajustar la posición vertical */
+    right: 0; /* Ajustar la posición horizontal */
+    display: none; /* Ocultarlo por defecto */
+}
 .notificaciones-list::before {
     content: '';
     width: 0;
