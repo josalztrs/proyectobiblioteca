@@ -7,7 +7,7 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $cota = $_POST['cota'] ?? '';
+    $cota = strtoupper($_POST['cota'] ?? '');
     $titulo = strtoupper($_POST['titulo'] ?? '');
     $autor = strtoupper($_POST['autor'] ?? '');
     $anioedic = $_POST['anio_edic'] ?? '';
