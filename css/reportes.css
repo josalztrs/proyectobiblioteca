@@ -4,10 +4,11 @@
     border: 1px solid #ccc;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; 
 }
 .conten-repor{
-    width: 50%; 
+    width: 40%; 
     max-height: 400px; 
     height: 100%; 
     justify-content: center; 
@@ -34,14 +35,12 @@
 }
 
 .card-sectionPrest{
-    /* border: 1px solid #251b4b; */
     display: flex;
     align-items: center;  
     justify-content: flex-start;  
     height: 80%;
     border-radius:  0px 20px 20px 0px;
     background: white;
-    /* background-color: #ffffff; */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
 }
 .card-sectionPrest a {
@@ -73,7 +72,7 @@
 }
 
 .contenedor-reportes {
-    width: 85%;
+    width: 50%;
     height: 500px;
     display: flex; 
     align-items: center;
@@ -83,11 +82,14 @@
 .consulta {
     border: 1px solid #ccc;
     margin-top: 50px;
-    width: 70%;
-    height: 400px;    
+    width: 80%;
+    max-width: 900px; 
+    height: auto; 
     justify-content: center;
     border-radius: 10px;
     background-color: #fff;
+    padding: 20px; 
+    box-sizing: border-box; 
 }
 
 .seccion-consulta {
@@ -128,16 +130,19 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; 
 }
 
 .seccion-buscar input[type="text"] {
-    height: 40px;
+    height: 30px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-right: 10px;
     transition: border-color 0.3s ease;
     outline: none;
+    flex: 1; 
+    min-width: 100px;
 }
 
 .seccion-buscar button {
@@ -173,4 +178,34 @@ hr{
 #resultado-consulta {
     font-size: 12px;
     color: #333;
+}
+
+@media (max-width: 900px) {
+    .main-rep {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conten-repor, .contenedor-reportes {
+        width: 100%;
+    }
+
+    .consulta {
+        width: 90%; 
+    }
+
+    .seccion-buscar {
+        flex-direction: column; 
+        align-items: stretch; 
+    }
+
+    .seccion-buscar input[type="text"] {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+        width: 100%; 
+    }
+
+    .seccion-buscar button {
+        width: 100%; 
+    }
 }
