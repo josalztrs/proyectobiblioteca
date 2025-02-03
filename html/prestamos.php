@@ -111,7 +111,7 @@ if ($result = $conn->query($query)) {
                             <input type="hidden" id='edit-estado' name='edit-estado'>
                             <input type=hidden name="placeholder" id="placeholder" value="">
                             <label for="">Cédula</label>
-                            <input type="text" id='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
+                            <input type="text" id='edit-cedula' name='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
                             <input type="text" id='edit-cota' name='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
                             <label for="">Fecha Del Prestamo</label>
