@@ -161,6 +161,19 @@ main{
     margin-left: 7px;
     color: white;
 }
+
+.contend-tabla {
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
 /* botones superiores de la tabla */
 .header-div{
     width: 100%;
@@ -179,7 +192,7 @@ main{
 }
 
 .contend-PDf{
-    display: flex;
+    /* display: flex; */
     margin-left: auto;
     flex-direction: column; 
     align-items: flex-end; 
@@ -256,19 +269,6 @@ main{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-.contend-tabla {
-    width: 100%;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 5px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
-}
-
 .tabla-section {
     width: 95%;
     margin-top: 25px;
@@ -276,8 +276,6 @@ main{
     max-height: 500px;
     margin-bottom: 20px;
     border-radius: 10px 10px 0px 0px;
-    overflow: hidden;
-    max-height: 500px;
 }
 .tabla-A {
     border-collapse: collapse;
@@ -396,10 +394,19 @@ main{
 }
 
 @media (max-width: 760px) {
-    
-
     .tabla-A button{
         margin-bottom: 5px;
+    }
+}
+@media (max-width: 880px) {
+    .header-div{
+        flex-direction: column; 
+        align-items: center;
+        border: 1px solid red;
+        height: auto;
+    }
+    .filter-paginator{
+        border: 1px solid blue;
     }
 }
 @media (max-width: 1120px){
