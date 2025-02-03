@@ -5,10 +5,22 @@
 include '../php/connection.php';
 
 $tesis = [];
-$query = "SELECT * FROM otrosmateriales";
+$query = "SELECT otrosmateriales.*, materia.id AS materia_id, materia.nombremateria AS nombremateria
+            FROM otrosmateriales
+            INNER JOIN materia ON otrosmateriales.area_conoc = materia.id;";
 if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
         $tesis[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
+}
+$materias = [];
+$querydos = "SELECT * FROM materia";
+if ($result = $conn->query($querydos)) {
+    while ($row = $result->fetch_assoc()) {
+        $materias[] = $row;
     }
     $result->free();
 } else {
@@ -70,12 +82,48 @@ if ($result = $conn->query($query)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevinvst.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
-                            <label for="">Cota</label>
-                            <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" required>
                             <label for="">Titulo</label>
                             <input type="text" name='titulo' placeholder="Titulo  del libro" required>
+                            <label for="">Tipo</label>
+                            <select name="tipo" id="tipo" required>
+                                <option value="" disabled selected>Seleccione un tipo</option>
+                                <optgroup label="Segun el tipo de datos">
+                                    <option value="cualitativa">Cualitativa</option>
+                                    <option value="cuantitativa">Cuantitativa</option>
+                                </optgroup>
+                                <optgroup label="Segun el objetivo">
+                                    <option value="basica">Básica</option>
+                                    <option value="aplicada">Aplicada</option>
+                                </optgroup>
+                                <optgroup label="Segun la profundidad">
+                                    <option value="descriptiva">Descriptiva</option>
+                                    <option value="explicativa">Explicativa</option>
+                                    <option value="exploratoria">Exploratoria</option>
+                                </optgroup>
+                                <optgroup label="Segun la manipulacion de variables">
+                                    <option value="experimental">Experimental</option>
+                                    <option value="cuasi-experimental">Cuasi-experimental</option>
+                                    <option value="no-experimental">No experimental</option>
+                                </optgroup>
+                                <optgroup label="Segun el diseño">
+                                    <option value="deductiva">Deductiva</option>
+                                    <option value="inductiva">Inductiva</option>
+                                    <option value="hipotetico-deductiva">Hipotético-deductiva</option>
+                                </optgroup>
+                                <optgroup label="Segun la temporalidad">
+                                    <option value="longitudinal">Longitudinal</option>
+                                    <option value="transversal">Transversal</option>
+                                </optgroup>
+                            </select>
+                            <label for="">Tipo de Documento</label>
+                            <select name="tipo_doc" id="tipo_doc" required>
+                                <option value="" disabled selected>Seleccione un tipo</option>
+                                <option value="TRABAJO DE GRADO">Trabajo de grado</option>
+                                <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
+                                <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
+                            </select>
                             <label for="">Autor</label>
                             <input type="text" name='autor' placeholder="autor del libro" required>
                             <label for="">Año</label>
@@ -100,30 +148,6 @@ if ($result = $conn->query($query)) {
             </div>
         </section>
          
-     <!-- modal agregar materia -->
-        <section class="modal"  id="RegisMat">
-            <div class="modal_container">  
-                <section class="modal-header">
-                    <h2 class="modal_title"> Registrando Materia</h2>
-                    <button class="modal_close" id="cancelar-AggMat"> <i class="fa-solid fa-xmark"></i></button>
-                </section>
-                    
-                <section class="modal-body">
-                    <form action="../php/nuevmat.php" method="POST" class="form-Persona" id="formPersona">    
-                        <section>
-                            <label for="">Nombre De La Materia</label>
-                            <input type="text" name='nombre_materia' placeholder="Nombre">
-                        </section>
-
-                        <div class="btn">
-                            <button type="reset"  >Limpiar</button>
-                            <button type="submit">Registrar</button>
-                        </div>                            
-                    </form>
-                </section>                                     
-            </div>
-        </section>
-     
         <!-- Modal de editar -->
         <section class="modal" id="modal-edit">
             <div class="modal_container">
@@ -134,10 +158,46 @@ if ($result = $conn->query($query)) {
                     <form action="../php/editlib.php" method="POST" class="form-Persona">    
                         <section>
                             <input type="hidden" id="edit-id">
-                            <label for="">Cota</label>
-                            <input type="text" name='edit-cota' id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" required>
                             <label for="">Titulo</label>
                             <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro" required>
+                            <label for="">Tipo de Trabajo Investigacion</label>
+                            <select name="edit-tipo" id="edit-tipo" required>
+                                <option value="" disabled selected>Seleccione un tipo</option>
+                                <optgroup label="Segun el tipo de datos">
+                                    <option value="cualitativa">Cualitativa</option>
+                                    <option value="cuantitativa">Cuantitativa</option>
+                                </optgroup>
+                                <optgroup label="Segun el objetivo">
+                                    <option value="basica">Básica</option>
+                                    <option value="aplicada">Aplicada</option>
+                                </optgroup>
+                                <optgroup label="Segun la profundidad">
+                                    <option value="descriptiva">Descriptiva</option>
+                                    <option value="explicativa">Explicativa</option>
+                                    <option value="exploratoria">Exploratoria</option>
+                                </optgroup>
+                                <optgroup label="Segun la manipulacion de variables">
+                                    <option value="experimental">Experimental</option>
+                                    <option value="cuasi-experimental">Cuasi-experimental</option>
+                                    <option value="no-experimental">No experimental</option>
+                                </optgroup>
+                                <optgroup label="Segun el diseño">
+                                    <option value="deductiva">Deductiva</option>
+                                    <option value="inductiva">Inductiva</option>
+                                    <option value="hipotetico-deductiva">Hipotético-deductiva</option>
+                                </optgroup>
+                                <optgroup label="Segun la temporalidad">
+                                    <option value="longitudinal">Longitudinal</option>
+                                    <option value="transversal">Transversal</option>
+                                </optgroup>
+                            </select>
+                            <label for="">Tipo de Documento</label>
+                            <select name="edit-tipo_doc" id="edit-tipo_doc" required>
+                                <option value="" disabled selected>Seleccione un tipo</option>
+                                <option value="TRABAJO DE GRADO">Trabajo de grado</option>
+                                <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
+                                <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
+                            </select>
                             <label for="">Autor</label>
                             <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
                             <label for="">Editorial</label>
@@ -205,31 +265,29 @@ if ($result = $conn->query($query)) {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Cota</th>
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Año</th>
                             <th>Area De Conocimiento</th>
-                            <th>Descripcion</th>
+                            <th>Tipo de Documento</th>
+                            <th>Metodologia</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody id="tabla-B">
-                        <?php foreach ($libros as $index => $libro): ?>
+                        <?php foreach ($tesis as $index => $tes): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($libro['id']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['tipo']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['titulo']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['autor']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['editorial']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['anio_edic']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['nombremateria']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['descripcion']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['CTotal']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['CPrest']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['id']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['titulo']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['autor']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['semestr_exp']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['nombremateria']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['tipo_metodologia']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['tipo']); ?></td>
+                                
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                                    <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($libro['id']); ?>', '../php/elimlib.php')"><i class="fa-solid fa-toggle-on"></i></button>
+                                    <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($tes['id']); ?>', '../php/eliminvst.php')"><i class="fa-solid fa-toggle-on"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
