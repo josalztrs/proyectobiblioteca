@@ -40,7 +40,7 @@ if ($result = $conn->query($querydos)) {
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/cargadatosedit.js"></script>
+    <script src="../js/editinvst.js"></script>
     <script src="../js/busquedadinamica.js"></script>
     <link rel="stylesheet" href="/fontawasome/fontawesome-free-6.7.2-web/css/all.css">
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
@@ -135,8 +135,6 @@ if ($result = $conn->query($querydos)) {
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <label for="">Descripcion</label>
-                            <input type="text" name='descripcion' placeholder="Descripcion">
                         </section>
 
                         <div class="btn">
@@ -155,7 +153,7 @@ if ($result = $conn->query($querydos)) {
                     <h2 class="modal_title"> Editando Trabajo</h2>
                 </section>                    
                 <section class="modal-body">
-                    <form action="../php/editlib.php" method="POST" class="form-Persona">    
+                    <form action="../php/editinvst.php" method="POST" class="form-Persona">    
                         <section>
                             <input type="hidden" id="edit-id">
                             <label for="">Titulo</label>
@@ -164,31 +162,31 @@ if ($result = $conn->query($querydos)) {
                             <select name="edit-tipo" id="edit-tipo" required>
                                 <option value="" disabled selected>Seleccione un tipo</option>
                                 <optgroup label="Segun el tipo de datos">
-                                    <option value="cualitativa">Cualitativa</option>
-                                    <option value="cuantitativa">Cuantitativa</option>
+                                    <option value="CUALITATIVA">Cualitativa</option>
+                                    <option value="CUANTITATIVA">Cuantitativa</option>
                                 </optgroup>
                                 <optgroup label="Segun el objetivo">
-                                    <option value="basica">Básica</option>
-                                    <option value="aplicada">Aplicada</option>
+                                    <option value="BASICA">Básica</option>
+                                    <option value="APLICADA">Aplicada</option>
                                 </optgroup>
                                 <optgroup label="Segun la profundidad">
-                                    <option value="descriptiva">Descriptiva</option>
-                                    <option value="explicativa">Explicativa</option>
-                                    <option value="exploratoria">Exploratoria</option>
+                                    <option value="DESCRIPTIVA">Descriptiva</option>
+                                    <option value="EXPLICATIVA">Explicativa</option>
+                                    <option value="EXPLORATORIA">Exploratoria</option>
                                 </optgroup>
                                 <optgroup label="Segun la manipulacion de variables">
-                                    <option value="experimental">Experimental</option>
-                                    <option value="cuasi-experimental">Cuasi-experimental</option>
-                                    <option value="no-experimental">No experimental</option>
+                                    <option value="EXPERIMENTAAL">Experimental</option>
+                                    <option value="CUASI-EXPERIMENTAL">Cuasi-experimental</option>
+                                    <option value="NO-EXPERIMENTAL">No experimental</option>
                                 </optgroup>
                                 <optgroup label="Segun el diseño">
-                                    <option value="deductiva">Deductiva</option>
-                                    <option value="inductiva">Inductiva</option>
-                                    <option value="hipotetico-deductiva">Hipotético-deductiva</option>
+                                    <option value="DEDUCTIVA">Deductiva</option>
+                                    <option value="INDUCTIVA">Inductiva</option>
+                                    <option value="HIPOTETICO-DEDUCTIVA">Hipotetico-deductiva</option>
                                 </optgroup>
                                 <optgroup label="Segun la temporalidad">
-                                    <option value="longitudinal">Longitudinal</option>
-                                    <option value="transversal">Transversal</option>
+                                    <option value="LONGITUDINAL">Longitudinal</option>
+                                    <option value="TRANSVERSAL">Transversal</option>
                                 </optgroup>
                             </select>
                             <label for="">Tipo de Documento</label>
@@ -200,8 +198,6 @@ if ($result = $conn->query($querydos)) {
                             </select>
                             <label for="">Autor</label>
                             <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
-                            <label for="">Editorial</label>
-                            <input type="text" name='edit-editorial' id ='edit-editorial' placeholder="editorial" required>
                             <label for="">Año de Edicion</label>
                             <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             <label for="">Materia</label>
@@ -211,8 +207,6 @@ if ($result = $conn->query($querydos)) {
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <label for="">Descripcion</label>
-                            <input type="text" name='edit-descripcion' id='edit-descripcion' placeholder="Descripcion">
                         </section>
                         <div class="btn">
                             <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->
