@@ -4,11 +4,12 @@
 include '../php/connection.php';
 
 $libros = [];
-$query = "SELECT libros.*, materia.nombremateria, 
+$query = "SELECT libros.*, materia.nombremateria,
+          COALESCE (materia.nombremateria, 'Materia Eliminada.') AS nombremateria, 
           SUM(1) AS CTotal, 
           SUM(CASE WHEN libros.estado = 'PRESTADO' THEN 1 ELSE 0 END) AS CPrest 
           FROM libros 
-          INNER JOIN materia ON libros.materia = materia.id 
+          LEFT JOIN materia ON libros.materia = materia.id 
           GROUP BY libros.cota, libros.anio_edic";
 
 if ($result = $conn->query($query)) {
@@ -256,7 +257,7 @@ if ($result = $conn->query($querydos)) {
                             <th>Autor</th>
                             <th>Editorial</th>
                             <th>Año de Edicion</th>
-                            <th>Materia</th>
+                            <th>Area de Conocimiento</th>
                             <th>Descripcion</th>
                             <th>Cantidad Total</th>
                             <th>Cantidad Prestados</th>
