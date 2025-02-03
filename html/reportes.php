@@ -57,9 +57,30 @@
 
                         <div class="card-sectionPrest">
                             <a href="../fpdf186/gen_pdf_morosos.php" target="_blank">
-                                <!-- <i class="fa-solid fa-users" title="Personas Morosas"></i> -->
                                 <i class="fa-solid fa-face-angry"></i>
                                 <h4>Personas Morosas</h4>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="card-contendReport">
+                    
+                        <div class="card-sectionPrest">
+                            <a href="../fpdf186/gen_pdf_libros.php" target="_blank">
+                            <i class="fa-solid fa-book"></i>
+                                <h4>Listado De Libros</h4>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="card-contendReport">
+                    
+                        <div class="card-sectionPrest">
+                            <a href="#" target="_blank">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <h4>Tutores</h4>
                             </a>
                         </div>
 

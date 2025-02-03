@@ -132,7 +132,9 @@ if ($result = $conn->query($querydos)) {
                             </select>
 
                             <label for="">Autor</label>
-                            <input type="text" name='autor' placeholder="autor del libro" required>
+                            <input type="text" name='autor' placeholder="autor" required>
+                            <label for="">Tutor</label>
+                            <input type="text" name='tutor' placeholder="Tutor" required>
                             <label for="">Año</label>
                             <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             
@@ -206,9 +208,11 @@ if ($result = $conn->query($querydos)) {
                             </select>
                             <label for="">Autor</label>
                             <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
+                            <label for="">Tutor</label>
+                            <input type="text" name='tutor' placeholder="tutor" required>
                             <label for="">Año de Edicion</label>
                             <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
-                            <label for="">Materia</label>
+                            <label for="">Area De Conocimiento</label>
                             <select name="edit-materia" id="edit-materia" required>
                                 <option value="" disabled selected>Seleccione una materia</option>
                                 <?php foreach ($materias as $materia): ?>
@@ -266,9 +270,10 @@ if ($result = $conn->query($querydos)) {
                 <table class="tabla-A">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <!-- <th>ID</th> -->
                             <th>Titulo</th>
                             <th>Autor</th>
+                            <th>Tutor</th>
                             <th>Año</th>
                             <th>Area De Conocimiento</th>
                             <th>Tipo de Documento</th>
