@@ -295,6 +295,50 @@ if ($result = $conn->query($query)) {
     <script src="../js/header.js"></script>
     <script src="../js/notificaciones.js"></script>
     <!-- <script src="../js/pagina-hover.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formPersona').on('submit', function(e) {
+             e.preventDefault(); // Evita el envío normal del formulario
 
+                $.ajax({
+                    type: 'POST',
+                    url: '../php/nuevpers.php',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'error') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            });
+                        } else if (response.status === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Registro exitoso',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '../html/Personas.php';
+                                }
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Ocurrió un error al procesar la solicitud.',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    }
+                });
+            });
+        });
+    </script> 
+                          
 </body>
 </html>

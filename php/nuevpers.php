@@ -25,55 +25,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $row = $result->fetch_assoc();
 
                             if ($row['count'] > 0) {
-                                echo "<script>alert('La cédula ya está registrada.');</script>";
-                                echo "<script>window.history.back();</script>";
+                                echo json_encode(['status' => 'error', 'message' => 'La cédula ya está registrada.']);
                                 exit;
                             }
 
     if ($tipo_persona == 'INTERNO') {
         $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, telefono, correo, direccion, fechingreso, cargo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $telefono, $email, $direccion, $fechingreso, $cargo);
-        if ($stmt->execute()) {
+        // if ($stmt->execute()) {
 
-            header("Location: ../html/Personas.php");
-            exit();
-        } else {
-            echo 'Query failed: ' . $stmt->error;
-        }
+        //     header("Location: ../html/Personas.php");
+        //     exit();
+        // } else {
+        //     echo 'Query failed: ' . $stmt->error;
+        // }
     
-        $stmt->close();
-        $conn->close();
+        // $stmt->close();
+        // $conn->close();
     }
     if($tipo_persona == 'ESTUDIANTE') {
         $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, carrera, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('ssssssss', $cedula, $nombre, $tipo_persona, $tipo_carrera, $telefono, $email, $direccion, $fechingreso);
-        if ($stmt->execute()) {
+        // if ($stmt->execute()) {
 
-            header("Location: ../html/Personas.php");
-            exit();
-        } else {
-            echo 'Query failed: ' . $stmt->error;
-        }
+        //     header("Location: ../html/Personas.php");
+        //     exit();
+        // } else {
+        //     echo 'Query failed: ' . $stmt->error;
+        // }
     
-        $stmt->close();
-        $conn->close();
+        // $stmt->close();
+        // $conn->close();
     }
     if($tipo_persona=='EXTERNO'){
         $stmt = $conn->prepare("INSERT INTO personas (cedula, nombre, tipo, telefono, correo, direccion, fechingreso) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssssss', $cedula, $nombre, $tipo_persona, $telefono, $email, $direccion, $fechingreso);
-        if ($stmt->execute()) {
+        // if ($stmt->execute()) {
 
-            header("Location: ../html/Personas.php");
-            exit();
-        } else {
-            echo 'Query failed: ' . $stmt->error;
-        }
+        //     header("Location: ../html/Personas.php");
+        //     exit();
+        // } else {
+        //     echo 'Query failed: ' . $stmt->error;
+        // }
     
-        $stmt->close();
-        $conn->close();
+        // $stmt->close();
+        // $conn->close();
 
     }
+    // Ejecutar la inserción
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'Registro exitoso.']);
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Error al registrar la cédula.']);
+    }
 
+    $stmt->close();
+    $conn->close();
 
 
 }
