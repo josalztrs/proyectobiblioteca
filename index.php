@@ -30,8 +30,8 @@ include'php\login.php';
                 ?>
     
                     <form action="php/login.php" method="POST">
-                        <input type="text" name="username" placeholder="usuario" required>
-                        <input type="password" name="password" placeholder="password" required>
+                        <input type="text" name="username" placeholder="usuario" maxlength="11" required>
+                        <input type="password" name="password" placeholder="password" maxlength="11" required>
 
                         <div class="btn">
                             <button type="submit">Entrar</button>
