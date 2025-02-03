@@ -109,6 +109,7 @@ if ($result = $conn->query($query)) {
                         <section>
                             <input type="hidden" id='edit-id' name='edit-id'>
                             <input type="hidden" id='edit-estado' name='edit-estado'>
+                            <input type=hidden name="placeholder" id="placeholder" value="">
                             <label for="">Cédula</label>
                             <input type="text" id='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
