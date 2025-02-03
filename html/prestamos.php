@@ -77,7 +77,7 @@ if ($result = $conn->query($query)) {
                             <input type=hidden name="id" id="id" value="">
                             <input type=hidden name="estado" id="estado" value="">
                             <input type=hidden name="placeholder" id="placeholder" value="">
-                            <label for="">Cedula</label>
+                            <label for="">Cédula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
                             <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
@@ -109,8 +109,8 @@ if ($result = $conn->query($query)) {
                         <section>
                             <input type="hidden" id='edit-id' name='edit-id'>
                             <input type="hidden" id='edit-estado' name='edit-estado'>
-                            <label for="">Cedula</label>
-                            <input type="text" id='edit-cedula' name='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
+                            <label for="">Cédula</label>
+                            <input type="text" id='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
                             <input type="text" id='edit-cota' name='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
                             <label for="">Fecha Del Prestamo</label>
@@ -175,7 +175,7 @@ if ($result = $conn->query($query)) {
                             <th>C.I Persona</th>
                             <th>Nombre</th>
                             <th>Fecha Prestamo</th>
-                            <th>Fecha Devolucion</th>
+                            <th>Fecha Devolución</th>
                             <th>Estado</th>
                             <th></th>
                         </tr>

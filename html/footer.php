@@ -19,4 +19,5 @@
         
 <section class="footer-year">
     <p>Año: 2024-2025</p>
+    <p>Version 1.0</p>
 </section>

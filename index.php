@@ -34,8 +34,8 @@ include'php\login.php';
                         <input type="password" name="password" placeholder="password" maxlength="11" required>
 
                         <div class="btn">
-                            <button type="submit">Entrar</button>
-                            <button type="reset" id="cancelar">Cancelar</button>
+                            <button type="submit">Iniciar</button>
+                            <button type="reset" id="cancelar">Limpiar</button>
                         </div>
     
                     </form>
@@ -49,6 +49,7 @@ include'php\login.php';
                         </div>
                         <div class="carta back">
                             <img src="imagenes/Luis_Beltran_Figueroa.png" alt="luis-beltran" id="img2">
+                               <h3>Luis B. Prieto</h3>
                         </div>
                     </div>
                     
