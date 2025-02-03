@@ -126,6 +126,11 @@ select {
     height: 35px;
     padding: 10px;
 }
+.Select_Trabaj{
+    width: 50%;
+    height: 35px;
+    padding: 10px;
+}
     /* Botones modal */
 .btn {
     display: flex;
