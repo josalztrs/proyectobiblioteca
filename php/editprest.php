@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['edit-cedula'] ?? '';
     $cota = $_POST['edit-cota'] ?? '';
     $fechaPrest = $_POST['edit-fecha_prest'] ?? '';
-    $fechaPrest = $_POST['edit-fecha_dev'] ?? '';
+    $fechaDev = $_POST['edit-fecha_dev'] ?? '';
 
 
     $query = "UPDATE prestamos SET cota = ?, fechaPrest = ?, fechaDev = ? WHERE cedula = ?";
