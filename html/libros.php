@@ -134,7 +134,7 @@ if ($result = $conn->query($querydos)) {
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <label for="">Descripcion</label>
+                            <label for="">Descripción</label>
                             <input type="text" name='descripcion' placeholder="Descripcion">
                         </section>
 
@@ -151,7 +151,7 @@ if ($result = $conn->query($querydos)) {
         <section class="modal"  id="RegisMat">
             <div class="modal_container">  
                 <section class="modal-header">
-                    <h2 class="modal_title"> Registrando Materia</h2>
+                    <h2 class="modal_title"> Registrando Area De Conocimiento</h2>
                     <button class="modal_close" id="cancelar-AggMat"> <i class="fa-solid fa-xmark"></i></button>
                 </section>
                     
@@ -189,16 +189,16 @@ if ($result = $conn->query($querydos)) {
                             <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
                             <label for="">Editorial</label>
                             <input type="text" name='edit-editorial' id ='edit-editorial' placeholder="editorial" required>
-                            <label for="">Año de Edicion</label>
+                            <label for="">Año de Edición</label>
                             <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
-                            <label for="">Materia</label>
+                            <label for="">Area De Conocimiento</label>
                             <select name="edit-materia" id="edit-materia" required>
-                                <option value="" disabled selected>Seleccione una materia</option>
+                                <option value="" disabled selected>Seleccione</option>
                                 <?php foreach ($materias as $materia): ?>
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <label for="">Descripcion</label>
+                            <label for="">Descripción</label>
                             <input type="text" name='edit-descripcion' id='edit-descripcion' placeholder="Descripcion">
                         </section>
                         <div class="btn">
@@ -256,11 +256,11 @@ if ($result = $conn->query($querydos)) {
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Editorial</th>
-                            <th>Año de Edicion</th>
+                            <th>Año de Edición</th>
                             <th>Area de Conocimiento</th>
-                            <th>Descripcion</th>
-                            <th>Cantidad Total</th>
-                            <th>Cantidad Prestados</th>
+                            <th>Descripción</th>
+                            <th>Cant Total</th>
+                            <th>Cant Prestados</th>
                             <th></th>
                         </tr>
                     </thead>

@@ -83,8 +83,8 @@ if ($result = $conn->query($query)) {
                                     </select>
                                     <select id="tipo-carrera" name="tipo-carrera" disabled >
                                         <option value="" disabled selected> Carrera</option>
-                                        <option value="Administracion">Administracion</option>
-                                        <option value="Enfermeria">Enfermeria</option>
+                                        <option value="Administracion">Administración</option>
+                                        <option value="Enfermeria">Enfermería</option>
                                         <option value="Ing Civil">Ing Civil</option>
                                         <option value="Ing Sistemas">Ing Sistemas</option>                                   
                                         <option value="Turismo">Turismo</option>
@@ -102,12 +102,12 @@ if ($result = $conn->query($query)) {
 
                                 </section>
 
-                            <label for="">Telefono</label>
+                            <label for="">Teléfono</label>
                             <input type="text" name='telefono' placeholder="Telf" pattern="\d{11}" title="El teléfono debe tener 11 dígitos" required  maxlength="11" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Email</label>
                             <input type="email" name='email' placeholder="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Ingrese un correo electrónico válido" required>
-                            <label for="">Direccion</label>
-                            <input type="text" name='direccion' placeholder="Direccion" required maxlength="30">                                
+                            <label for="">Dirección</label>
+                            <input type="text" name='direccion' placeholder="Dirección" required maxlength="30">                                
                         </section>
 
                         <div class="btn">
@@ -130,7 +130,7 @@ if ($result = $conn->query($query)) {
                 <section class="modal-body">
                     <form action="../php/editpers.php" method="POST" class="form-Persona">    
                         <section>
-                            <label for="">Cedula</label>
+                            <label for="">Cédula</label>
                             <input type="text" id="edit-cedula" name="edit-cedula" placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required maxlength="8" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Nombres</label>
                             <input type="text" id="edit-nombres" name="edit-nombres" placeholder="Nombre Completo">
@@ -145,7 +145,7 @@ if ($result = $conn->query($query)) {
                                 <select id="edit-carrera" name="edit-carrera" disabled >
                                     <option value="" disabled selected> Carrera</option>
                                     <option value="ADMINISTRACION">Administración</option>
-                                    <option value="ENFERMERIA">Enfermeria</option>
+                                    <option value="ENFERMERIA">Enfermería</option>
                                     <option value="ING CIVIL">Ing Civil</option>
                                     <option value="ING SISTEMAS">Ing Sistemas</option>                                   
                                     <option value="TURISMO">Turismo</option>
@@ -163,11 +163,11 @@ if ($result = $conn->query($query)) {
                                 </select>
 
                             </section>
-                            <label for="">Telefono</label>
+                            <label for="">Teléfono</label>
                             <input type="text" id="edit-telefono" name="edit-telefono" placeholder="Telf" maxlength="11" onkeypress = "return ValidarNumeros(event)">
                             <label for="">Email</label>
                             <input type="email" id="edit-email" name="edit-email" placeholder="email">
-                            <label for="">Direccion</label>
+                            <label for="">Dirección</label>
                             <input type="text" id="edit-direccion" name="edit-direccion" placeholder="Direccion" maxlength="30">
                         </section>
                         <div class="btn">
@@ -179,18 +179,7 @@ if ($result = $conn->query($query)) {
             </div>
         </section>
             
-     <!-- Modal Eliminar  -->
-        <section class="modal " id="modal-Delete">        
-            <div class="modal_container-Delet">
-                <form action="../php/elimpers.php" method="POST">                   
-                <h4 class="modal_title">¿Quiere Eliminar El Registro?</h4>
-                <div class="btn">
-                    <button type="reset" id="cancelar-delete" >Cancelar</button> <!--class="modal_close"-->
-                    <button type="submit">Confirmar</button>
-                </div>
-                </form>
-            </div>        
-        </section>
+     
 
         <div class="contend-tabla">            
             <div  class="header-div">
@@ -234,13 +223,13 @@ if ($result = $conn->query($query)) {
                         <tr>
                             <th>Codigo</th>
                             <th>Nombres</th>
-                            <th>Cedula</th>
-                            <th>Telefono</th>
+                            <th>Cédula</th>
+                            <th>Teléfono</th>
                             <th>Correo</th>
                             <th>Tipo</th>
                             <th>Carrera</th>
                             <th>Cargo</th>
-                            <th>Direccion</th>
+                            <th>Dirección</th>
                             <th>Fecha de Ingreso</th>
                             <th></th>
                         </tr>

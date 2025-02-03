@@ -89,35 +89,35 @@ if ($result = $conn->query($querydos)) {
                             <label for="">Tipo</label>
                             <select name="tipo" id="tipo" class="Select_Trabaj" required>
                                 <option value="" disabled selected>Seleccione un tipo</option>
-                                <optgroup label="Segun el tipo de datos">
+                                <optgroup label="Según el tipo de datos">
                                     <option value="cualitativa">Cualitativa</option>
                                     <option value="cuantitativa">Cuantitativa</option>
                                 </optgroup>
 
-                                <optgroup label="Segun el objetivo">
+                                <optgroup label="Según el objetivo">
                                     <option value="basica">Básica</option>
                                     <option value="aplicada">Aplicada</option>
                                 </optgroup>
 
-                                <optgroup label="Segun la profundidad">
+                                <optgroup label="Según la profundidad">
                                     <option value="descriptiva">Descriptiva</option>
                                     <option value="explicativa">Explicativa</option>
                                     <option value="exploratoria">Exploratoria</option>
                                 </optgroup>
 
-                                <optgroup label="Segun la manipulacion de variables">
+                                <optgroup label="Según la manipulación de variables">
                                     <option value="experimental">Experimental</option>
                                     <option value="cuasi-experimental">Cuasi-experimental</option>
                                     <option value="no-experimental">No experimental</option>
                                 </optgroup>
 
-                                <optgroup label="Segun el diseño">
+                                <optgroup label="Según el diseño">
                                     <option value="deductiva">Deductiva</option>
                                     <option value="inductiva">Inductiva</option>
                                     <option value="hipotetico-deductiva">Hipotético-deductiva</option>
                                 </optgroup>
 
-                                <optgroup label="Segun la temporalidad">
+                                <optgroup label="Según la temporalidad">
                                     <option value="longitudinal">Longitudinal</option>
                                     <option value="transversal">Transversal</option>
                                 </optgroup>
@@ -140,7 +140,7 @@ if ($result = $conn->query($querydos)) {
                             
                             <label for="">Area De Conocimiento</label>
                             <select name="materia" class="Select_Trabaj" required>
-                                <option value="" disabled selected>Seleccione una materia</option>
+                                <option value="" disabled selected>Seleccione</option>
                                 <?php foreach ($materias as $materia): ?>
                                     <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                 <?php endforeach; ?>
@@ -168,33 +168,33 @@ if ($result = $conn->query($querydos)) {
                             <input type="hidden" id="edit-id">
                             <label for="">Titulo</label>
                             <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro" required>
-                            <label for="">Tipo de Trabajo Investigacion</label>
+                            <label for="">Tipo de Trabajo Investigación</label>
                             <select name="edit-tipo" id="edit-tipo" required>
                                 <option value="" disabled selected>Seleccione un tipo</option>
-                                <optgroup label="Segun el tipo de datos">
+                                <optgroup label="Según el tipo de datos">
                                     <option value="CUALITATIVA">Cualitativa</option>
                                     <option value="CUANTITATIVA">Cuantitativa</option>
                                 </optgroup>
-                                <optgroup label="Segun el objetivo">
+                                <optgroup label="Según el objetivo">
                                     <option value="BASICA">Básica</option>
                                     <option value="APLICADA">Aplicada</option>
                                 </optgroup>
-                                <optgroup label="Segun la profundidad">
+                                <optgroup label="Según la profundidad">
                                     <option value="DESCRIPTIVA">Descriptiva</option>
                                     <option value="EXPLICATIVA">Explicativa</option>
                                     <option value="EXPLORATORIA">Exploratoria</option>
                                 </optgroup>
-                                <optgroup label="Segun la manipulacion de variables">
+                                <optgroup label="Según la manipulación de variables">
                                     <option value="EXPERIMENTAAL">Experimental</option>
                                     <option value="CUASI-EXPERIMENTAL">Cuasi-experimental</option>
                                     <option value="NO-EXPERIMENTAL">No experimental</option>
                                 </optgroup>
-                                <optgroup label="Segun el diseño">
+                                <optgroup label="Según el diseño">
                                     <option value="DEDUCTIVA">Deductiva</option>
                                     <option value="INDUCTIVA">Inductiva</option>
                                     <option value="HIPOTETICO-DEDUCTIVA">Hipotetico-deductiva</option>
                                 </optgroup>
-                                <optgroup label="Segun la temporalidad">
+                                <optgroup label="Según la temporalidad">
                                     <option value="LONGITUDINAL">Longitudinal</option>
                                     <option value="TRANSVERSAL">Transversal</option>
                                 </optgroup>
@@ -277,7 +277,7 @@ if ($result = $conn->query($querydos)) {
                             <th>Año</th>
                             <th>Area De Conocimiento</th>
                             <th>Tipo de Documento</th>
-                            <th>Metodologia</th>
+                            <th>Metodología</th>
                             <th></th>
                         </tr>
                     </thead>

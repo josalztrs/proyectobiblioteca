@@ -74,7 +74,7 @@ if ($result = $conn->query($query)) {
                 <section class="modal-body">
                     <form action="../php/nuevprest.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
-                            <label for="">Cedula</label>
+                            <label for="">Cédula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
                             <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
@@ -104,7 +104,7 @@ if ($result = $conn->query($query)) {
                 <section class="modal-body">
                     <form action="" method="POST" class="form-Persona" id="formPersona">    
                         <section>
-                            <label for="">Cedula</label>
+                            <label for="">Cédula</label>
                             <input type="text" id='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
                             <input type="text" id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
@@ -170,7 +170,7 @@ if ($result = $conn->query($query)) {
                             <th>C.I Persona</th>
                             <th>Nombre</th>
                             <th>Fecha Prestamo</th>
-                            <th>Fecha Devolucion</th>
+                            <th>Fecha Devolución</th>
                             <th>Estado</th>
                             <th></th>
                         </tr>
