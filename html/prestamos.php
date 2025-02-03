@@ -74,6 +74,9 @@ if ($result = $conn->query($query)) {
                 <section class="modal-body">
                     <form action="../php/nuevprest.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
+                            <input type=hidden name="id" id="id" value="">
+                            <input type=hidden name="estado" id="estado" value="">
+                            <input type=hidden name="placeholder" id="placeholder" value="">
                             <label for="">Cedula</label>
                             <input type="text" name='cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
@@ -102,16 +105,18 @@ if ($result = $conn->query($query)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/editprest.php" method="POST" class="form-Persona" id="formPersona">    
                         <section>
+                            <input type="hidden" id='edit-id' name='edit-id'>
+                            <input type="hidden" id='edit-estado' name='edit-estado'>
                             <label for="">Cedula</label>
-                            <input type="text" id='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
+                            <input type="text" id='edit-cedula' name='edit-cedula' placeholder="xxxxxxxx" pattern="\d{7,8}" title="La cedula debe tener al menos 7 digitos" required>
                             <label for="">Cota</label>
-                            <input type="text" id='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
+                            <input type="text" id='edit-cota' name='edit-cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" >
                             <label for="">Fecha Del Prestamo</label>
-                            <input type="date" id='edit-fecha_prest' placeholder="fecha" id="fechaPrestamo" readonly>
+                            <input type="date" id='edit-fechaprest' name='edit-fechaprest' placeholder="fecha" id="fechaPrestamo" readonly>
                             <label for="">Fecha De Entrega</label>
-                            <input type="date" id='edit-fecha_ent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
+                            <input type="date" id='edit-fechaent' name='edit-fechaent' placeholder="fecha" id="fechaEntrega" readonly>                                                               
                         </section>
 
                         <div class="btn">
