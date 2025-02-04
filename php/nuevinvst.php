@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $materia = strtoupper($_POST['materia'] ?? '');
     $tipodoc = strtoupper($_POST['tipo_doc'] ?? '');
     $tutor = strtoupper($_POST['tutor'] ?? '');
-        $stmt = $conn->prepare("INSERT INTO otrosmateriales (titulo, autor, semestr_exp, area_conoc, tipo,tipo_metodologia) VALUES (?, ?, ?, ?, ?,?)");
-        $stmt->bind_param('ssssss', $titulo, $autor, $anioedic, $materia, $tipo, $tipodoc);
+        $stmt = $conn->prepare("INSERT INTO otrosmateriales (titulo, autor, semestr_exp, area_conoc, tipo,tipo_metodologia, tutor) VALUES (?, ?, ?, ?, ?,?,?)");
+        $stmt->bind_param('sssssss', $titulo, $autor, $anioedic, $materia, $tipo, $tipodoc, $tutor);
         if ($stmt->execute()) {
 
             header("Location: ../html/tesis.php");
