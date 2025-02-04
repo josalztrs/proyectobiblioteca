@@ -2,6 +2,8 @@
 <html lang="en">
 <?php
 include '../php/connection.php';
+
+
 ?>
 <head>
     <meta charset="UTF-8">
@@ -18,6 +20,77 @@ include '../php/connection.php';
     <script src="https://kit.fontawesome.com/96ea2d2ec6.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+                <script type="text/javascript">
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Libros', 'Trabajos de Investigacion'],
+                    <?php
+                    $query = "SELECT 'Libros' AS table_name, COUNT(*) AS count
+                    FROM libros
+                    UNION ALL
+                    SELECT 'Trabajos de Investigacion' AS table_name, COUNT(*) AS count
+                    FROM otrosmateriales;";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "['".$row["table_name"]."', ".$row["count"]."],";
+                    }
+                    
+                    
+                    ?>
+                ]);
+
+                var options = {
+                    title: 'Documentos',
+                    is3d: true
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart-libros'));
+
+                chart.draw(data, options);
+                }
+                </script>
+
+                <script type="text/javascript">
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Libros', 'Trabajos de Investigacion'],
+                    <?php
+                    $query = "SELECT COUNT(*) AS count, 'ESTUDIANTE' AS tipo FROM personas WHERE tipo = 'ESTUDIANTE'
+UNION ALL
+SELECT COUNT(*) AS count, 'INTERNO' AS tipo FROM  personas WHERE tipo = 'INTERNO'
+UNION ALL
+SELECT COUNT(*) AS count, 'EXTERNO' AS tipo FROM personas WHERE tipo = 'EXTERNO';";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "['".$row["tipo"]."', ".$row["count"]."],";
+                    }
+                    
+                    
+                    ?>
+                ]);
+
+                var options = {
+                    title: 'Tipos de Personas',
+                    is3d: true
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart-personas'));
+
+                chart.draw(data, options);
+                }
+                </script>
+
+
     <!-- <script>
         // Función para cargar contenido HTML externo
         function loadHTML(elementId, file) {
@@ -116,31 +189,12 @@ include '../php/connection.php';
         <div class="div-graficas">
             <section class="content-graficos">
                 <h2>Documentos</h2>
-                <?php
-                $sql = "SELECT anio_edic, COUNT(*) as total FROM libros GROUP BY anio_edic";
-                $result = $conn->query($sql);
-                
-                // Prepare data for Google Charts
-                $data = [['Año', 'Total de Libros']];
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $data[] = [(int)$row['anio_edic'], (int)$row['total']];
-                    }
-                } else {
-                    echo "0 results";
-                }
-                $conn->close();
-                ?>
+                <div id="piechart-libros"></div>
             </section>
 
             <section class="content-graficos">
                 <h2>Personas</h2>
-                <div class="btn-grafi">
-                    <button onclick="changeChartType('mychart2', 'bar')"><i class="fa-solid fa-chart-simple"></i></button>
-                    <button onclick="changeChartType('mychart2', 'line')"><i class="fa-solid fa-chart-line"></i></button>
-                    <button onclick="changeChartType('mychart2', 'pie')"><i class="fa-solid fa-chart-pie"></i></button>
-                </div>
-                <canvas id="mychart2"></canvas>
+                <div id="piechart-personas"></div>
             </section>
 
             <section class="content-graficos">

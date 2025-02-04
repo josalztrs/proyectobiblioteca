@@ -2,8 +2,6 @@
 <html lang="en">
 <?php
 include '../php/connection.php';
-
-$prestamos = [];
 $query =    "SELECT DISTINCT prestamos.id AS prestamo_id, prestamos.fecha_prestamo, prestamos.fecha_entrega, prestamos.estado, 
             personas.nombre AS persona_nombre, personas.cedula AS persona_cedula, libros.titulo AS libro_titulo, 
             libros.cota AS libro_cota FROM prestamos 
