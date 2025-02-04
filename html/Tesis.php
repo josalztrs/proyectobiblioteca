@@ -29,6 +29,9 @@ if ($result = $conn->query($querydos)) {
 } else {
     echo 'Query failed: ' . $conn->error;
 }
+
+$tutores=[];
+$querytres = "SELECT * FROM personas WHERE tipo='DOCENTE'";
 ?>
 
 <head>
@@ -147,7 +150,7 @@ if ($result = $conn->query($querydos)) {
                                 <select name="materia" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Tutor</option>
                                     <?php foreach ($materias as $materia): ?>
-                                        <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                        <option value="<?php echo htmlspecialchars($tutores['nombre']); ?>"><?php echo htmlspecialchars($tutores['nombre']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </section>
