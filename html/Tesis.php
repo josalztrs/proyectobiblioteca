@@ -285,6 +285,8 @@ if ($result = $conn->query($querydos)) {
                     <thead>
                         <tr>
                             <!-- <th>ID</th> -->
+                            <th>id</th>
+                            <th>Carrera</th>
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Tutor</th>
@@ -298,6 +300,8 @@ if ($result = $conn->query($querydos)) {
                     <tbody id="tabla-B">
                         <?php foreach ($tesis as $index => $tes): ?>
                             <tr>
+                                <td><?php echo htmlspecialchars($tes['id']);?></td>
+                                <td><?php echo htmlspecialchars($tes['carrera']);?></td>
                                 <td><?php echo htmlspecialchars($tes['titulo']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['autor']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['semestr_exp']); ?></td>
