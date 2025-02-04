@@ -192,7 +192,8 @@ if ($result = $conn->query($query)) {
                                 <td><?php echo htmlspecialchars($prestamo['persona_nombre']); ?></td>
                                 <td><?php echo htmlspecialchars($prestamo['fecha_prestamo']); ?></td>
                                 <td><?php echo htmlspecialchars($prestamo['fecha_entrega']); ?></td>
-                                <td><?php echo htmlspecialchars($prestamo['estado']); ?></td>
+                                <td style="color: <?php echo htmlspecialchars($prestamo['estado']) === 'prestado' ? 'red' : 'green'; ?>">
+                                    <?php echo htmlspecialchars($prestamo['estado']); ?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                     

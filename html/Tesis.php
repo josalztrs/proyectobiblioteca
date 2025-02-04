@@ -306,7 +306,7 @@ if ($result = $conn->query($querytres)) {
                         <tr>
                             <!-- <th>ID</th> -->
                             <th>id</th>
-                            <th>Carrera</th>
+                            <!-- <th>Carrera</th> -->
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Tutor</th>
