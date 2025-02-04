@@ -49,7 +49,9 @@ include '../php/connection.php';
 
                 var options = {
                     title: 'Documentos',
-                    is3d: true
+                    is3d: true,
+                    width: 330, 
+                    height: 300
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('piechart-libros'));
@@ -83,7 +85,9 @@ SELECT COUNT(*) AS count, 'EXTERNO' AS tipo FROM personas WHERE tipo = 'EXTERNO'
 
                 var options = {
                     title: 'Tipos de Personas',
-                    is3d: true
+                    is3d: true,
+                    width: 330, 
+                    height: 300
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('piechart-personas'));
@@ -130,7 +134,9 @@ WHERE
 
                 var options = {
                     title: 'Documentos',
-                    is3d: true
+                    is3d: true,
+                    width: 330, 
+                    height: 300
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('piechart-prestamos'));
@@ -247,7 +253,7 @@ WHERE
 
             <section class="content-graficos">
                 <h2>Préstamos</h2>
-                <div id="piechart-prestamos"></div>
+                <div id="piechart-prestamos" class=".grafiquitos"></div>
             </section>
         </div>
         

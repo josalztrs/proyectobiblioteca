@@ -392,7 +392,13 @@ main{
 .tabla_Materia button:hover {
     background-color: #26baec;
 }
+.icon-prestado {
+    color: red; /* Color para el icono cuando el estado es "prestado" */
+}
 
+.icon-devuelto {
+    color: green; /* Color para el icono cuando el estado es "devuelto" */
+}
 @media (max-width: 760px) {
     .tabla-A button{
         margin-bottom: 5px;
