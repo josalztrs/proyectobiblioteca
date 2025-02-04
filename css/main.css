@@ -306,6 +306,7 @@ main{
 }
 
 .tabla-A button {
+    display: flex;
     background-color: #408EC8; 
     color: white; 
     border: none;
