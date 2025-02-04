@@ -201,7 +201,7 @@ if ($result = $conn->query($query)) {
                                         <input type="hidden" name="prestamo_id" value="<?php echo htmlspecialchars($prestamo['prestamo_id']); ?>">
                                         <input type="hidden" name="estado" value="<?php echo htmlspecialchars($prestamo['estado']); ?>">
                                     <button class="deleteBtn" title="Cambiar Estado" ><i class="fa-solid fa-toggle-on"></i></button>
-                                    <button class="editBtn" title="Prorroga" onclick="editPerson()"> <i class="fa-solid fa-rotate"></i></button>    
+                                    <!-- <button class="editBtn" title="Prorroga" onclick="editPerson()"> <i class="fa-solid fa-rotate"></i></button>     -->
                                 </form>
                                 </td>
                             </tr>
