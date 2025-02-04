@@ -46,6 +46,7 @@ $conn->close();
     </li>
     
     <li>
+        
         <a href="#" id="salir">
             <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
         </a>
