@@ -81,7 +81,7 @@ session_start();
                     <div class="card-contendReport">
                     
                         <div class="card-sectionPrest">
-                            <a href="#" target="_blank">
+                            <a href="../fpdf186/gen_pdf_tutores.php" target="_blank">
                                 <i class="fa-solid fa-chalkboard-user"></i>
                                 <h4>Listado de Tutores</h4>
                             </a>
@@ -100,8 +100,8 @@ session_start();
                     </section>
 
                     <section class="seccion-buscar" id="seccion-buscar">
-                        <form action="">
-                        <input type="text" placeholder="Ingresa la cédula" id="CEDULA" name="CEDULA" maxlength="9" onkeypress="return ValidarNumeros(event)">
+                        <form action="../fpdf186/gen_pdf_espec.php" method="POST">
+                        <input type="text" placeholder="Ingresa la cédula" id="cedula-buscar" name="cedula-buscar" maxlength="9" onkeypress="return ValidarNumeros(event)">
                         <button onclick="buscarCedula()">Generar</button>
                         </form>
                     </section>

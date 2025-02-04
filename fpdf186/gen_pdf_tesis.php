@@ -2,9 +2,17 @@
 include 'plantilla.php';
 require '../php/connection.php';
 
-$query = "SELECT otrosmateriales.*, materia.id AS materia_id, materia.nombremateria AS nombremateria
-            FROM otrosmateriales
-            INNER JOIN materia ON otrosmateriales.area_conoc = materia.id;";
+$query = "SELECT 
+    otrosmateriales.*, 
+    materia.id AS materia_id, 
+    materia.nombremateria AS nombremateria, 
+    personas.carrera
+FROM 
+    otrosmateriales
+INNER JOIN 
+    materia ON otrosmateriales.area_conoc = materia.id
+LEFT JOIN 
+    personas ON personas.nombre = otrosmateriales.autor;";
 $resultado = $conn->query($query);
 
 
@@ -22,12 +30,13 @@ $pdf->SetFont('Arial', 'B', 10);
 $pdf->SetFillColor(27, 40, 69);
 $pdf->SetTextColor(255, 255, 255);
 $pdf->Cell(10, 10, 'ID', 1, 0, 'C', 1);
-$pdf->Cell(90, 10, 'Titulo', 1, 0, 'C', 1);
+$pdf->Cell(70, 10, 'Titulo', 1, 0, 'C', 1);
 $pdf->Cell(30, 10, 'Autor', 1, 0, 'C', 1);
-$pdf->Cell(25, 10, iconv('UTF-8','ISO-8859-1','Año'), 1, 0, 'C', 1);
-$pdf->Cell(25,10, 'Area de conocimiento',1,0,'C',1);
-$pdf->Cell(55, 10, 'Tipo de Documento', 1, 0, 'C', 1);
-$pdf->Cell(40, 10, 'Metodologia', 1, 0, 'C', 1);
+$pdf->Cell(30, 10, 'Tutor', 1, 0, 'C', 1);
+$pdf->Cell(10, 10, iconv('UTF-8','ISO-8859-1','Año'), 1, 0, 'C', 1);
+$pdf->Cell(40,10, 'Area de Conocimiento',1,0,'C',1);
+$pdf->Cell(50, 10, 'Tipo de Documento', 1, 0, 'C', 1);
+$pdf->Cell(25, 10, 'Metodologia', 1, 0, 'C', 1);
 
 $pdf->SetFont('Arial', '', 8);
 
@@ -36,12 +45,15 @@ while ($row = $resultado->fetch_assoc()){
     $pdf->SetFillColor(255,255,255);
     $pdf->Ln();
     $pdf->Cell(10, 10, $row["id"], 1, 0, 'C', 1);
-    $pdf->Cell(90, 10, iconv('UTF-8', 'ISO-8859-1', $row['titulo']), 1, 0, 'C', 1);   
+    $pdf->SetFont('Arial', '', 6);
+    $pdf->Cell(70, 10, iconv('UTF-8', 'ISO-8859-1', $row['titulo']), 1, 0, 'C', 1);  
+    $pdf->SetFont('Arial', '', 8); 
     $pdf->Cell(30, 10, iconv('UTF-8', 'ISO-8859-1', $row['autor']), 1, 0, 'C', 1);
-    $pdf->Cell(25, 10, iconv('UTF-8', 'ISO-8859-1', $row['semestr_exp']), 1, 0, 'C', 1);
-    $pdf->Cell(25, 10, iconv('UTF-8', 'ISO-8859-1', $row['nombremateria']), 1, 0, 'C', 1);
-    $pdf->Cell(55, 10, iconv('UTF-8', 'ISO-8859-1', $row['tipo_metodologia']), 1, 0, 'C', 1);
-    $pdf->Cell(40, 10, iconv('UTF-8', 'ISO-8859-1', $row['tipo']), 1, 0, 'C', 1);    
+    $pdf->Cell(30, 10, iconv('UTF-8', 'ISO-8859-1', $row['tutor']), 1, 0, 'C', 1);
+    $pdf->Cell(10, 10, iconv('UTF-8', 'ISO-8859-1', $row['semestr_exp']), 1, 0, 'C', 1);
+    $pdf->Cell(40, 10, iconv('UTF-8', 'ISO-8859-1', $row['nombremateria']), 1, 0, 'C', 1);
+    $pdf->Cell(50, 10, iconv('UTF-8', 'ISO-8859-1', $row['tipo_metodologia']), 1, 0, 'C', 1);
+    $pdf->Cell(25, 10, iconv('UTF-8', 'ISO-8859-1', $row['tipo']), 1, 0, 'C', 1);    
 }
 $pdf->Output('I', 'ListadoLibros.pdf');
 ?>
