@@ -80,7 +80,7 @@
                         <div class="card-sectionPrest">
                             <a href="#" target="_blank">
                                 <i class="fa-solid fa-chalkboard-user"></i>
-                                <h4>Tutores</h4>
+                                <h4>Listado de Tutores</h4>
                             </a>
                         </div>
 
