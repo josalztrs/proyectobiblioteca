@@ -1,5 +1,5 @@
 // Datos para los gráficos
-const names = ['Libros', 'Tesis'];
+const names = ['Libros', 'Trabajos'];
 const names2 = ['Estudiantes', 'Internos', 'Externos'];
 const names3 = ['Activos', 'Devueltos'];
 const ages = [24, 10]; // Datos para documentos
