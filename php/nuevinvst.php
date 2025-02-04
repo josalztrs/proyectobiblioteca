@@ -14,6 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $materia = strtoupper($_POST['materia'] ?? '');
     $tipodoc = strtoupper($_POST['tipo_doc'] ?? '');
     $tutor = strtoupper($_POST['tutor'] ?? '');
+
+    $checkCedulaQuery = "SELECT 1 FROM personas WHERE cedula = ? AND tipo='ESTUDIANTE' LIMIT 1";
+    $checkCedulaStmt = $conn->prepare($checkCedulaQuery);
+    $checkCedulaStmt->bind_param('s', $cedula);
+    $checkCedulaStmt->execute();
+    $checkCedulaStmt->store_result();
+
+    if($checkCedulaStmt->num_rows()>0){
         $stmt = $conn->prepare("INSERT INTO otrosmateriales (titulo, autor, semestr_exp, area_conoc, tipo,tipo_metodologia, tutor) VALUES (?, ?, ?, ?, ?,?,?)");
         $stmt->bind_param('sssssss', $titulo, $autor, $anioedic, $materia, $tipo, $tipodoc, $tutor);
         if ($stmt->execute()) {
@@ -26,5 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         $stmt->close();
         $conn->close();
+} else{
+    echo "<script>alert('El usuario no es un estudiante, o no esta registrado en la base de datos.'); window.location.href='../html/tesis.php';</script>";
+}
 }
 ?>
