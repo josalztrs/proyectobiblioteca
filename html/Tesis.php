@@ -8,9 +8,17 @@ session_start();
 include '../php/connection.php';
 
 $tesis = [];
-$query = "SELECT otrosmateriales.*, materia.id AS materia_id, materia.nombremateria AS nombremateria
-            FROM otrosmateriales
-            INNER JOIN materia ON otrosmateriales.area_conoc = materia.id;";
+$query = "SELECT 
+    otrosmateriales.*, 
+    materia.id AS materia_id, 
+    materia.nombremateria AS nombremateria, 
+    personas.carrera
+FROM 
+    otrosmateriales
+INNER JOIN 
+    materia ON otrosmateriales.area_conoc = materia.id
+LEFT JOIN 
+    personas ON personas.nombre = otrosmateriales.autor;";
 if ($result = $conn->query($query)) {
     while ($row = $result->fetch_assoc()) {
         $tesis[] = $row;
@@ -19,6 +27,7 @@ if ($result = $conn->query($query)) {
 } else {
     echo 'Query failed: ' . $conn->error;
 }
+
 $materias = [];
 $querydos = "SELECT * FROM materia";
 if ($result = $conn->query($querydos)) {
@@ -150,14 +159,14 @@ if ($result = $conn->query($querytres)) {
                             </section>
                             
                             <section class="section-A">
-                                <select name="materia" class="Select_Trabaj" required>
+                                <select name="materia" id="materia" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Area De Conocimiento</option>
                                     <?php foreach ($materias as $materia): ?>
                                         <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
 
-                                <select name="materia" class="Select_Trabaj" required>
+                                <select name="tutor"  id="tutor" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Tutor</option>
                                     <?php foreach ($tutores as $tutor): ?>
                                         <option value="<?php echo htmlspecialchars($tutor['nombre']); ?>"><?php echo htmlspecialchars($tutor['nombre']); ?></option>
