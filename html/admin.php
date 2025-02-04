@@ -95,7 +95,7 @@ include '../php/connection.php';
                 <div class="card-section"> 
                     <a href="./prestamos.php" onclick="highlightMenu(this)">
                         <i class="fa-solid fa-hourglass-half" title="Prestamos"></i>
-                        <h4>Prestamos</h4>
+                        <h4>Préstamos</h4>
                     </a>
                 </div>
                 

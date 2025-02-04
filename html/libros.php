@@ -151,7 +151,7 @@ if ($result = $conn->query($querydos)) {
         <section class="modal"  id="RegisMat">
             <div class="modal_container">  
                 <section class="modal-header">
-                    <h2 class="modal_title"> Registrando Area De Conocimiento</h2>
+                    <h2 class="modal_title">Registrando Area</h2>
                     <button class="modal_close" id="cancelar-AggMat"> <i class="fa-solid fa-xmark"></i></button>
                 </section>
                     

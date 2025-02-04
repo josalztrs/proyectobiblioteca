@@ -59,7 +59,7 @@ if ($result = $conn->query($querydos)) {
         <div>
             <h1>
                 <i class="fa-solid fa-gauge"></i>
-                Registrar Trabajos De Investigación
+                Registro De Trabajos De Investigación
             </h1>
         </div>
     </div> 
@@ -86,51 +86,60 @@ if ($result = $conn->query($querydos)) {
                         <section>
                             <label for="">Titulo</label>
                             <input type="text" name='titulo' placeholder="Titulo  del libro" required>
-                            <label for="">Tipo</label>
-                            <select name="tipo" id="tipo" class="Select_Trabaj" required>
-                                <option value="" disabled selected>Seleccione un tipo</option>
-                                <optgroup label="Según el tipo de datos">
-                                    <option value="cualitativa">Cualitativa</option>
-                                    <option value="cuantitativa">Cuantitativa</option>
-                                </optgroup>
+                            <!-- <label for="">Tipo</label> -->
+                             
+                            <section class="section-A">
+                                <select name="tipo" id="tipo" class="Select_Trabaj"  required>
+                                    <option value="" disabled selected>Tipo De Dato</option>
+                                    <optgroup label="Según el tipo de datos">
+                                        <option value="cualitativa">Cualitativa</option>
+                                        <option value="cuantitativa">Cuantitativa</option>
+                                    </optgroup>
 
-                                <optgroup label="Según el objetivo">
-                                    <option value="basica">Básica</option>
-                                    <option value="aplicada">Aplicada</option>
-                                </optgroup>
+                                    <optgroup label="Según el objetivo">
+                                        <option value="basica">Básica</option>
+                                        <option value="aplicada">Aplicada</option>
+                                    </optgroup>
 
-                                <optgroup label="Según la profundidad">
-                                    <option value="descriptiva">Descriptiva</option>
-                                    <option value="explicativa">Explicativa</option>
-                                    <option value="exploratoria">Exploratoria</option>
-                                </optgroup>
+                                    <optgroup label="Según la profundidad">
+                                        <option value="descriptiva">Descriptiva</option>
+                                        <option value="explicativa">Explicativa</option>
+                                        <option value="exploratoria">Exploratoria</option>
+                                    </optgroup>
 
-                                <optgroup label="Según la manipulación de variables">
-                                    <option value="experimental">Experimental</option>
-                                    <option value="cuasi-experimental">Cuasi-experimental</option>
-                                    <option value="no-experimental">No experimental</option>
-                                </optgroup>
+                                    <optgroup label="Según la manipulación de variables">
+                                        <option value="experimental">Experimental</option>
+                                        <option value="cuasi-experimental">Cuasi-experimental</option>
+                                        <option value="no-experimental">No experimental</option>
+                                    </optgroup>
 
-                                <optgroup label="Según el diseño">
-                                    <option value="deductiva">Deductiva</option>
-                                    <option value="inductiva">Inductiva</option>
-                                    <option value="hipotetico-deductiva">Hipotético-deductiva</option>
-                                </optgroup>
+                                    <optgroup label="Según el diseño">
+                                        <option value="deductiva">Deductiva</option>
+                                        <option value="inductiva">Inductiva</option>
+                                        <option value="hipotetico-deductiva">Hipotético-deductiva</option>
+                                    </optgroup>
 
-                                <optgroup label="Según la temporalidad">
-                                    <option value="longitudinal">Longitudinal</option>
-                                    <option value="transversal">Transversal</option>
-                                </optgroup>
-                            </select>
+                                    <optgroup label="Según la temporalidad">
+                                        <option value="longitudinal">Longitudinal</option>
+                                        <option value="transversal">Transversal</option>
+                                    </optgroup>
+                                </select>
 
-                            <label for="">Tipo de Documento</label>
-                            <select name="tipo_doc" id="tipo_doc" class="Select_Trabaj" required>
-                                <option value="" disabled selected>Seleccione un tipo</option>
-                                <option value="TRABAJO DE GRADO">Trabajo de grado</option>
-                                <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
-                                <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
-                            </select>
+                                <select name="tipo_doc" id="tipo_doc" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Trabajo</option>
+                                    <option value="TRABAJO DE GRADO">Trabajo de grado</option>
+                                    <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
+                                    <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
+                                </select>
 
+                                <select name="materia" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Materia</option>
+                                    <?php foreach ($materias as $materia): ?>
+                                        <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </section>
+                            
                             <label for="">Autor</label>
                             <input type="text" name='autor' placeholder="autor" required>
                             <label for="">Tutor</label>
@@ -138,13 +147,7 @@ if ($result = $conn->query($querydos)) {
                             <label for="">Año</label>
                             <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             
-                            <label for="">Area De Conocimiento</label>
-                            <select name="materia" class="Select_Trabaj" required>
-                                <option value="" disabled selected>Seleccione</option>
-                                <?php foreach ($materias as $materia): ?>
-                                    <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                           
                         </section>
 
                         <div class="btn">
@@ -284,7 +287,6 @@ if ($result = $conn->query($querydos)) {
                     <tbody id="tabla-B">
                         <?php foreach ($tesis as $index => $tes): ?>
                             <tr>
-                                <td><?php echo htmlspecialchars($tes['id']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['titulo']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['autor']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['semestr_exp']); ?></td>

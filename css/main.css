@@ -402,12 +402,12 @@ main{
     .header-div{
         flex-direction: column; 
         align-items: center;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         height: auto;
     }
-    .filter-paginator{
+    /* .filter-paginator{
         border: 1px solid blue;
-    }
+    } */
 }
 @media (max-width: 1120px){
     .card {
