@@ -90,6 +90,52 @@ SELECT COUNT(*) AS count, 'EXTERNO' AS tipo FROM personas WHERE tipo = 'EXTERNO'
                 }
                 </script>
 
+                <script type="text/javascript">
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Libros', 'Trabajos de Investigacion'],
+                    <?php
+                    $query = "SELECT 
+    COUNT(*) AS count,
+    'EN PRESTAMO' AS estado
+FROM 
+    prestamos
+WHERE 
+    estado = 'EN PRESTAMO'
+    
+UNION ALL
+
+SELECT 
+    COUNT(*) AS count,
+    'DEVUELTO' AS estado
+FROM 
+    prestamos
+WHERE 
+    estado = 'DEVUELTO';
+";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_assoc($result)){
+                        echo "['".$row["estado"]."', ".$row["count"]."],";
+                    }
+                    
+                    
+                    ?>
+                ]);
+
+                var options = {
+                    title: 'Documentos',
+                    is3d: true
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart-prestamos'));
+
+                chart.draw(data, options);
+                }
+                </script>
 
     <!-- <script>
         // Función para cargar contenido HTML externo
@@ -199,12 +245,7 @@ SELECT COUNT(*) AS count, 'EXTERNO' AS tipo FROM personas WHERE tipo = 'EXTERNO'
 
             <section class="content-graficos">
                 <h2>Préstamos</h2>
-                <div class="btn-grafi">
-                    <button onclick="changeChartType('mychart3', 'bar')"><i class="fa-solid fa-chart-simple"></i></button>
-                    <button onclick="changeChartType('mychart3', 'line')"><i class="fa-solid fa-chart-line"></i></button>
-                    <button onclick="changeChartType('mychart3', 'pie')"><i class="fa-solid fa-chart-pie"></i></button>
-                </div>
-                <canvas id="mychart3"></canvas>
+                <div id="piechart-prestamos"></div>
             </section>
         </div>
         
