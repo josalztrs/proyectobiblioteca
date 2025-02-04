@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +29,9 @@ if ($result = $conn->query($querydos)) {
 } else {
     echo 'Query failed: ' . $conn->error;
 }
+
+$tutores=[];
+$querytres = "SELECT * FROM personas WHERE tipo='DOCENTE'";
 ?>
 
 <head>
@@ -144,7 +150,7 @@ if ($result = $conn->query($querydos)) {
                                 <select name="materia" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Tutor</option>
                                     <?php foreach ($materias as $materia): ?>
-                                        <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                        <option value="<?php echo htmlspecialchars($tutores['nombre']); ?>"><?php echo htmlspecialchars($tutores['nombre']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </section>
@@ -282,6 +288,8 @@ if ($result = $conn->query($querydos)) {
                     <thead>
                         <tr>
                             <!-- <th>ID</th> -->
+                            <th>id</th>
+                            <th>Carrera</th>
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Tutor</th>
@@ -295,6 +303,8 @@ if ($result = $conn->query($querydos)) {
                     <tbody id="tabla-B">
                         <?php foreach ($tesis as $index => $tes): ?>
                             <tr>
+                                <td><?php echo htmlspecialchars($tes['id']);?></td>
+                                <td><?php echo htmlspecialchars($tes['carrera']);?></td>
                                 <td><?php echo htmlspecialchars($tes['titulo']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['autor']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['semestr_exp']); ?></td>

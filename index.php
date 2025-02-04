@@ -1,8 +1,15 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
 include'php\login.php';
 ?>
+<script>
+    window.onload=function(){
+        window.history.pushState(null, null, window.location.href);}
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
