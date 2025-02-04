@@ -31,7 +31,7 @@ if ($result = $conn->query($querydos)) {
 }
 
 $tutores=[];
-$querytres = "SELECT * FROM personas WHERE tipo='DOCENTE'";
+$querytres = "SELECT nombre FROM personas WHERE cargo='DOCENTE'";
 if ($result = $conn->query($querytres)) {
     while ($row = $result->fetch_assoc()) {
         $tutores[] = $row;
@@ -159,8 +159,8 @@ if ($result = $conn->query($querytres)) {
 
                                 <select name="materia" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Tutor</option>
-                                    <?php foreach ($materias as $materia): ?>
-                                        <option value="<?php echo htmlspecialchars($tutores['nombre']); ?>"><?php echo htmlspecialchars($tutores['nombre']); ?></option>
+                                    <?php foreach ($tutores as $tutor): ?>
+                                        <option value="<?php echo htmlspecialchars($tutor['nombre']); ?>"><?php echo htmlspecialchars($tutor['nombre']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </section>
