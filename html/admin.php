@@ -116,12 +116,21 @@ include '../php/connection.php';
         <div class="div-graficas">
             <section class="content-graficos">
                 <h2>Documentos</h2>
-                <div class="btn-grafi">
-                    <button onclick="changeChartType('mychart', 'bar')"><i class="fa-solid fa-chart-simple"></i></button>
-                    <button onclick="changeChartType('mychart', 'line')"><i class="fa-solid fa-chart-line"></i></button>
-                    <button onclick="changeChartType('mychart', 'pie')"><i class="fa-solid fa-chart-pie"></i></button>
-                </div>
-                <canvas id="mychart"></canvas>
+                <?php
+                $sql = "SELECT anio_edic, COUNT(*) as total FROM libros GROUP BY anio_edic";
+                $result = $conn->query($sql);
+                
+                // Prepare data for Google Charts
+                $data = [['Año', 'Total de Libros']];
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $data[] = [(int)$row['anio_edic'], (int)$row['total']];
+                    }
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
+                ?>
             </section>
 
             <section class="content-graficos">
