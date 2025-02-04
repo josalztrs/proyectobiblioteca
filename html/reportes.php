@@ -100,13 +100,15 @@ session_start();
                     </section>
 
                     <section class="seccion-buscar" id="seccion-buscar">
+                        <form action="">
                         <input type="text" placeholder="Ingresa la cédula" id="CEDULA" name="CEDULA" maxlength="9" onkeypress="return ValidarNumeros(event)">
-                        <button onclick="buscarCedula()">Buscar</button>
+                        <button onclick="buscarCedula()">Generar</button>
+                        </form>
                     </section>
 
-                    <section class="seccion-resultados" id="seccion-resultados">
+                    <!-- <section class="seccion-resultados" id="seccion-resultados">
                         <p id="resultado-consulta">Aquí aparecerán los datos consultados.</p>
-                    </section>
+                    </section> -->
                 </div>
             </div>
         </div>
