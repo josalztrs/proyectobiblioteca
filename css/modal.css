@@ -120,6 +120,8 @@ select {
     background-position: right 10px center; 
     background-size: 12px; 
     outline: none;
+    max-height: 150px; /* Altura máxima del select */
+    overflow-y: auto;
 }
 #Materia_Selec{
     width: 40%;
@@ -127,8 +129,9 @@ select {
     padding: 10px;
 }
 .Select_Trabaj{
-    width: 50%;
+    width: 32%;
     height: 35px;
+    font-size: 11px;
     padding: 10px;
 }
     /* Botones modal */
