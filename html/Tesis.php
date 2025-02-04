@@ -32,6 +32,14 @@ if ($result = $conn->query($querydos)) {
 
 $tutores=[];
 $querytres = "SELECT * FROM personas WHERE tipo='DOCENTE'";
+if ($result = $conn->query($querytres)) {
+    while ($row = $result->fetch_assoc()) {
+        $tutores[] = $row;
+    }
+    $result->free();
+} else {
+    echo 'Query failed: ' . $conn->error;
+}
 ?>
 
 <head>
@@ -129,11 +137,13 @@ $querytres = "SELECT * FROM personas WHERE tipo='DOCENTE'";
                                         <option value="longitudinal">Longitudinal</option>
                                         <option value="transversal">Transversal</option>
                                     </optgroup>
+                                    <option value="hibrida">Hibrida</option>
                                 </select>
 
                                 <select name="tipo_doc" id="tipo_doc" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Trabajo</option>
-                                    <option value="TRABAJO DE GRADO">Trabajo de grado</option>
+                                    <option value="TRABAJO DE GRADO - PREGRADO">Trabajo de grado - pregrado</option>
+                                    <option value="TRABAJO DE GRADO - POSGRADO">Trabajo de grado - posgrado</option>
                                     <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
                                     <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
                                 </select>
