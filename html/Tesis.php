@@ -166,8 +166,6 @@ if ($result = $conn->query($querytres)) {
                             </section>
                             <label for="">Autor</label>
                             <input type="text" name='autor' placeholder="autor" required>
-                            <label for="">Tutor</label>
-                            <input type="text" name='tutor' placeholder="Tutor" required>
                             <label for="">Año</label>
                             <input type="number" name='anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             
@@ -299,7 +297,7 @@ if ($result = $conn->query($querytres)) {
                         <tr>
                             <!-- <th>ID</th> -->
                             <th>id</th>
-                            <th>Carrera</th>
+                            <!-- <th>Carrera</th> -->
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Tutor</th>
