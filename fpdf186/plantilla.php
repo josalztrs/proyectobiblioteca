@@ -11,6 +11,7 @@ class PDF extends FPDF{
         $this->Cell(0, 5, 'UNIVERSIDAD NACIONAL EXPERIMENTAL DE LAS FUERZAS ARMADAS', 0, 1, 'C');
         $this->Cell(0, 5, 'NUCLEO NUEVA ESPARTA', 0, 1, 'C');
         $this->Cell(0, 5, 'BIBLIOTECA LUIS BELTRAN PRIETO FIGUEROA', 0, 1, 'C');
+        $this->Cell(0,5,'ENCARGADA:',15,8,10);
 
     }
     function Footer()
