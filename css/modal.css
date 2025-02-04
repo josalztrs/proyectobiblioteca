@@ -107,7 +107,10 @@
     width: 45%;
     margin-top: 10px;
 }
-
+.section-A{
+    display: flex;
+    justify-content: space-between;
+}
 /* input de seleccion */
 select {
     width: 32%; 
@@ -124,12 +127,13 @@ select {
     overflow-y: auto;
 }
 #Materia_Selec{
-    width: 40%;
+    width: 49%;
     height: 35px;
     padding: 10px;
 }
+
 .Select_Trabaj{
-    width: 32%;
+    width: 45%;
     height: 35px;
     font-size: 11px;
     padding: 10px;

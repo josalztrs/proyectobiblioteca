@@ -134,15 +134,23 @@ if ($result = $conn->query($querydos)) {
                                     <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
                                     <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
                                 </select>
+                            </section>
+                            
+                            <section class="section-A">
+                                <select name="materia" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Area De Conocimiento</option>
+                                    <?php foreach ($materias as $materia): ?>
+                                        <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
 
                                 <select name="materia" class="Select_Trabaj" required>
-                                    <option value="" disabled selected>Materia</option>
+                                    <option value="" disabled selected>Tutor</option>
                                     <?php foreach ($materias as $materia): ?>
                                         <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </section>
-                            
                             <label for="">Autor</label>
                             <input type="text" name='autor' placeholder="autor" required>
                             <label for="">Tutor</label>
