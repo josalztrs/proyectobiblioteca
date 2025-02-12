@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tutor = strtoupper($_POST['tutor'] ?? '');
 
     $checkEstudiaQuery = "SELECT 1 FROM personas WHERE nombre = ? AND tipo='ESTUDIANTE' LIMIT 1";
-    $checkEstudiaStmt = $conn->prepare($checkCedulaQuery);
+    $checkEstudiaStmt = $conn->prepare($checkEstudiaQuery);
     $checkEstudiaStmt->bind_param('s', $autor);
     $checkEstudiaStmt->execute();
     $checkEstudiaStmt->store_result();
