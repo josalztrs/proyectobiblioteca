@@ -15,13 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipodoc = strtoupper($_POST['tipo_doc'] ?? '');
     $tutor = strtoupper($_POST['tutor'] ?? '');
 
-    $checkCedulaQuery = "SELECT 1 FROM personas WHERE cedula = ? AND tipo='ESTUDIANTE' LIMIT 1";
-    $checkCedulaStmt = $conn->prepare($checkCedulaQuery);
-    $checkCedulaStmt->bind_param('s', $cedula);
-    $checkCedulaStmt->execute();
-    $checkCedulaStmt->store_result();
+    $checkEstudiaQuery = "SELECT 1 FROM personas WHERE nombre = ? AND tipo='ESTUDIANTE' LIMIT 1";
+    $checkEstudiaStmt = $conn->prepare($checkCedulaQuery);
+    $checkEstudiaStmt->bind_param('s', $autor);
+    $checkEstudiaStmt->execute();
+    $checkEstudiaStmt->store_result();
 
-    if($checkCedulaStmt->num_rows()>0){
+    if($checkEstudiaStmt->num_rows()>0){
         $stmt = $conn->prepare("INSERT INTO otrosmateriales (titulo, autor, semestr_exp, area_conoc, tipo,tipo_metodologia, tutor) VALUES (?, ?, ?, ?, ?,?,?)");
         $stmt->bind_param('sssssss', $titulo, $autor, $anioedic, $materia, $tipo, $tipodoc, $tutor);
         if ($stmt->execute()) {

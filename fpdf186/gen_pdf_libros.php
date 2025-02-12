@@ -2,9 +2,10 @@
 include 'plantilla.php';
 require '../php/connection.php';
 
-$query = "SELECT libros.*, materia.nombremateria 
+$query = "SELECT libros.*, 
+          COALESCE(materia.nombremateria, 'Materia Eliminada.') AS nombremateria 
           FROM libros 
-          INNER JOIN materia ON libros.materia = materia.id";
+          LEFT JOIN materia ON libros.materia = materia.id";
 $resultado = $conn->query($query);
 
 
