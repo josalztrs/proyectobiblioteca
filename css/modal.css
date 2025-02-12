@@ -177,7 +177,7 @@ select {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal_container-Delet{
+/* .modal_container-Delet{
     max-width: 400px;
     width: 100%;
     max-height: 150px;
@@ -197,7 +197,7 @@ select {
 .modal_container-Delet .btn {
     width: 100%;
     justify-content: space-evenly;
-}
+} */
 
 /* Modal de Agregar Libros */
 #filterInput{

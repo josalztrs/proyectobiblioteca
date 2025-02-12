@@ -16,14 +16,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descripcion = strtoupper($_POST['descripcion'] ?? '');
         $stmt = $conn->prepare("INSERT INTO libros (cota, titulo, autor, anio_edic, materia, editorial, descripcion) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssssss',$cota, $titulo, $autor, $anioedic, $materia, $editorial, $descripcion);
-        if ($stmt->execute()) {
+        // if ($stmt->execute()) {
 
-            header("Location: ../html/libros.php");
-            exit();
+        //     header("Location: ../html/libros.php");
+        //     exit();
+        // } else {
+        //     echo 'Query failed: ' . $stmt->error;
+        // }
+        if ($stmt->execute()) {
+            echo json_encode(['status' => 'success', 'message' => 'Libro registrado exitosamente.']);
         } else {
-            echo 'Query failed: ' . $stmt->error;
+            echo json_encode(['status' => 'error', 'message' => 'Error al registrar el libro.']);
         }
-    
         $stmt->close();
         $conn->close();
 }

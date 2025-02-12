@@ -1,67 +1,123 @@
-document.getElementById("btn-open").addEventListener("click", open_close_menu);
+<?php
+include 'connection.php';
+header('Content-Type: application/json');
 
-let menu_lateral = document.getElementById("menu-lateral");
-let btn_open = document.getElementById("btn-open");
-let body = document.getElementById("body");
-
-if (localStorage.getItem("menuExpanded") === "true") {
-    body.classList.remove("mover-body");
-    menu_lateral.classList.remove("mover-menu-lateral");
-} else {
-    body.classList.add("mover-body");
-    menu_lateral.classList.add("mover-menu-lateral");
+if ($conn->connect_error) {
+    die(json_encode(['status' => 'error', 'message' => 'Connection failed: ' . $conn->connect_error]));
 }
 
-function open_close_menu(){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cedula = $_POST['cedula'] ?? '';
+    $cota = $_POST['cota'] ?? '';
+    $fecha_prest = $_POST['fecha_prest'] ?? '';
+    $fecha_ent = $_POST['fecha_ent'] ?? '';
 
-    body.classList.toggle("mover-body");
-    menu_lateral.classList.toggle("mover-menu-lateral");
+    // Check if cedula exists in personas table
+    $checkCedulaQuery = "SELECT 1 FROM personas WHERE cedula = ? LIMIT 1";
+    $checkCedulaStmt = $conn->prepare($checkCedulaQuery);
+    $checkCedulaStmt->bind_param('s', $cedula);
+    $checkCedulaStmt->execute();
+    $checkCedulaStmt->store_result();
 
-    const isExpanded = !body.classList.contains("mover-body");
-    localStorage.setItem("menuExpanded", isExpanded);
+    // Check if cota exists in libros table with estado 'EN STOCK'
+    $checkCotaQuery = "SELECT 1 FROM libros WHERE cota = ? AND estado = 'EN STOCK' LIMIT 1";
+    $checkCotaStmt = $conn->prepare($checkCotaQuery);
+    $checkCotaStmt->bind_param('s', $cota);
+    $checkCotaStmt->execute();
+    $checkCotaStmt->store_result();
 
-}
+    if ($checkCedulaStmt->num_rows > 0) {
+        if ($checkCotaStmt->num_rows > 0) {
+            // Check if user has more than 3 prestamos
+            $checkPrestamosQuery = "SELECT COUNT(*) FROM prestamos WHERE cedula = ?";
+            $checkPrestamosStmt = $conn->prepare($checkPrestamosQuery);
+            $checkPrestamosStmt->bind_param('s', $cedula);
+            $checkPrestamosStmt->execute();
+            $checkPrestamosStmt->bind_result($prestamosCount);
+            $checkPrestamosStmt->fetch();
+            $checkPrestamosStmt->close();
 
-// responsive de la pagina
-
-window.addEventListener("resize", function() {
-    if (window.innerWidth > 760) {
-            
-        if (localStorage.getItem("menuExpanded") === "true") {
-            body.classList.remove("mover-body");
-            menu_lateral.classList.remove("mover-menu-lateral");
+            if ($prestamosCount < 3) {
+                $query = "INSERT INTO prestamos (cedula, cota, fecha_prestamo, fecha_entrega) VALUES (?, ?, ?, ?)";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param('ssss', $cedula, $cota, $fecha_prest, $fecha_ent);
+                if ($stmt->execute()) {
+                    $updateQuery = "UPDATE libros SET estado = 'PRESTADO' WHERE cota = ? LIMIT 1";
+                    $updateStmt = $conn->prepare($updateQuery);
+                    $updateStmt->bind_param('s', $cota);
+                    if (!$updateStmt->execute()) {
+                        echo json_encode(['status' => 'error', 'message' => 'Update failed: ' . $updateStmt->error]);
+                        exit;
+                    }
+                    $updateStmt->close();
+                    echo json_encode(['status' => 'success', 'message' => 'Préstamo registrado exitosamente.']);
+                } else {
+                    echo json_encode(['status' => 'error', 'message' => 'Error al registrar el préstamo: ' . $stmt->error]);
+                }
+                $stmt->close();
+            } else {
+                echo json_encode(['status' => 'error', 'message' => 'El usuario no puede pedir prestado otro libro.']);
+            }
+            $checkPrestamosStmt->close();
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'La cota no existe en la base de datos o no hay libros disponibles.']);
         }
     } else {
-            
-        if (localStorage.getItem("menuExpanded") === "false") {
-            body.classList.add("mover-body");
-            menu_lateral.classList.add("mover-menu-lateral");
-        }
+        echo json_encode(['status' => 'error', 'message' => 'La cédula no existe en la base de datos.']);
     }
-});
 
-// Función para marcar el estado actual de la página (en donde se encuentra)
-function highlightMenu(selected) {
-   
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        item.classList.remove('active');
-    });
-   
-    selected.classList.add('active');
+    $checkCedulaStmt->close();
+    $checkCotaStmt->close();
+    $conn->close();
 }
+?>
 
-// Función para marcar el menú activo basado en la URL actual
-function setActiveMenu() {
-    const currentPath = window.location.pathname.split('/').pop(); 
-    const menuItems = document.querySelectorAll('.menu-item');
 
-    menuItems.forEach(item => {
-        if (item.getAttribute('href') === currentPath) {
-            item.classList.add('active'); 
-        }
+
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#formPersona').on('submit', function(e) {
+            e.preventDefault(); // Evita el envío normal del formulario
+
+            $.ajax({
+                type: 'POST',
+                url: '../php/nuevprest.php',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'error') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            confirmButtonText: 'Aceptar'
+                        });
+                    } else if (response.status === 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Registro exitoso',
+                            text: response.message,
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Actualiza la página después de un registro exitoso
+                                window.location.reload();
+                            }
+                        });
+                    }
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Ocurrió un error al procesar la solicitud.',
+                        confirmButtonText: 'Aceptar'
+                    });
+                }
+            });
+        });
     });
-}
-
-
-window.onload = setActiveMenu;
+</script>

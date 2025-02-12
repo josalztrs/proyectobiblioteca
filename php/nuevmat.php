@@ -10,13 +10,19 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
     $query = "INSERT INTO materia (nombremateria) VALUES (?)";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $materia);
-    if ($stmt->execute()) {
+    // if ($stmt->execute()) {
 
-        header("Location: ../html/libros.php");
-        exit();
+    //     header("Location: ../html/libros.php");
+    //     exit();
+    // } else {
+    //     echo 'Query failed: ' . $stmt->error;
+    // }
+    if ($stmt->execute()) {
+        echo json_encode(['status' => 'success', 'message' => 'Area De Conocimiento registrada exitosamente.']);
     } else {
-        echo 'Query failed: ' . $stmt->error;
+        echo json_encode(['status' => 'error', 'message' => 'Error al registrar la materia.']);
     }
+
 
     $stmt->close();
     $conn->close();

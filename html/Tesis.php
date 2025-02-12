@@ -105,7 +105,7 @@ if ($result = $conn->query($querytres)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevinvst.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevinvst.php" method="POST" class="form-Persona" id="formTrabajo">    
                         <section>
                             <label for="">Titulo</label>
                             <input type="text" name='titulo' placeholder="Titulo  del libro" required>
@@ -202,57 +202,73 @@ if ($result = $conn->query($querytres)) {
                             <input type="hidden" id="edit-id">
                             <label for="">Titulo</label>
                             <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro" required>
-                            <label for="">Tipo de Trabajo Investigación</label>
-                            <select name="edit-tipo" id="edit-tipo" required>
-                                <option value="" disabled selected>Seleccione un tipo</option>
-                                <optgroup label="Según el tipo de datos">
-                                    <option value="CUALITATIVA">Cualitativa</option>
-                                    <option value="CUANTITATIVA">Cuantitativa</option>
-                                </optgroup>
-                                <optgroup label="Según el objetivo">
-                                    <option value="BASICA">Básica</option>
-                                    <option value="APLICADA">Aplicada</option>
-                                </optgroup>
-                                <optgroup label="Según la profundidad">
-                                    <option value="DESCRIPTIVA">Descriptiva</option>
-                                    <option value="EXPLICATIVA">Explicativa</option>
-                                    <option value="EXPLORATORIA">Exploratoria</option>
-                                </optgroup>
-                                <optgroup label="Según la manipulación de variables">
-                                    <option value="EXPERIMENTAAL">Experimental</option>
-                                    <option value="CUASI-EXPERIMENTAL">Cuasi-experimental</option>
-                                    <option value="NO-EXPERIMENTAL">No experimental</option>
-                                </optgroup>
-                                <optgroup label="Según el diseño">
-                                    <option value="DEDUCTIVA">Deductiva</option>
-                                    <option value="INDUCTIVA">Inductiva</option>
-                                    <option value="HIPOTETICO-DEDUCTIVA">Hipotetico-deductiva</option>
-                                </optgroup>
-                                <optgroup label="Según la temporalidad">
-                                    <option value="LONGITUDINAL">Longitudinal</option>
-                                    <option value="TRANSVERSAL">Transversal</option>
-                                </optgroup>
-                            </select>
-                            <label for="">Tipo de Documento</label>
-                            <select name="edit-tipo_doc" id="edit-tipo_doc" required>
-                                <option value="" disabled selected>Seleccione un tipo</option>
-                                <option value="TRABAJO DE GRADO">Trabajo de grado</option>
-                                <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
-                                <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
-                            </select>
+                            
+                            <section class="section-A">
+                                <select name="edit-tipo" id="edit-tipo" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Seleccione un tipo</option>
+                                        <optgroup label="Según el tipo de datos">
+                                            <option value="CUALITATIVA">Cualitativa</option>
+                                            <option value="CUANTITATIVA">Cuantitativa</option>
+                                        </optgroup>
+
+                                        <optgroup label="Según el objetivo">
+                                            <option value="BASICA">Básica</option>
+                                            <option value="APLICADA">Aplicada</option>
+                                        </optgroup>
+
+                                        <optgroup label="Según la profundidad">
+                                            <option value="DESCRIPTIVA">Descriptiva</option>
+                                            <option value="EXPLICATIVA">Explicativa</option>
+                                            <option value="EXPLORATORIA">Exploratoria</option>
+                                        </optgroup>
+
+                                        <optgroup label="Según la manipulación de variables">
+                                            <option value="EXPERIMENTAAL">Experimental</option>
+                                            <option value="CUASI-EXPERIMENTAL">Cuasi-experimental</option>
+                                            <option value="NO-EXPERIMENTAL">No experimental</option>
+                                        </optgroup>
+
+                                        <optgroup label="Según el diseño">
+                                            <option value="DEDUCTIVA">Deductiva</option>
+                                            <option value="INDUCTIVA">Inductiva</option>
+                                            <option value="HIPOTETICO-DEDUCTIVA">Hipotetico-deductiva</option>
+                                        </optgroup>
+
+                                        <optgroup label="Según la temporalidad">
+                                            <option value="LONGITUDINAL">Longitudinal</option>
+                                            <option value="TRANSVERSAL">Transversal</option>
+                                        </optgroup>
+                                </select>
+
+                                <select name="edit-tipo_doc" id="edit-tipo_doc" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Seleccione un tipo</option>
+                                    <option value="TRABAJO DE GRADO">Trabajo de grado</option>
+                                    <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
+                                    <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
+                                </select>
+
+                            </section>
+
+                            <section class="section-A">
+                                <select name="materia" id="materia" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Area De Conocimiento</option>
+                                    <?php foreach ($materias as $materia): ?>
+                                        <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+
+                                <select name="tutor"  id="tutor" class="Select_Trabaj" required>
+                                    <option value="" disabled selected>Tutor</option>
+                                    <?php foreach ($tutores as $tutor): ?>
+                                        <option value="<?php echo htmlspecialchars($tutor['nombre']); ?>"><?php echo htmlspecialchars($tutor['nombre']); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </section>
                             <label for="">Autor</label>
                             <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
-                            <label for="">Tutor</label>
-                            <input type="text" name='tutor' placeholder="tutor" required>
                             <label for="">Año de Edicion</label>
                             <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
                             <label for="">Area De Conocimiento</label>
-                            <select name="edit-materia" id="edit-materia" required>
-                                <option value="" disabled selected>Seleccione una materia</option>
-                                <?php foreach ($materias as $materia): ?>
-                                    <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
-                                <?php endforeach; ?>
-                            </select>
                         </section>
                         <div class="btn">
                             <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->
@@ -361,8 +377,51 @@ if ($result = $conn->query($querytres)) {
     <script src="../js/pager.js"></script>
     <script src="../js/modal-persona.js"></script>
     <script src="../js/rotar-icono-menu.js"></script>
-    <!-- <script src="../js/pagina-hover.js"></script> -->
     <script src="../js/notificaciones.js"></script>
     <script src="../js/header.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formTrabajo').on('submit', function(e) {
+                e.preventDefault(); // Evita el envío normal del formulario
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../php/nuevinvst.php',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'error') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            });
+                        } else if (response.status === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Registro exitoso',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '../html/tesis.php'; // Redirige a la página deseada
+                                }
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Ocurrió un error al procesar la solicitud.',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

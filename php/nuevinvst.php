@@ -21,21 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkEstudiaStmt->execute();
     $checkEstudiaStmt->store_result();
 
-    if($checkEstudiaStmt->num_rows()>0){
-        $stmt = $conn->prepare("INSERT INTO otrosmateriales (titulo, autor, semestr_exp, area_conoc, tipo,tipo_metodologia, tutor) VALUES (?, ?, ?, ?, ?,?,?)");
+    if ($checkEstudiaStmt->num_rows() > 0) {
+        $stmt = $conn->prepare("INSERT INTO otrosmateriales (titulo, autor, semestr_exp, area_conoc, tipo, tipo_metodologia, tutor) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('sssssss', $titulo, $autor, $anioedic, $materia, $tipo, $tipodoc, $tutor);
+        
         if ($stmt->execute()) {
-
-            header("Location: ../html/tesis.php");
-            exit();
+            echo json_encode(['status' => 'success', 'message' => 'Trabajo registrado exitosamente.']);
         } else {
-            echo 'Query failed: ' . $stmt->error;
+            echo json_encode(['status' => 'error', 'message' => 'Error al registrar el trabajo.']);
         }
-    
+        
         $stmt->close();
-        $conn->close();
-} else{
-    echo "<script>alert('El usuario no es un estudiante, o no esta registrado en la base de datos.'); window.location.href='../html/tesis.php';</script>";
-}
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'El usuario no es un estudiante, o no está registrado en la base de datos.']);
+    }
+
+    $conn->close();
 }
 ?>

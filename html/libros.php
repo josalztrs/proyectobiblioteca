@@ -118,7 +118,7 @@ if ($result = $conn->query($querydos)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevlib.php" method="POST" class="form-Persona" id="formLibro">    
                         <section>
                             <label for="">Cota</label>
                             <input type="text" name='cota' placeholder="xxxxxxxx" pattern="[A-Za-z0-9]{4}-[A-Za-z0-9]{4}" title="El formato del codigo es XXXX-XXXX" required>
@@ -159,7 +159,7 @@ if ($result = $conn->query($querydos)) {
                 </section>
                     
                 <section class="modal-body">
-                    <form action="../php/nuevmat.php" method="POST" class="form-Persona" id="formPersona">    
+                    <form action="../php/nuevmat.php" method="POST" class="form-Persona" id="formMateria">    
                         <section>
                             <label for="">Nombre De La Materia</label>
                             <input type="text" name='nombre_materia' placeholder="Nombre">
@@ -314,7 +314,93 @@ if ($result = $conn->query($querydos)) {
     <script src="../js/header.js"></script>
     <script src="../js/modal_Materia.js"></script>
     <script src="../js/notificaciones.js"></script>
-    <!-- <script src="../js/pagina-hover.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#formLibro').on('submit', function(e) {
+                e.preventDefault(); // Evita el envío normal del formulario
 
+                $.ajax({
+                    type: 'POST',
+                    url: '../php/nuevlib.php',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'error') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            });
+                        } else if (response.status === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Registro exitoso',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '../html/libros.php';
+                                }
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Ocurrió un error al procesar la solicitud.',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#formMateria').on('submit', function(e) {
+                e.preventDefault(); // Evita el envío normal del formulario
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../php/nuevmat.php',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.status === 'error') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            });
+                        } else if (response.status === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Registro exitoso',
+                                text: response.message,
+                                confirmButtonText: 'Aceptar'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.href = '../html/libros.php'; // Redirige a la página deseada
+                                }
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Ocurrió un error al procesar la solicitud.',
+                            confirmButtonText: 'Aceptar'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
