@@ -200,6 +200,7 @@ if ($result = $conn->query($querytres)) {
                     <form action="../php/editinvst.php" method="POST" class="form-Persona">    
                         <section>
                             <input type="hidden" id="edit-id">
+                            <input type=hidden id=edit-idmateria>
                             <label for="">Titulo</label>
                             <input type="text" name='edit-titulo' id='edit-titulo' placeholder="Titulo  del libro" required>
                             
@@ -241,8 +242,9 @@ if ($result = $conn->query($querytres)) {
                                 </select>
 
                                 <select name="edit-tipo_doc" id="edit-tipo_doc" class="Select_Trabaj" required>
-                                    <option value="" disabled selected>Seleccione un tipo</option>
-                                    <option value="TRABAJO DE GRADO">Trabajo de grado</option>
+                                    <option value="" disabled selected>Trabajo</option>
+                                    <option value="TRABAJO DE GRADO - PREGRADO">Trabajo de grado - pregrado</option>
+                                    <option value="TRABAJO DE GRADO - POSGRADO">Trabajo de grado - posgrado</option>
                                     <option value="INFORME DE SERVICIO COMUNITARIO">Informe de servicio comunitario</option>
                                     <option value="INFORME DE PASANTIA">Informe de Pasantia</option>
                                 </select>
@@ -250,14 +252,14 @@ if ($result = $conn->query($querytres)) {
                             </section>
 
                             <section class="section-A">
-                                <select name="materia" id="materia" class="Select_Trabaj" required>
+                                <select name="edit-materia" id="materia" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Area De Conocimiento</option>
                                     <?php foreach ($materias as $materia): ?>
                                         <option value="<?php echo htmlspecialchars($materia['id']); ?>"><?php echo htmlspecialchars($materia['nombremateria']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
 
-                                <select name="tutor"  id="tutor" class="Select_Trabaj" required>
+                                <select name="tutor"  id="edit-tutor" class="Select_Trabaj" required>
                                     <option value="" disabled selected>Tutor</option>
                                     <?php foreach ($tutores as $tutor): ?>
                                         <option value="<?php echo htmlspecialchars($tutor['nombre']); ?>"><?php echo htmlspecialchars($tutor['nombre']); ?></option>
@@ -268,7 +270,6 @@ if ($result = $conn->query($querytres)) {
                             <input type="text" name='edit-autor' id='edit-autor' placeholder="autor del libro" required>
                             <label for="">Año de Edicion</label>
                             <input type="number" name='edit-anio_edic' id= 'edit-anio_edic' placeholder="Año de Edicion" min="1940" max="<?php echo date('Y'); ?>" required>
-                            <label for="">Area De Conocimiento</label>
                         </section>
                         <div class="btn">
                             <button type="reset" id="cancelar-edit" >Cancelar</button> <!--class="modal_close"-->

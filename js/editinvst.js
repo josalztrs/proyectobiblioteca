@@ -20,12 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(data[2].textContent);
         document.getElementById('edit-autor').value = data[2].textContent;
         console.log(data[3].textContent);
-        document.getElementById('edit-anio_edic').value = data[3].textContent;
+        document.getElementById('edit-tutor').value = data[3].textContent;
         console.log(data[4].textContent);
-        document.getElementById('edit-materia').value = data[4].textContent;
+        document.getElementById('edit-anio_edic').value = data[4].textContent;
         console.log(data[6].textContent);
-        document.getElementById('edit-tipo').value = data[6].textContent;
-        console.log(data[5].textContent);
-        document.getElementById('edit-tipo_doc').value = data[5].textContent;
+        document.getElementById('edit-tipo_doc').value = data[6].textContent;
+        console.log(data[7].textContent);
+        document.getElementById('edit-tipo').value = data[7].textContent;
+
     }
 });
