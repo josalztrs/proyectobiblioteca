@@ -314,6 +314,7 @@ if ($result = $conn->query($querytres)) {
                             <th>Area De Conocimiento</th>
                             <th>Tipo de Documento</th>
                             <th>Metodología</th>
+                            <th>Carrera</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -321,14 +322,14 @@ if ($result = $conn->query($querytres)) {
                         <?php foreach ($tesis as $index => $tes): ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($tes['id']);?></td>
-                                <td><?php echo htmlspecialchars($tes['carrera']);?></td>
                                 <td><?php echo htmlspecialchars($tes['titulo']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['autor']); ?></td>
+                                <td><?php echo htmlspecialchars($tes['tutor']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['semestr_exp']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['nombremateria']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['tipo_metodologia']); ?></td>
                                 <td><?php echo htmlspecialchars($tes['tipo']); ?></td>
-                                
+                                <td><?php echo htmlspecialchars($tes['carrera']);?></td>
                                 <td>
                                     <button class="editBtn" title="Editar" onclick="editPerson()"> <i class="fa-solid fa-pen-to-square"></i> </button>
                                     <button class="deleteBtn" title="Eliminar" onclick="confirmDelete('<?php echo htmlspecialchars($tes['id']); ?>', '../php/eliminvst.php')"><i class="fa-solid fa-toggle-on"></i></button>
